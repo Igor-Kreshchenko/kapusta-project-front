@@ -1,1 +1,1 @@
-# Team project
+# kapusta-project-front
