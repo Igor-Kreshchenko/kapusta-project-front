@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
+import Transactions from "./components/Transactions";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -11,6 +12,8 @@ import { Switch, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
+      <Transactions />
+
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
           <Route path="/login">{"LoginPage"}</Route>
