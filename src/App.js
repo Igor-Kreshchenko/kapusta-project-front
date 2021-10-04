@@ -5,8 +5,8 @@ import { Switch, Route } from "react-router-dom";
 
 // const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
 // const RegisterPage = lazy(() => import("./pages/RegisterPage" /* webpackChunkName: "register-page" */));
-// const TransactionsPage = lazy(() => import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */));
-// const StatisticsPage = lazy(() => import("./pages/StatisticsPage" /* webpackChunkName: "statistics-page" */));
+const TransactionsPage = lazy(() => import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */));
+const StatisticsPage = lazy(() => import("./pages/StatisticsPage" /* webpackChunkName: "statistics-page" */));
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
 
           <Route path="/register">{"RegisterPage"}</Route>
 
-          <Route path="/transactions">{"TransactionsPage"}</Route>
+          <Route path="/transactions"><TransactionsPage/></Route>
 
-          <Route path="/statistics">{"StatisticsPage"}</Route>
+          <Route path="/statistics"><StatisticsPage/></Route>
         </Switch>
       </Suspense>
     </div>

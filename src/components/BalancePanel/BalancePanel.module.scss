@@ -1,0 +1,51 @@
+.BalancePanel_Home{
+    width: 248px;
+    height: 134px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 35px;
+    margin-right: 37px;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        width: 634px;
+        height: 44px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        margin-left: 82px;
+        margin-right: 52px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        width: 728px;
+        margin-bottom: 9px;
+        margin-left: 442px;
+        margin-right: 110px;
+    }
+}
+
+.BalancePanel{ 
+    width: 282px;
+    height: 173px;
+    margin: 15px 19px;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        width: 664px;
+        height: 44px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        margin-left: 50px;
+        margin-right: 54px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        width: 1064px;
+        margin-left: 110px;
+        margin-right: 110px;
+    }
+}
+
