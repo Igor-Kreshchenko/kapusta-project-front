@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
+import ContainerHome from "./components/Container/ContainerHome";
+import ContainerMain from "./components/Container/ContainerMain";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -13,13 +15,17 @@ function App() {
     <div className="App">
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
-          <Route path="/login">{"LoginPage"}</Route>
+          <ContainerHome>
+            <Route path="/login">{"LoginPage"}</Route>
 
-          <Route path="/register">{"RegisterPage"}</Route>
+            <Route path="/register">{"RegisterPage"}</Route>
+          </ContainerHome>
 
+          {/* <ContainerMain> */}
           <Route path="/transactions">{"TransactionsPage"}</Route>
 
           <Route path="/statistics">{"StatisticsPage"}</Route>
+          {/* </ContainerMain> */}
         </Switch>
       </Suspense>
     </div>
