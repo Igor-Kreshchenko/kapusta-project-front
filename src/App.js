@@ -13,8 +13,6 @@ const TransactionsPage = lazy(() =>
 function App() {
   return (
     <div className="App">
-      {/* <TransactionsPage /> */}
-
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
           <Route path="/login">{"LoginPage"}</Route>
