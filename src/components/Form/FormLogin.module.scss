@@ -1,0 +1,122 @@
+@import "../../styles/variables";
+@import "../../styles/size";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 30px;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+
+  @include size(mobile) {
+    width: 300px;
+    height: 525px;
+  }
+
+  @include size(tablet) {
+    width: 436px;
+    height: 535px;
+  }
+}
+
+.text {
+  margin-top: 40px;
+  margin-left: 29px;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: $main-text-cl;
+
+  @include size(tablet) {
+    margin-left: 86px;
+    margin-right: 85px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.textGoogle {
+  @extend .text;
+  margin-top: 30px;
+
+  @include size(tablet) {
+    text-align: left;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-left: 29px;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+  color: $black;
+
+  @include size(tablet) {
+    margin-left: 86px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.input {
+  width: 213px;
+  height: 52px;
+  margin-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $gray-input-bg;
+  border: 0;
+  border-radius: 30px;
+
+  @include size(tablet) {
+    width: 225px;
+  }
+}
+
+.input::placeholder {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: $gray-placeholder;
+}
+
+.button__Google {
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 122px;
+  height: 40px;
+
+  @include size(tablet) {
+    margin-top: 20px;
+  }
+}
+
+.button__container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 17px;
+  margin-right: 18px;
+  margin-top: 40px;
+  text-align: center;
+
+  @include size(tablet) {
+    margin-left: 86px;
+    margin-right: 85px;
+  }
+}
+
+// .button__enter {
+//   background-color: $orange;
+//   box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+// }
+
+// .button__container:nth-child(1) {
+//   background-color: $orange;
+//   box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+// }
