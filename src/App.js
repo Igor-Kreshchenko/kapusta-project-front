@@ -17,6 +17,7 @@ const StatisticsPage = lazy(() =>
 function App() {
   return (
     <div className="App">
+      {/* <CategoriesList/> */}
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
           <ContainerHome>
