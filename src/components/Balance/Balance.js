@@ -1,10 +1,8 @@
 // import { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 
-import styles from './Balance.module.scss'
 
-
-export default function Balance({children}) {
+export default function Balance({children, styles}) {
     const balance = '00.00'
     // const dispatch = useDispatch();
     // const balance = useSelector();

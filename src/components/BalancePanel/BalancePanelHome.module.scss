@@ -1,5 +1,36 @@
 @import "../../styles/variables";
 
+.BalancePanel_Home{
+    @media screen and (max-width: 767px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 248px;
+        height: 134px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        margin-left: 35px;
+        margin-right: 37px; 
+    } 
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;        
+        width: 634px;
+        height: 44px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        margin-left: 82px;
+        margin-right: 52px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        width: 728px;
+        margin-bottom: 9px;
+        margin-left: 442px;
+        margin-right: 110px;
+    }
+}
+
 .balance_form{
     margin-top: 40px;
 
@@ -27,13 +58,13 @@
     @media screen and (max-width: 767px) {
         display: flex;
         align-items: center;
+        margin-top: 6px;
     }
-
 }
 
 .form_title{
     width: 83px;
-    height: 20px;
+    height: 14px;
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
@@ -68,35 +99,4 @@
     }
 }
 
-.form_button{
-    width: 125px;
-    height: 44px;
-    text-align: center;
-    display: inline-block;
-    border: 2px solid $white;  
-    border-radius: 0 50px 50px 0 ;
-    background-color: $gray-btn ;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 12px;
-    line-height: 14px;
-    font-style: normal;
-    text-transform: uppercase;
-    color: $main-text-cl;
 
-    @media screen and (min-width: 768px) {
-        border-radius: 16px; 
-    }
-  
-
-  &:hover {
-    background-color: $orange;
-    border: 0;
-  }
-
-  &:focus {
-    transform: scale(0.9);
-  }
-
-}

@@ -1,4 +1,4 @@
-import styles from "./Balance.module.scss";
+import styles from "./BalanceButton.module.scss";
 
 const Button = () => {
   return (
