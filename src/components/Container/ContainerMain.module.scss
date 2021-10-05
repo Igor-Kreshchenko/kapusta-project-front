@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+@import "./ContainerCommon.module.scss";
+
+.container {
+  @extend .container;
+}
+
+.gray {
+  @extend .gray;
+}
+
+.white {
+  @extend .white;
+
+  @include size(tablet) {
+    background-image: url("../../images/kapusta-down.png");
+    background-repeat: no-repeat;
+    background-position: right 88px bottom 64px;
+  }
+
+  @include size(desktop) {
+    background-image: url("../../images/bg-down-d-t.png");
+    background-repeat: no-repeat;
+    background-position: left 10px bottom 0;
+  }
+}
