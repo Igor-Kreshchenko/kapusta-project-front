@@ -1,1 +1,1 @@
-export { default } from "./universeModal";
+export { default } from "./logoutModal";

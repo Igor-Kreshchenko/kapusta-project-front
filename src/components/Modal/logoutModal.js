@@ -53,7 +53,7 @@ export default class Modal extends Component {
           <button
             type="button"
             className={styles.Modal__close}
-            onClick={this.closeModal}
+            onClose={this.closeModal}
           >
             <CloseIcon width="12" height="12" />
           </button>
@@ -70,6 +70,6 @@ export default class Modal extends Component {
 }
 
 Modal.propTypes = {
-  textContent: PropTypes.string.isRequired,
-  handlerClose: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
