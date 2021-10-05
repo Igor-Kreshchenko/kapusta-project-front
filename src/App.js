@@ -8,7 +8,10 @@ import CategoriesList from "./components/CategoriesList/CategoriesList";
 // const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 // const TransactionsPage = lazy(() => import("./pages/TransactionsPage"));
 // const StatisticsPage = lazy(() => import("./pages/HomePage/StatisticsPage"));
-const StatisticsPage = lazy(() => import("./pages/StatisticsPage/StatisticsPage"));
+const StatisticsPage = lazy(() =>
+  import("./pages/StatisticsPage/StatisticsPage")
+);
+
 function App() {
   return (
     <div className="App">
