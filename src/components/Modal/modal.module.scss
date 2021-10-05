@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+
+.Modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $gray-placeholder;
+}
+.Modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 194px;
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  border-radius: 30px;
+  background-color: $white;
+}
+.textContent {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  // text-transform: uppercase;
+  // display: flex;
+  // align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: $main-text-cl;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.Modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+
+.btnContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 265px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
