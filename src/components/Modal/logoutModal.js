@@ -5,9 +5,9 @@
 import React, { Component } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
-import styles from "./modal.module.scss";
 import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
 import Button from "../Button/Button";
+import styles from "./modal.module.scss";
 
 const modalRoot = document.querySelector("#modal-root");
 
