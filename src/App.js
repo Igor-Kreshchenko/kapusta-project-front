@@ -3,17 +3,21 @@ import { Switch, Route } from "react-router-dom";
 import ContainerHome from "./components/Container/ContainerHome";
 import ContainerMain from "./components/Container/ContainerMain";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
-
-
+import FillState from "./redux/testArrays";
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
 // const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 // const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 // const TransactionsPage = lazy(() => import("./pages/TransactionsPage"));
 // const StatisticsPage = lazy(() => import("./pages/HomePage/StatisticsPage"));
-const StatisticsPage = lazy(() => import("./pages/StatisticsPage/StatisticsPage"));
+const StatisticsPage = lazy(() =>
+  import("./pages/StatisticsPage/StatisticsPage")
+);
 
 function App() {
+  // Запускает временную функцию для заполнения стейта
+  FillState();
+  // ---------
   return (
     <div className="App">
       {/* <CategoriesList/> */}
