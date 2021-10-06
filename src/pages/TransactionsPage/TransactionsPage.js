@@ -3,12 +3,13 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import BalancePanelHome from "../../components/BalancePanel/BalancePanelHome";
 import TransactionsExpenses from "../../components/TransactionsExpenses";
 import TransactionsIncome from "../../components/TransactionsIncome";
+import ContainerMain from "../../components/Container/ContainerMain";
 
 import "./TransactionsPage.scss";
 
 const TransactionsPage = () => {
   return (
-    <div className="transactions__container">
+    <ContainerMain>
       <BalancePanelHome />
 
       <Tabs>
@@ -23,7 +24,7 @@ const TransactionsPage = () => {
           <TransactionsIncome />
         </TabPanel>
       </Tabs>
-    </div>
+    </ContainerMain>
   );
 };
 

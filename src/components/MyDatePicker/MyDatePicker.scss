@@ -1,13 +1,13 @@
 .react-datepicker {
-  z-index: 9;
+  position: relative;
+  display: inline-block;
   font-family: "Roboto", sans-serif;
   font-size: 0.72rem;
   color: #52555f;
   border-radius: 14px;
   filter: drop-shadow(4.5px 7.794px 10.5px rgba(170, 178, 197, 0.78));
   background-color: #ffffff;
-  display: inline-block;
-  position: relative;
+  z-index: 9;
 }
 
 .react-datepicker__portal {
@@ -31,8 +31,6 @@
 .datepicker__container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100px;
 }
 
 .datepicker__Icon {
@@ -40,6 +38,7 @@
   width: 20px;
   height: 20px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .datepicker {

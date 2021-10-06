@@ -5,9 +5,10 @@ import "./MyDatePicker.scss";
 
 const MyDatePicker = ({ selectedDate, handleChange }) => (
   <div className="datepicker__container">
-    <div className="datepicker__Icon" />
+    <label className="datepicker__Icon" htmlFor="datepicker" />
     <DatePicker
       className="datepicker"
+      id="datepicker"
       selected={selectedDate}
       onChange={handleChange}
       dateFormat="dd.MM.yyyy"

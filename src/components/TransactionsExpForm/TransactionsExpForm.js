@@ -18,7 +18,7 @@ const TransactionsExpForm = () => {
         <input type="text" placeholder="0,00" />
       </div>
 
-      <div className={styles.form_btn}>
+      <div className={styles.form__btn}>
         <button className={styles.form__btn_enter}>Ввод</button>
         <button className={styles.form__btn_clear}>Очистить</button>
       </div>
