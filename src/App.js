@@ -8,12 +8,13 @@ import FillState from "./redux/testArrays";
 
 // const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
 // const RegisterPage = lazy(() => import("./pages/RegisterPage" /* webpackChunkName: "register-page" */));
-// const StatisticsPage = lazy(() => import("./pages/StatisticsPage" /* webpackChunkName: "statistics-page" */));
 const TransactionsPage = lazy(() =>
   import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */)
 );
 const StatisticsPage = lazy(() =>
-  import("./pages/StatisticsPage/StatisticsPage")
+  import(
+    "./pages/StatisticsPage/StatisticsPage" /* webpackChunkName: "statistics-page" */
+  )
 );
 
 function App() {
@@ -25,11 +26,9 @@ function App() {
       {/* <CategoriesList/> */}
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
-          <ContainerHome>
-            <Route path="/login">{"LoginPage"}</Route>
+          <Route path="/login">{"LoginPage"}</Route>
 
-            <Route path="/register">{"RegisterPage"}</Route>
-          </ContainerHome>
+          <Route path="/register">{"RegisterPage"}</Route>
 
           <Route path="/transactions">
             <TransactionsPage />
