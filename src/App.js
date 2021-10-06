@@ -27,11 +27,9 @@ function App() {
       {/* <CategoriesList/> */}
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
-          <ContainerHome>
-            <Route path="/login">{"LoginPage"}</Route>
+          <Route path="/login">{"LoginPage"}</Route>
 
-            <Route path="/register">{"RegisterPage"}</Route>
-          </ContainerHome>
+          <Route path="/register">{"RegisterPage"}</Route>
 
           <Route path="/transactions">
             <TransactionsPage />
