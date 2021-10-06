@@ -3,18 +3,25 @@ import { Switch, Route } from "react-router-dom";
 import ContainerHome from "./components/Container/ContainerHome";
 import ContainerMain from "./components/Container/ContainerMain";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
+import FillState from "./redux/testArrays";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
-// const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
-const TransactionsPage = lazy(() => import("./pages/TransactionsPage"));
-// const StatisticsPage = lazy(() => import("./pages/HomePage/StatisticsPage"));
+// const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
+// const RegisterPage = lazy(() => import("./pages/RegisterPage" /* webpackChunkName: "register-page" */));
+const TransactionsPage = lazy(() =>
+  import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */)
+);
 const StatisticsPage = lazy(() =>
-  import("./pages/StatisticsPage/StatisticsPage")
+  import(
+    "./pages/StatisticsPage/StatisticsPage" /* webpackChunkName: "statistics-page" */
+  )
 );
 
 function App() {
+  // Запускает временную функцию для заполнения стейта
+  FillState();
+  // ---------
   return (
     <div className="App">
       {/* <CategoriesList/> */}
@@ -26,7 +33,6 @@ function App() {
             <Route path="/register">{"RegisterPage"}</Route>
           </ContainerHome>
 
-          {/* <ContainerMain> */}
           <Route path="/transactions">
             <TransactionsPage />
           </Route>
@@ -34,7 +40,6 @@ function App() {
           <Route path="/statistics">
             <StatisticsPage />
           </Route>
-          {/* </ContainerMain> */}
         </Switch>
       </Suspense>
     </div>

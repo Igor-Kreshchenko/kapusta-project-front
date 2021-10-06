@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.button {
+  width: 125px;
+  height: 44px;
+  border-radius: 16px;
+  background-color: $white;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid $gray-btn;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: $orange;
+    border: 0;
+    color: $white;
+  }
+}
