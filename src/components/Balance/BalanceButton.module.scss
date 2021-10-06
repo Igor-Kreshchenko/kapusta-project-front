@@ -17,9 +17,11 @@
     font-style: normal;
     text-transform: uppercase;
     color: $main-text-cl;
+    transition: background-color 300ms linear;
 
     @media screen and (min-width: 768px) {
         border-radius: 16px; 
+        margin-left: 15px;
     }
   
 
@@ -29,6 +31,6 @@
   }
 
   &:focus {
-    transform: scale(0.9);
+    transform: scale(0.9) 250ms linear;
   }
 }
