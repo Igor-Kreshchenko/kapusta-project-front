@@ -3,13 +3,14 @@
   align-items: center;
   justify-content: space-between;
   height: 44px;
-  padding: 13px 0 59px 0;
+  margin-bottom: 59px;
 }
 
 .form_input {
   position: relative;
   display: flex;
   width: 600px;
+  cursor: pointer;
 
   & :nth-child(1) {
     width: 289px;
@@ -19,6 +20,7 @@
     border-radius: 16px 0px 0px 0px;
     outline: none;
     padding-left: 21px;
+    cursor: pointer;
   }
 
   & :nth-child(2) {
@@ -32,6 +34,7 @@
     box-sizing: border-box;
     outline: none;
     padding-left: 21px;
+    cursor: pointer;
   }
 
   & :nth-child(3) {
@@ -42,6 +45,7 @@
     border-radius: 0px 16px 16px 0px;
     outline: none;
     padding-left: 21px;
+    cursor: pointer;
   }
 
   &::after {
@@ -62,6 +66,7 @@
   justify-content: space-between;
 
   &_enter {
+    display: inline-block;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
