@@ -5,6 +5,12 @@ import ContainerMain from "./components/Container/ContainerMain";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
 import FillState from "./redux/testArrays";
 
+// Тест редюс функции по получению сводки
+import { useSelector } from "react-redux";
+import { transactionsSelectors } from "./redux/transactions";
+import { getMonthsSum } from "./utils";
+//
+
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
 // const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
@@ -19,6 +25,10 @@ const StatisticsPage = lazy(() =>
 );
 
 function App() {
+  // const Incomes = useSelector(transactionsSelectors.getIncomes);
+  // const monthsSum = getMonthsSum(Incomes);
+  // console.log(monthsSum);
+
   // Запускает временную функцию для заполнения стейта
   FillState();
   // ---------
