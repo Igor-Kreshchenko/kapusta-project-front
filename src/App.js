@@ -4,6 +4,7 @@ import ContainerHome from "./components/Container/ContainerHome";
 import ContainerMain from "./components/Container/ContainerMain";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
 import FillState from "./redux/testArrays";
+
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
 // const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
