@@ -7,11 +7,12 @@ import CategoriesList from "./components/CategoriesList/CategoriesList";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
-// const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
-// const TransactionsPage = lazy(() => import("./pages/TransactionsPage"));
-// const StatisticsPage = lazy(() => import("./pages/HomePage/StatisticsPage"));
+// const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
+// const RegisterPage = lazy(() => import("./pages/RegisterPage" /* webpackChunkName: "register-page" */));
+// const StatisticsPage = lazy(() => import("./pages/StatisticsPage" /* webpackChunkName: "statistics-page" */));
+const TransactionsPage = lazy(() => import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */));
 const StatisticsPage = lazy(() => import("./pages/StatisticsPage/StatisticsPage"));
+
 
 function App() {
   return (
@@ -25,13 +26,9 @@ function App() {
             <Route path="/register">{"RegisterPage"}</Route>
           </ContainerHome>
 
-          {/* <ContainerMain> */}
-          <Route path="/transactions">{"TransactionsPage"}</Route>
+          <Route path="/transactions"><TransactionsPage/></Route>
 
-          <Route path="/statistics">
-            <StatisticsPage />
-          </Route>
-          {/* </ContainerMain> */}
+          <Route path="/statistics"><StatisticsPage/></Route>
         </Switch>
       </Suspense>
     </div>

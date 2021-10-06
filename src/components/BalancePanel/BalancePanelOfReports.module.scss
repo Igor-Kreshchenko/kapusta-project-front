@@ -1,0 +1,107 @@
+@import "../../styles/variables";
+
+.BalancePanelOfReports{ 
+    width: 282px;
+    height: 173px;
+    margin: 15px 19px;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        width: 664px;
+        height: 44px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        margin-left: 50px;
+        margin-right: 54px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        width: 1064px;
+        margin-left: 110px;
+        margin-right: 110px;
+    }
+}
+
+.balance_form{
+    margin-top: 30px;
+
+    @media screen and (min-width: 768px) {
+        width: 229px;
+        height: 44px;
+        margin-top: 0;
+        margin-right: 80px;
+        margin-left: 47px;
+
+    }
+    @media screen and (min-width: 1280px) {
+        width: 369px;
+        margin-right: 225px;
+        margin-left: 158px;
+
+    }
+}
+.form_label{
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+        margin-bottom: 6px;
+    }    
+
+    @media screen and (min-width: 768px) {
+        align-items: center;
+    }
+}
+
+.input_box{
+    @media screen and (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        margin-top: 6px;
+    }
+}
+
+.form_title{    
+    width: 83px;
+    height: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    color: $main-text-cl;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        padding-right: 21px;
+        text-align: right;
+    }
+}
+
+.input{
+    box-sizing:  border-box;
+    width: 188.52px;
+    height: 44px;
+    padding-right: 17px;
+    display: inline-block;
+    border: 2px solid $white;    
+    border-radius: 50px; 
+    background-color: $gray-btn ;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 14px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+        width: 125px;
+        border-radius: 16px;         
+        text-align: right;
+    }
+}
+
+
+
