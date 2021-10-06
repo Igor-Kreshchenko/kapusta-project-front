@@ -2,7 +2,7 @@ import { transactionsActions, transactionsSelectors } from "./transactions";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useCallback } from "react";
 
-const arrayIncomes = [
+const arrayExpenses = [
   {
     _id: "1111111111111111",
     amount: 200,
@@ -69,45 +69,66 @@ const arrayIncomes = [
   {
     _id: "1121111111111111",
     amount: 550,
-    date: "17.05.2021",
+    date: "17.08.2021",
     category: "Прочее",
     description: "Ремонт",
   },
+  {
+    _id: "55551111111111111",
+    amount: 2550,
+    date: "17.10.2021",
+    category: "Развлечения",
+    description: "Днюха",
+  },
+  {
+    _id: "1666611111111111",
+    amount: 11550,
+    date: "17.10.2021",
+    category: "Прочее",
+    description: "Ремонт",
+  },
+  {
+    _id: "16781111111111",
+    amount: 3550,
+    date: "17.08.2021",
+    category: "Здоровье",
+    description: "Печень",
+  },
 ];
 
-const arrayExpenses = [
+const arrayIncomes = [
   {
     _id: "3331111111111111",
     amount: 20000,
-    date: "31.01.2021",
+    date: "31.10.2021",
     category: "ЗП",
     description: "моя",
   },
   {
     _id: "3311111111111111",
     amount: 1300,
-    date: "24.01.2021",
+    date: "24.10.2021",
     category: "Доп. доход",
     description: "лото",
   },
   {
     _id: "3321111111111111",
     amount: 20000,
-    date: "31.02.2021",
+    date: "31.09.2021",
     category: "ЗП",
     description: "моя",
   },
   {
     _id: "3341111111111111",
     amount: 1150,
-    date: "10.02.2021",
+    date: "10.09.2021",
     category: "ЗП",
     description: "жены",
   },
   {
     _id: "3351111111111111",
     amount: 22000,
-    date: "31.03.2021",
+    date: "31.08.2021",
     category: "ЗП",
     description: "моя",
   },
