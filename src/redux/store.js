@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-// import { transactionsReducer } from "./transactions";
+import { transactionsReducer } from "./transactions";
 // import { authReducer } from "./auth";
 
 const authPersistConfig = {
@@ -22,7 +22,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     // auth: persistReducer(authPersistConfig, authReducer),
-    // transactions: transactionsReducer,
+    transactions: transactionsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

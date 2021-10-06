@@ -1,0 +1,109 @@
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+
+  &__tab-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 15px 45px 15px 45px;
+    cursor: pointer;
+    border-radius: 20px 20px 0px 0px;
+    background: #fafbfd;
+    border: none;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    &--selected {
+      background: #fefefe;
+      border-color: #aaa;
+      color: #ff751d;
+    }
+
+    &--disabled {
+      color: GrayText;
+      cursor: default;
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px hsl(208, 99%, 50%);
+      border-color: hsl(208, 99%, 50%);
+      outline: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        left: -4px;
+        right: -4px;
+        bottom: -5px;
+        background: #fff;
+      }
+    }
+  }
+
+  &__tab-panel {
+    display: none;
+
+    &--selected {
+      display: block;
+      padding: 20px;
+      height: 579px;
+
+      background: #ffffff;
+      box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+      border-radius: 0px 30px 30px 30px;
+    }
+  }
+}
+
+.transactions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 1060px;
+    margin: 0px auto;
+  }
+}
+
+.datapicker {
+  display: flex;
+  justify-content: flex-start;
+  height: 46px;
+  align-items: center;
+  margin-right: 20px;
+
+  & div {
+    width: 75px;
+  }
+}
+
+::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  color: #d3d5da;
+}
