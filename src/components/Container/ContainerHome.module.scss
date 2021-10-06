@@ -12,7 +12,7 @@
     background-image: url("../../images/bg-m.png"),
       url("../../images/title_m.png");
     background-repeat: no-repeat;
-    background-position: 271px 160px, 49px 142px;
+    background-position: 271px 104px, 49px 86px;
   }
 
   @include size(tablet) {
@@ -20,14 +20,14 @@
     background-image: url("../../images/title_t.png"),
       url("../../images/bg-d-t.png");
     background-repeat: no-repeat;
-    background-position: 171px 146px, 10px 84px;
+    background-position: 171px 90px, 10px 28px;
   }
 
   @include size(desktop) {
     background-image: url("../../images/bg-d-t.png"),
       url("../../images/title_d.png");
     background-repeat: no-repeat;
-    background-position: 10px 84px, 230px 365px;
+    background-position: 10px 28px, 230px 308px;
   }
 }
 
@@ -43,12 +43,12 @@
   @include size(tablet) {
     background-image: url("../../images/kapusta-down.png");
     background-repeat: no-repeat;
-    background-position: 103px 826px;
+    background-position: 103px 770px;
   }
 
   @include size(desktop) {
     background-image: url("../../images/kapusta-down.png");
     background-repeat: no-repeat;
-    background-position: 230px 658px;
+    background-position: 230px 602px;
   }
 }

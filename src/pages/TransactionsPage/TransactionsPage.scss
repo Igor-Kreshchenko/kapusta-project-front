@@ -86,18 +86,6 @@
   }
 }
 
-.datapicker {
-  display: flex;
-  justify-content: flex-start;
-  height: 46px;
-  align-items: center;
-  margin-right: 20px;
-
-  & div {
-    width: 75px;
-  }
-}
-
 ::placeholder {
   font-family: Roboto;
   font-style: normal;
