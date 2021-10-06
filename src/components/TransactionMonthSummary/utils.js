@@ -1,8 +1,55 @@
-import { transactionsActions, transactionsSelectors } from "./transactions";
-import { useDispatch, useSelector } from "react-redux";
-import React, { useCallback } from "react";
+const MONTHS = [
+  {
+    name: "январь",
+    number: "01",
+  },
+  {
+    name: "февраль",
+    number: "02",
+  },
+  {
+    name: "март",
+    number: "03",
+  },
+  {
+    name: "апрель",
+    number: "04",
+  },
+  {
+    name: "май",
+    number: "05",
+  },
+  {
+    name: "июнь",
+    number: "06",
+  },
+  {
+    name: "июль",
+    number: "07",
+  },
+  {
+    name: "август",
+    number: "08",
+  },
+  {
+    name: "сентябрь",
+    number: "09",
+  },
+  {
+    name: "октябрь",
+    number: "10",
+  },
+  {
+    name: "ноябрь",
+    number: "11",
+  },
+  {
+    name: "декабрь",
+    number: "12",
+  },
+];
 
-const arrayExpenses = [
+const arrayIncomes = [
   {
     _id: "1111111111111111",
     amount: 200,
@@ -69,104 +116,87 @@ const arrayExpenses = [
   {
     _id: "1121111111111111",
     amount: 550,
-    date: "17.08.2021",
+    date: "17.05.2021",
     category: "Прочее",
     description: "Ремонт",
-  },
-  {
-    _id: "55551111111111111",
-    amount: 2550,
-    date: "17.10.2021",
-    category: "Развлечения",
-    description: "Днюха",
-  },
-  {
-    _id: "1666611111111111",
-    amount: 11550,
-    date: "17.10.2021",
-    category: "Прочее",
-    description: "Ремонт",
-  },
-  {
-    _id: "16781111111111",
-    amount: 3550,
-    date: "17.08.2021",
-    category: "Здоровье",
-    description: "Печень",
   },
 ];
 
-const arrayIncomes = [
+const arrayExpenses = [
   {
     _id: "3331111111111111",
     amount: 20000,
-    date: "31.10.2021",
+    date: "31.01.2021",
     category: "ЗП",
     description: "моя",
   },
   {
     _id: "3311111111111111",
     amount: 1300,
-    date: "24.10.2021",
+    date: "24.01.2021",
     category: "Доп. доход",
     description: "лото",
   },
   {
     _id: "3321111111111111",
     amount: 20000,
-    date: "31.09.2021",
+    date: "31.02.2021",
     category: "ЗП",
     description: "моя",
   },
   {
     _id: "3341111111111111",
     amount: 1150,
-    date: "10.09.2021",
+    date: "10.02.2021",
     category: "ЗП",
     description: "жены",
   },
   {
     _id: "3351111111111111",
     amount: 22000,
-    date: "31.08.2021",
+    date: "31.03.2021",
     category: "ЗП",
     description: "моя",
   },
 ];
 
-const singleIncome = {
-  _id: "0000000000",
-  date: "20.02.2021",
-  category: "Доп. доход",
-  amount: 100,
-  description: "вернули долг",
+const getMonthFromDate = (date) => {
+  return `${date[3]}${date[4]}`;
 };
 
-const singleExpense = {
-  _id: "999999999",
-  date: "25.02.2021",
-  category: "Прочее",
-  amount: 100,
-  description: "дал в долг",
+const findMonthAmount = (number, transactions) => {
+  let monthSum = 0;
+  transactions.forEach(({ date, amount }) => {
+    const currentMonth = getMonthFromDate(date);
+
+    if (+currentMonth == number) {
+      monthSum += amount;
+    }
+  });
+  return Number.parseInt(monthSum).toLocaleString("ru");
 };
 
-const balance = 55000;
+const cutAndSortArray = (array) => {
+  const reversedArray = array.reverse();
+  return reversedArray.slice(0, 6);
+};
 
-export default function FillState() {
-  const dispatch = useDispatch();
+const createMonthsWithSum = (transactions, currentMonth) => {
+  let sum = 0;
+  let monthWithSum = [];
 
-  dispatch(transactionsActions.addBalanceSuccess(balance));
-  dispatch(
-    transactionsActions.getAllTransactionsSuccess({
-      incomes: arrayIncomes,
-      expenses: arrayExpenses,
-    })
-  );
-  //   dispatch(transactionsActions.getIncomeSuccess(arrayIncomes)); --works
-  //   dispatch(transactionsActions.getExpensesSuccess(arrayExpenses)); --works
+  MONTHS.forEach(({ number, name }) => {
+    if (number <= currentMonth) {
+      sum = findMonthAmount(number, transactions);
+      const month = {
+        name,
+        sum,
+      };
+      monthWithSum.push(month);
+    }
+  });
 
-  dispatch(transactionsActions.addIncomeSuccess(singleIncome));
-  dispatch(transactionsActions.addExpensesSuccess(singleExpense));
+  return cutAndSortArray(monthWithSum);
+};
 
-  return console.log("------ State filled successful ------");
-}
+export default createMonthsWithSum;

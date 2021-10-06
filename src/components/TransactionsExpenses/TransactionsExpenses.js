@@ -1,5 +1,5 @@
 import React from "react";
-import TransactionsExpSummary from "../TransactionsExpSummary";
+import TransactionMonthSummary from "../TransactionMonthSummary";
 import TransactionsExpForm from "../TransactionsExpForm";
 
 import styles from "./TransactionsExpenses.module.scss";
@@ -49,7 +49,7 @@ const TransactionsExpenses = () => {
           </div>
         </div>
 
-        <TransactionsExpSummary />
+        <TransactionMonthSummary type="Expenses" />
       </div>
     </>
   );
