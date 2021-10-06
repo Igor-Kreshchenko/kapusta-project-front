@@ -19,10 +19,6 @@ const StatisticsPage = lazy(() =>
 );
 
 function App() {
-  // const Incomes = useSelector(transactionsSelectors.getIncomes);
-  // const monthsSum = getMonthsSum(Incomes);
-  // console.log(monthsSum);
-
   // Запускает временную функцию для заполнения стейта
   FillState();
   // ---------
