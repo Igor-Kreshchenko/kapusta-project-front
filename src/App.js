@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import ContainerHome from "./components/Container/ContainerHome";
 import ContainerMain from "./components/Container/ContainerMain";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
@@ -38,6 +38,9 @@ function App() {
           <Route path="/statistics">
             <StatisticsPage />
           </Route>
+
+          {/* Временно редирект на страницу транзакций */}
+          <Redirect to="/transactions" />
         </Switch>
       </Suspense>
     </div>
