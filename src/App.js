@@ -1,9 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import ContainerHome from "./components/Container/ContainerHome";
-import ContainerMain from "./components/Container/ContainerMain";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
 import FillState from "./redux/testArrays";
+import Header from "./components/Header";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -24,6 +23,7 @@ function App() {
   // ---------
   return (
     <div className="App">
+      <Header />
       {/* <CategoriesList/> */}
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
