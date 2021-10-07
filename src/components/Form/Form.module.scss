@@ -4,18 +4,42 @@
 .form {
   display: flex;
   flex-direction: column;
+
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: $white;
   border-radius: 30px;
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 
   @include size(mobile) {
     width: 300px;
-    height: 525px;
   }
 
   @include size(tablet) {
+    margin-top: 240px;
     width: 436px;
-    height: 535px;
+  }
+
+  @include size(desktop) {
+    margin-top: 117px;
+    margin-left: auto;
+    margin-right: 110px;
+  }
+}
+
+.title {
+  margin-left: 29px;
+  margin-top: 50px;
+  font-size: 24px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: $black;
+
+  @include size(tablet) {
+    margin-left: 86px;
+    font-size: 28px;
   }
 }
 
@@ -85,11 +109,11 @@
     color: $gray-placeholder;
   }
 
-  // &:invalid {
-  //   font-size: 10px;
-  //   line-height: 12px;
-  //   color: $input-required;
-  // }
+  &:hover,
+  &:focus {
+    border-color: $orange;
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+  }
 }
 
 .button__Google {
@@ -110,6 +134,7 @@
   margin-left: 17px;
   margin-right: 18px;
   margin-top: 40px;
+  margin-bottom: 53px;
   text-align: center;
 
   @include size(tablet) {
@@ -118,12 +143,8 @@
   }
 }
 
-// .button__enter {
-//   background-color: $orange;
-//   box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
-// }
-
-// .button__container:nth-child(1) {
-//   background-color: $orange;
-//   box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
-// }
+.button__container__signup {
+  margin-top: 40px;
+  margin-bottom: 53px;
+  text-align: center;
+}

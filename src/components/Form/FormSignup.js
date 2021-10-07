@@ -1,19 +1,10 @@
-import ButtonLogin from "../Button/ButtonLogin";
 import ButtonSignup from "../Button/ButtonSignup";
 import styles from "./Form.module.scss";
 
 const FormLogin = () => {
   return (
     <form onSubmit={"handleSubmit"} className={styles.form} autoComplete="on">
-      <p className={styles.textGoogle}>
-        Вы можете авторизоваться с помощью Google Account:
-      </p>
-      <button type="button" className={styles.button__Google}>
-        Google
-      </button>
-      <p className={styles.text}>
-        Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
-      </p>
+      <h1 className={styles.title}>Регистрация</h1>
       <label className={styles.label}>
         Электронная почта:
         <input
@@ -38,8 +29,7 @@ const FormLogin = () => {
           onChange={"handleChange"}
         />
       </label>
-      <div className={styles.button__container}>
-        <ButtonLogin />
+      <div className={styles.button__container__signup}>
         <ButtonSignup />
       </div>
     </form>

@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
-import FormLogin from "./components/Form/FormLogin";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -15,12 +16,16 @@ function App() {
   return (
     <div className="App">
       {/* <CategoriesList/> */}
-      <FormLogin />
+
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
-          <Route path="/login">{"LoginPage"}</Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
 
-          <Route path="/register">{"RegisterPage"}</Route>
+          <Route path="/register">
+            <SignupPage />
+          </Route>
 
           <Route path="/transactions">{"TransactionsPage"}</Route>
 
