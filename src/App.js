@@ -1,23 +1,32 @@
 import React, { Suspense, lazy } from "react";
-import { Switch, Route } from "react-router-dom";
-import CategoriesList from "./components/CategoriesList/CategoriesList";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import { Switch, Route, Redirect } from "react-router-dom";
+import FillState from "./redux/testArrays";
+import Header from "./components/Header";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
-// const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
-// const TransactionsPage = lazy(() => import("./pages/TransactionsPage"));
-// const StatisticsPage = lazy(() => import("./pages/HomePage/StatisticsPage"));
+const LoginPage = lazy(() =>
+  import("./pages/LoginPage" /* webpackChunkName: "login-page" */)
+);
+const SignupPage = lazy(() =>
+  import("./pages/SignupPage" /* webpackChunkName: "signup-page" */)
+);
+const TransactionsPage = lazy(() =>
+  import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */)
+);
 const StatisticsPage = lazy(() =>
-  import("./pages/StatisticsPage/StatisticsPage")
+  import(
+    "./pages/StatisticsPage/StatisticsPage" /* webpackChunkName: "statistics-page" */
+  )
 );
 
 function App() {
+  // Запускает временную функцию для заполнения стейта
+  FillState();
+  // ---------
   return (
     <div className="App">
-      {/* <CategoriesList/> */}
+      <Header />
 
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
@@ -29,11 +38,16 @@ function App() {
             <SignupPage />
           </Route>
 
-          <Route path="/transactions">{"TransactionsPage"}</Route>
+          <Route path="/transactions">
+            <TransactionsPage />
+          </Route>
 
           <Route path="/statistics">
             <StatisticsPage />
           </Route>
+
+          {/* Временно редирект на страницу транзакций */}
+          <Redirect to="/transactions" />
         </Switch>
       </Suspense>
     </div>
