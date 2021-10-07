@@ -5,6 +5,8 @@ const getIncomes = (state) => state.transactions.incomes;
 const getExpenses = (state) => state.transactions.expenses;
 const getLoading = (state) => state.transactions.isLoading;
 const getError = (state) => state.transactions.error;
+const getIncCategories = (state) => state.transactions.categories.incomes;
+const getExpCategories = (state) => state.transactions.categories.expenses;
 
 const getAllTransactions = createSelector(
   [getIncomes, getExpenses],
@@ -18,6 +20,8 @@ const transactionsSelectors = {
   getLoading,
   getError,
   getAllTransactions,
+  getIncCategories,
+  getExpCategories,
 };
 
 export default transactionsSelectors;
