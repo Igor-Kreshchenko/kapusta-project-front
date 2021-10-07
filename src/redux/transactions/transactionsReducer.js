@@ -3,6 +3,22 @@ import { createReducer } from "@reduxjs/toolkit";
 
 import transactionsActions from "./transactionsActions";
 
+const CATEGORIES_LIST = {
+  incomes: ["ЗП", "Доп. доход"],
+  expenses: [
+    "Транспорт",
+    "Продукты",
+    "Алкоголь",
+    "Развлечения",
+    "Всё для дома",
+    "Техника",
+    "Коммуналка, связь",
+    "Спорт, хобби",
+    "Образование",
+    "Прочее",
+  ],
+};
+
 const balance = createReducer(0, {
   [transactionsActions.getBalanceSuccess]: (_, { payload }) => payload,
   [transactionsActions.addBalanceSuccess]: (_, { payload }) => payload,
@@ -95,10 +111,13 @@ const isLoading = createReducer(false, {
   [transactionsActions.deleteExpenseTransactionError]: () => false,
 });
 
+const categories = createReducer(CATEGORIES_LIST, {});
+
 export default combineReducers({
   balance,
   incomes,
   expenses,
+  categories,
   error,
   isLoading,
 });
