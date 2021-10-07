@@ -1,4 +1,5 @@
-import Button from "../Button/Button";
+import ButtonLogin from "../Button/ButtonLogin";
+import ButtonSignup from "../Button/ButtonSignup";
 import styles from "./FormLogin.module.scss";
 
 const FormLogin = () => {
@@ -20,7 +21,8 @@ const FormLogin = () => {
           type="email"
           name="email"
           placeholder="your@email.com"
-          value={"email"}
+          required
+          // value={"email"}
           onChange={"handleChange"}
         />
       </label>
@@ -31,19 +33,14 @@ const FormLogin = () => {
           type="password"
           name="password"
           placeholder="Пароль"
-          value={"password"}
+          required
+          // value={"password"}
           onChange={"handleChange"}
         />
       </label>
       <div className={styles.button__container}>
-        <Button
-          // buttonHandler={"buttonHandler"}
-          buttonText={"ВОЙТИ"}
-        />
-        <Button
-          // buttonHandler={"buttonHandler"}
-          buttonText={"РЕГИСТРАЦИЯ"}
-        />
+        <ButtonLogin />
+        <ButtonSignup />
       </div>
     </form>
   );

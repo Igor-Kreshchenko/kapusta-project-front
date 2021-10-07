@@ -53,6 +53,7 @@
   font-size: 10px;
   line-height: 12px;
   letter-spacing: 0.04em;
+  font-weight: 500;
   color: $black;
 
   @include size(tablet) {
@@ -75,14 +76,20 @@
   @include size(tablet) {
     width: 225px;
   }
-}
 
-.input::placeholder {
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.04em;
-  font-weight: 500;
-  color: $gray-placeholder;
+  &::placeholder {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    color: $gray-placeholder;
+  }
+
+  // &:invalid {
+  //   font-size: 10px;
+  //   line-height: 12px;
+  //   color: $input-required;
+  // }
 }
 
 .button__Google {
