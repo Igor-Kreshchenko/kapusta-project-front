@@ -24,18 +24,19 @@
   @include size(desktop) {
     margin-top: 117px;
     margin-left: auto;
-    margin-right: 110px;
+    margin-right: 0;
   }
 }
 
 .title {
   margin-left: 29px;
   margin-top: 50px;
+  margin-bottom: 15px;
   font-size: 24px;
   line-height: 14px;
   letter-spacing: 0.04em;
   font-weight: 700;
-  color: $black;
+  color: $orange;
 
   @include size(tablet) {
     margin-left: 86px;
@@ -99,6 +100,10 @@
 
   @include size(tablet) {
     width: 225px;
+  }
+
+  @include size(tablet) {
+    width: 265px;
   }
 
   &::placeholder {
