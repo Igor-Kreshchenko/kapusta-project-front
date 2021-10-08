@@ -87,6 +87,21 @@
     padding: 0 10px;
   }
 
+  &_btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    border: none;
+    background-color: inherit;
+    background-image: url("../../images/icons/delete.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-color: #f5f6fb;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     grid-template-columns: 120px 196px 140px 100px 50px;
 
