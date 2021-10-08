@@ -1,29 +1,55 @@
 .form {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 44px;
-  margin-bottom: 59px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 48px;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 59px;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.form__input_wrapper {
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0;
+  }
 }
 
 .form_input {
   position: relative;
   display: flex;
-  width: 600px;
+  cursor: pointer;
 
   & :nth-child(1) {
-    width: 289px;
-    height: 44px;
     border: 2px solid #f5f6fb;
     box-sizing: border-box;
     border-radius: 16px 0px 0px 0px;
     outline: none;
     padding-left: 21px;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      width: 192px;
+      height: 44px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 289px;
+    }
   }
 
   & :nth-child(2) {
-    width: 188px;
-    height: 44px;
     border: 2px solid #f5f6fb;
     border-top: 2px solid #f5f6fb;
     border-right: none;
@@ -32,16 +58,34 @@
     box-sizing: border-box;
     outline: none;
     padding-left: 21px;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      width: 171px;
+      height: 44px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 188px;
+    }
   }
 
   & :nth-child(3) {
-    width: 126px;
-    height: 44px;
     border: 2px solid #f5f6fb;
     box-sizing: border-box;
     border-radius: 0px 16px 16px 0px;
     outline: none;
     padding-left: 21px;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      width: 104px;
+      height: 44px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 126px;
+    }
   }
 
   &::after {
@@ -62,6 +106,7 @@
   justify-content: space-between;
 
   &_enter {
+    display: inline-block;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;

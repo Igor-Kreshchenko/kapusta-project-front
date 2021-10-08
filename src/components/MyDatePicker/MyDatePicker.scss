@@ -31,6 +31,14 @@
 .datepicker__container {
   display: flex;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 33px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 23px;
+  }
 }
 
 .datepicker__Icon {
