@@ -59,6 +59,15 @@
   padding: 0;
   border-left: 1px solid #f4f6fb;
   border-right: 1px solid #f4f6fb;
+  overflow: auto;
+
+  @media screen and (min-width: 768px) {
+    height: 380px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 342px;
+  }
 }
 
 .table_item {
