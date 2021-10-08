@@ -19,34 +19,31 @@ const TransactionsExpenses = () => {
             <div className={styles.table_title} />
           </div>
 
-          <div>
-            <ul className={styles.table_list}>
-              <li className={styles.table_item}>
-                <span>05.09.2019</span>
-                <span>
-                  Метро (Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.)
-                </span>
-                <span>Транспорт</span>
-                <span className={styles.table_expenses}>-30.00 грн.</span>
-              </li>
-              <li className={styles.table_item}>
-                <span>05.09.2019</span>
-                <span>Бананы</span>
-                <span>Продукты</span>
-                <span className={styles.table_expenses}>-30.00 грн.</span>
-              </li>
+          <ul className={styles.table_list}>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>
+                Метро (Lorem ipsum dolor sit amet, consectetur adipiscing elit.)
+              </span>
+              <span>Транспорт</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+            </li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+            </li>
 
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-              <li className={styles.table_item}></li>
-            </ul>
-          </div>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+            <li className={styles.table_item}></li>
+          </ul>
         </div>
 
         <TransactionMonthSummary type="Expenses" />
