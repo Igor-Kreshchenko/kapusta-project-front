@@ -12,17 +12,17 @@ const token = {
     },
 };
 
-const register = credentials => async dispatch => {
-    dispatch(authActions.registerRequest());
+const signUp = credentials => async dispatch => {
+    dispatch(authActions.signupRequest());
 
     try {
-        const response = await axios.post('/signup', credentials);
+        const response = await axios.post('/users/signup', credentials);
         token.set(response.data.token);
-        dispatch(authActions.registerSuccess(response.data));
+        dispatch(authActions.signupSuccess(response.data));
     }
     catch (error) {
 
-        dispatch(authActions.registerError(error.message));
+        dispatch(authActions.signupError(error.message));
     }
 };
 
@@ -30,7 +30,7 @@ const logIn = credentials => async dispatch => {
     dispatch(authActions.loginRequest());
 
     try {
-        const response = await axios.post('/login', credentials);
+        const response = await axios.post('/users/login', credentials);
         token.set(response.data.token);
         dispatch(authActions.loginSuccess(response.data));
     }
@@ -43,7 +43,7 @@ const logOut = () => async dispatch => {
     dispatch(authActions.logoutRequest());
 
     try {
-        await axios.post('/logout');
+        await axios.post('/users/logout');
         token.unset();
         dispatch(authActions.logoutSuccess());
     }
@@ -52,8 +52,10 @@ const logOut = () => async dispatch => {
     }
 };
 
-export default {
-    register,
+const authOperations = {
+    signUp,
     logIn,
     logOut
 };
+
+export default authOperations
