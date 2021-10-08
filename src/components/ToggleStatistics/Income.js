@@ -1,5 +1,5 @@
 import React from "react";
-import  css from "../../components/CategoriesList/CategoriesList.module.scss"
+import  css from "../CategoriesList/CategoriesList.module.scss"
 import sprite from "../../images/icons/sprite_categories.svg";
 
 const Income = () => {

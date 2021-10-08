@@ -1,4 +1,4 @@
-import CategoriesList from "../CategoriesList/CategoriesList";
+import CategoriesList from "../CategoriesList";
 
 const Expenses = () => {
     return (
