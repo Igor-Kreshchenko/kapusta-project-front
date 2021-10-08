@@ -1,7 +1,7 @@
 import axios from "axios";
 import authActions from './authActions';
 
-axios.defaults.baseURL = 'http://localhost:4000/api';
+axios.defaults.baseURL = 'http://localhost:4000/api/users';
 
 const token = {
     set(token) {
