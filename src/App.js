@@ -1,7 +1,10 @@
 import React, { Suspense, lazy } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 import FillState from "./redux/testArrays";
 import Header from "./components/Header";
+import PublicRoute from "./components/PublicRoute";
+import PrivateRoute from "./components/PrivateRoute";
+import routes from './routes';
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -30,21 +33,31 @@ function App() {
 
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
-          <Route path="/login">
+          <PublicRoute
+            path={routes.login}
+            restricted
+            redirectTo={routes.transactions}>
             <LoginPage />
-          </Route>
+          </PublicRoute>
 
-          <Route path="/register">
+           <PublicRoute
+            path={routes.register}
+            restricted
+            redirectTo={routes.transactions}>
             <SignupPage />
-          </Route>
+          </PublicRoute>
 
-          <Route path="/transactions">
+          <PrivateRoute
+            path={routes.transactions}
+            redirectTo={routes.login}>
             <TransactionsPage />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/statistics">
+           <PrivateRoute
+            path={routes.statistics}
+            redirectTo={routes.login}>
             <StatisticsPage />
-          </Route>
+          </PrivateRoute>
 
           {/* Временно редирект на страницу транзакций */}
           <Redirect to="/transactions" />
