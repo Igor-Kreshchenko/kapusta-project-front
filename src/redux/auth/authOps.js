@@ -17,8 +17,8 @@ const signUp = credentials => async dispatch => {
 
     try {
         const response = await axios.post('/users/signup', credentials);
-        token.set(response.data.token);
-        dispatch(authActions.signupSuccess(response.data));
+        token.set(response.data.responseBody.token);
+        dispatch(authActions.signupSuccess(response.data.responseBody));
     }
     catch (error) {
 
@@ -31,8 +31,8 @@ const logIn = credentials => async dispatch => {
 
     try {
         const response = await axios.post('/users/login', credentials);
-        token.set(response.data.token);
-        dispatch(authActions.loginSuccess(response.data));
+        token.set(response.data.responseBody.token);
+        dispatch(authActions.loginSuccess(response.data.responseBody));
     }
     catch (error) {
         dispatch(authActions.loginError(error.message));

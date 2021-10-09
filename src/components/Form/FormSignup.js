@@ -11,7 +11,7 @@ const FormSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  const onRegister = () => dispatch(authOperations.register({ email, password }));
+  const onRegister = () => dispatch(authOperations.signUp({ email, password }));
   
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
