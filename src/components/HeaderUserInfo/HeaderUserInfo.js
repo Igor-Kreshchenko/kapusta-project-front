@@ -6,34 +6,30 @@ import styles from "./HeaderUserInfo.module.scss";
 import ButtonLogout from "../Button/ButtonLogout";
 import useModal from "../Modal/useModal"
 import Modal from "../Modal/logoutModal";
+import logoutIcon from "../../images/icons/calculator.svg";
 
 export default function HeaderUserInfo() {
+    const post = useSelector(authSelectors.getUserPost);
+    const avatar = post.replace(/[^a-zA-Z]/g, '').charAt(0).toUpperCase();
 
-    
     const dispatch = useDispatch();
 
     const onLogout = useCallback(() => {
             dispatch(authOperations.logOut())
         }, [dispatch]);
-    
 
-    const post = useSelector(authSelectors.getUserPost);
-    const avatar = post.replace(/[^a-zA-Z]/g, '').charAt(0);
-    
-    const { isShowingModal1, toggle, isShowingModal2, toggleModal2, toggle3 } = useModal();
-    
-    console.log(isShowingModal2);
-    
+    const { isShowingModal1, toggle, isShowingModal2, toggleModal2, closeModal } = useModal();
 
     return (
         <>
             <div>
                 <span className={styles.user__avatar}>{avatar}</span>
-                <span className={styles.user__name}> {post} </span>
+                <span className={styles.user__name}> {post.split('@')[0]} </span>
                 <ButtonLogout buttonHandler={toggle} />
+                
             </div>
             {isShowingModal1 && <Modal text={'Вы уверены?'} toAgree={toggleModal2} onClose={toggle} />}
-            {isShowingModal2 && <Modal text={'Вы действительно хотите выйти?'} toAgree={onLogout} onClose={toggleModal2} />}
+            {isShowingModal2 && <Modal text={'Вы действительно хотите выйти?'} toAgree={onLogout} onClose={closeModal} />}
         </>
     )
 

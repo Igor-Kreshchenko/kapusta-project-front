@@ -6,7 +6,7 @@ const ButtonLogout = ({ buttonHandler }) => {
       type="button"
       onClick={buttonHandler}
       className={styles.button__logout}
-    > Выйти
+    > <span className={styles.button__text}>Выйти</span>
     </button>
   );
 };
