@@ -15,14 +15,16 @@ const CurrentDatePicker = () => {
     return (
         <div className={styles.DatePickerConteiner}>
             <p className={styles.DatePickerTitle}>Текущий период:</p>
-            <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="MMMM yyyy"
-                showMonthYearPicker
-                locale='ru'
-                className={styles.DatePicker}
-            />
+            <div className={styles.current_month}>
+              <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat="LLLL yyyy"
+                  showMonthYearPicker
+                  locale='ru'
+                  className={styles.DatePicker}
+              />
+            </div>
       </div>
     );
   };
