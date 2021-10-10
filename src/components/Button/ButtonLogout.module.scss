@@ -2,19 +2,29 @@
 @import "../../styles/size";
 
 .button__logout {
+  background-color: transparent;
+  border: transparent;
+
   @include size(mobile) {
     width: 16px;
     height: 16px;
-    background-image: url("../../images/icons/logout.svg");
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 20px;
+      top: 20px;
+      width: 16px;
+      height: 16px;
+      background-image: url("../../images/icons/logout.svg");
+    }
   }
 
   @include size(tablet) {
     width: 66px;
     height: 14px;
-    background-color: transparent;
     text-align: center;
     display: inline-block;
-    border: transparent;
     text-decoration: underline;
     cursor: pointer;
     font-family: inherit;
@@ -23,7 +33,10 @@
     font-style: normal;
     font-weight: 400;
     color: $gray-btn-logout;
-    background-image: none;
+
+    &::after {
+      background-image: none;
+    }
   }
 }
 .button__text {
