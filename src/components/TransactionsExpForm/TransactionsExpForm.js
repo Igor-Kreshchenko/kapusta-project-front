@@ -4,7 +4,6 @@ import styles from "./TransactionsExpForm.module.scss";
 
 const TransactionsExpForm = () => {
   const [startDate, setStartDate] = useState(new Date());
-
   return (
     <form className={styles.form}>
       <MyDatePicker
