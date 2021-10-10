@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MyDatePicker from "../MyDatePicker";
 import styles from "./TransactionsExpForm.module.scss";
-import CategoryList from "../CategoryExpensesList/CategoryList";
 
 const TransactionsExpForm = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -147,7 +146,7 @@ const TransactionsExpForm = () => {
               </label>
             </li>
           </ul>
-          <span className={styles.list_arrow}></span>
+          <span className={styles.list_arrow} id="arrow"></span>
         </div>
         <input
           className={styles.form_input_amount}
