@@ -32,16 +32,14 @@ export default class Modal extends Component {
     }
   };
 
-  closeModal = (event) => {
-    this.props.onClose();
+  closeModal = (e) => {
+    this.props.onClose()
   };
 
   toAgree = (e) => {
-    console.log("Да, я согласен на все, о чем вы спрашиваете");
+    this.props.toAgree()
   };
-  toRefuse = (e) => {
-    console.log("Нет, я отказываюсь от  всего, что вы мне предлагаете");
-  };
+
   render() {
     const textContent = this.props.text;
     return createPortal(
@@ -53,14 +51,14 @@ export default class Modal extends Component {
           <button
             type="button"
             className={styles.Modal__close}
-            onClose={this.closeModal}
+            onClick={this.closeModal}
           >
             <CloseIcon width="12" height="12" />
           </button>
           <p className={styles.textContent}>{textContent}</p>
           <div className={styles.btnContainer}>
             <Button buttonText={"ДА"} buttonHandler={this.toAgree} />
-            <Button buttonText={"НЕТ"} buttonHandler={this.toRefuse} />
+            <Button buttonText={"НЕТ"} buttonHandler={this.closeModal} />
           </div>
         </div>
       </div>,
@@ -71,5 +69,6 @@ export default class Modal extends Component {
 
 Modal.propTypes = {
   text: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+  toAccept:PropTypes.func,
 };

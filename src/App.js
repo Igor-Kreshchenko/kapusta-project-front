@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import FillState from "./redux/testArrays";
-import Header from "./components/Header";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from './routes';
@@ -29,8 +28,6 @@ function App() {
   // ---------
   return (
     <div className="App">
-      <Header />
-
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
           <PublicRoute
