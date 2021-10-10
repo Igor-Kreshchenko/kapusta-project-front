@@ -4,7 +4,7 @@ import FillState from "./redux/testArrays";
 import Header from "./components/Header";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
-import routes from './routes';
+import routes from "./routes";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -36,26 +36,24 @@ function App() {
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <LoginPage />
           </PublicRoute>
 
-           <PublicRoute
+          <PublicRoute
             path={routes.register}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <SignupPage />
           </PublicRoute>
 
-          <PrivateRoute
-            path={routes.transactions}
-            redirectTo={routes.login}>
+          <PrivateRoute path={routes.transactions} redirectTo={routes.login}>
             <TransactionsPage />
           </PrivateRoute>
 
-           <PrivateRoute
-            path={routes.statistics}
-            redirectTo={routes.login}>
+          <PrivateRoute path={routes.statistics} redirectTo={routes.login}>
             <StatisticsPage />
           </PrivateRoute>
 
