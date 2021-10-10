@@ -5,6 +5,7 @@ import CurrentDatePicker from '../CurrentPeriod'
 import styles from './BalancePanelOfReports.module.scss'
 
 export default function BalancePanelOfReports() {
+    
 
     const windowInnerWidth = window.innerWidth
     console.log(windowInnerWidth)
