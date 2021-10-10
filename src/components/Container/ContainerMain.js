@@ -1,4 +1,3 @@
-import Header from "../Header";
 import styles from "./ContainerMain.module.scss";
 
 const ContainerMain = ({ children }) => (

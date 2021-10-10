@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.button__logout {
+  width: 66px;
+  height: 14px;
+  background-color: transparent;
+  text-align: center;
+  display: inline-block;
+  border: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: $gray-btn-logout;
+
+  //   &:hover,
+  //   &:focus {
+  //   }
+}
