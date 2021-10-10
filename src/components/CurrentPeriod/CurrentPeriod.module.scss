@@ -1,0 +1,55 @@
+// @import 'node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+@import "../../styles/variables";
+
+
+.DatePickerConteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 138px;
+    height: 39px;
+    
+    div {
+        max-width: 220px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background: $bg-gray;
+        color: $black;
+    }
+
+    input{
+        width: 110px;
+        height: 20px;
+        padding: 0;        
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .DatePickerTitle{
+        
+        text-align: center;
+        font-size: 12px;
+        line-height: 14px;
+        line-height: 14px;
+        color: $main-text-cl;
+    }
+    
+    .DatePicker{
+        width: 110px;
+        background: none;
+        border: none;
+        text-align: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        text-transform: uppercase;
+
+    }
+
+
+
+}
