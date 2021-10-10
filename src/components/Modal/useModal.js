@@ -5,30 +5,25 @@ const useModal = () => {
     const [isShowingModal2, setIsShowingModal2] = useState(false);
     
   function toggle() {
-      setIsShowingModal1(!isShowingModal1); 
-    }
+    setIsShowingModal1(!isShowingModal1);
+  }
     
-    function toggleModal2() {
-      setIsShowingModal2(!isShowingModal2);
-    }
+  function toggleModal2() {
+    setIsShowingModal2(!isShowingModal2);
+  }
+  
+  function closeModal() {
+    setIsShowingModal2(!isShowingModal2);
+    setIsShowingModal1(!isShowingModal1);
+  }
 
   return {
-      isShowingModal1,
-      toggle,
-      isShowingModal2,
-      toggleModal2,
+    isShowingModal1,
+    toggle,
+    isShowingModal2,
+    toggleModal2,
+    closeModal
   }
 };
 
 export default useModal;
-
-
-    // function toggle3() {
-    //   setIsShowing(!isShowing);
-    // }
-
-       //  function toggle () {
-    //   setIsShowing(!isShowing);
-    //   setIsShowing2(!isShowing2);
-      
-    // }
