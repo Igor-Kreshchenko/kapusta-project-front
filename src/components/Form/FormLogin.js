@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { authOperations } from "../../redux/auth";
 
 import ButtonLogin from "../Button/ButtonLogin";
-import ButtonToSignup from "../Button/ButtonToSignup";
+import ButtonSignup from "../Button/ButtonSignup";
 import styles from "./Form.module.scss";
 
 const FormLogin = () => {
@@ -14,7 +14,7 @@ const FormLogin = () => {
   const [required, setRequired] = useState(false);
 
   const onLogIn = () => dispatch(authOperations.logIn({ email, password }));
-  
+
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case "email":
@@ -40,6 +40,7 @@ const FormLogin = () => {
     } else {
       setRequired(false);
     }
+
     onLogIn();
     reset();
   };
@@ -87,7 +88,7 @@ const FormLogin = () => {
       </label>
       <div className={styles.button__container}>
         <ButtonLogin />
-        <ButtonToSignup />
+        <ButtonSignup />
       </div>
     </form>
   );
