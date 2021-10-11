@@ -9,3 +9,8 @@ export const Default = ({ children }) => {
   const isNotMobile = useMediaQuery({ minWidth: 768 });
   return isNotMobile ? children : null;
 };
+
+export const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 1279 })
+  return isDesktop ? children : null
+}
