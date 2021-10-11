@@ -1,14 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import TransactionMonthSummary from "../TransactionMonthSummary";
-import TransactionsExpForm from "../TransactionsExpForm";
+import transactionsOps from "../../redux/transactions/transactionsOps";
+// import TransactionsExpForm from "../TransactionsExpForm";
 
 import styles from "./TransactionsExpenses.module.scss";
 
 const TransactionsExpenses = () => {
+  const dispatch = useDispatch();
+  const onDeleteExpense = async (type = "expenses", id) => {
+    await dispatch(transactionsOps.deleteTransaction(type, id));
+  };
+
   return (
     <>
       {/* <TransactionsExpForm /> */}
-
       <div className={styles.main}>
         <div className={styles.table}>
           <div className={styles.table_head}>
@@ -29,77 +35,19 @@ const TransactionsExpenses = () => {
               <span className={styles.table_expenses}>-30.00 грн.</span>
               <button
                 type="button"
-                onClick={() => null}
+                onClick={() => onDeleteExpense()}
                 className={styles.table_item_btn}></button>
             </li>
             <li className={styles.table_item}>
               <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
+              <span>
+                Метро (Lorem ipsum dolor sit amet, consectetur adipiscing elit.)
+              </span>
+              <span>Транспорт</span>
               <span className={styles.table_expenses}>-30.00 грн.</span>
               <button
                 type="button"
-                onClick={() => null}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => null}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => null}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => null}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => null}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => null}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Бананы</span>
-              <span>Продукты</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => null}
+                onClick={() => onDeleteExpense()}
                 className={styles.table_item_btn}></button>
             </li>
           </ul>

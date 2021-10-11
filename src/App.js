@@ -16,6 +16,12 @@ const SignupPage = lazy(() =>
 const TransactionsPage = lazy(() =>
   import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */)
 );
+const ExpensesFormPage = lazy(() =>
+  import("./pages/ExpensesFormPage" /* webpackChunkName: "transactions-page" */)
+);
+const IncomesFormPage = lazy(() =>
+  import("./pages/IncomesFormPage" /* webpackChunkName: "transactions-page" */)
+);
 const StatisticsPage = lazy(() =>
   import(
     "./pages/StatisticsPage/StatisticsPage" /* webpackChunkName: "statistics-page" */
@@ -33,16 +39,14 @@ function App() {
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}
-          >
+            redirectTo={routes.transactions}>
             <LoginPage />
           </PublicRoute>
 
           <PublicRoute
             path={routes.register}
             restricted
-            redirectTo={routes.login}
-          >
+            redirectTo={routes.login}>
             <SignupPage />
           </PublicRoute>
 
@@ -52,6 +56,14 @@ function App() {
 
           <PrivateRoute path={routes.statistics} redirectTo={routes.login}>
             <StatisticsPage />
+          </PrivateRoute>
+
+          <PrivateRoute path={routes.expenses_form} redirectTo={routes.login}>
+            <ExpensesFormPage />
+          </PrivateRoute>
+
+          <PrivateRoute path={routes.incomes_form} redirectTo={routes.login}>
+            <IncomesFormPage />
           </PrivateRoute>
 
           {/* Временно редирект на страницу транзакций */}

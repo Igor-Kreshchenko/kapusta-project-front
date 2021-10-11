@@ -100,9 +100,10 @@
       bottom: 52px;
       left: 0;
       width: 302px;
-      height: 172px;
+      height: 200px;
       overflow: auto;
       padding: 17px;
+      background: inherit;
     }
 
     @include size(tablet) {
@@ -138,4 +139,14 @@
   line-height: 14px;
   letter-spacing: 0.02em;
   color: #d3d5da;
+}
+
+.Add_button {
+  border-radius: 7px;
+  border: none;
+  background: #ff751d;
+  color: #fafbfd;
+  font-size: 10px;
+  padding: 8px 5px 5px 5px;
+  text-decoration: none;
 }
