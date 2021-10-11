@@ -69,7 +69,6 @@ const getCurrentUser = () => async (dispatch, getState) => {
         dispatch(authActions.getCurrentUserError(error.message));
     }
 };
-console.log(getCurrentUser());
 
 const authOperations = {
   signUp,
