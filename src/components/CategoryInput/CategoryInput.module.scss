@@ -6,7 +6,16 @@
   box-shadow: 0px 3px 4px rgba(170, 178, 197, 0.4);
   background-color: white;
   border: none;
+  @media screen and (min-width: 768px) {
+    width: 171px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 188px;
+  }
 }
+
 .form_input_category_parent {
   position: relative;
 }
@@ -48,8 +57,6 @@
 }
 .form_input_category {
   position: relative;
-  width: 188px;
-  height: 44px;
   border: 2px solid #f5f6fb;
   border-top: 2px solid #f5f6fb;
   border-right: none;
@@ -61,5 +68,13 @@
 
   &:focus + .arrow {
     transform: rotate(-180deg);
+  }
+  @media screen and (min-width: 768px) {
+    width: 171px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 188px;
   }
 }
