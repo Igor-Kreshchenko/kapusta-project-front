@@ -166,7 +166,7 @@ export default function FillState() {
   //   dispatch(transactionsActions.getExpensesSuccess(arrayExpenses)); --works
 
   dispatch(transactionsActions.addIncomeSuccess(singleIncome));
-  dispatch(transactionsActions.addExpensesSuccess(singleExpense));
+  dispatch(transactionsActions.addExpenseSuccess(singleExpense));
 
   return console.log("------ State filled successful ------");
 }
