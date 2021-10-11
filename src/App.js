@@ -44,7 +44,7 @@ function App() {
           </PublicRoute>
 
           <PublicRoute
-            path={routes.register}
+            path={routes.signup}
             restricted
             redirectTo={routes.login}>
             <SignupPage />
