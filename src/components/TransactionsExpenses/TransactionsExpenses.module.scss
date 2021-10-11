@@ -83,7 +83,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  font-size: 8px;
+  font-size: 11px;
   line-height: 9px;
   letter-spacing: 0.04em;
   height: 50px;
@@ -111,6 +111,10 @@
     &:hover {
       background-color: #f5f6fb;
     }
+  }
+
+  @include size(mobile) {
+    grid-template-columns: 80px 59px 73px 77px 40px;
   }
 
   @include size(tablet) {

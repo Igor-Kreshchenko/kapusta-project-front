@@ -20,7 +20,7 @@
   overflow: auto;
 
   @include size(mobile) {
-    width: 320px;
+    width: 100%;
   }
 
   @include size(tablet) {

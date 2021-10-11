@@ -30,6 +30,7 @@ const TransactionsIncome = () => {
               <li className={styles.table_item}>
                 <span>05.09.2019</span>
                 <span>Моя зп</span>
+
                 <span>ЗП</span>
                 <span className={styles.table_income}>20 000.00 грн.</span>
                 <button
