@@ -125,6 +125,7 @@ const deleteTransaction =
       dispatch(transactionsActions.deleteIncomeTransactionRequest());
 
       try {
+        console.log(type);
         await axios.patch(`./transactions/${type}/${id}`);
         dispatch(
           transactionsActions.deleteIncomeTransactionSuccess({ id, amount })
