@@ -3,160 +3,34 @@ import sprite from "../../images/icons/sprite_categories.svg";
 import css from "./CategoriesList.module.scss";
 
 
-console.log(sprite )
-const CategoriesList = ({} ) => {
+const CategoriesList = ({obj} ) => {
     return (
-        <div className={css.container}>
-           <ul className={css.list}>
-             <li className={css.item}>
-                   <p className={css.text}>5000</p>
-                   <div className={css.svg_wrapper}>
-                     <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-           <li className={css.item}>
-                   <p className={css.text}>5000</p>
-                   <div className={css.svg_wrapper}>
-                     <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <span className={css.border}></span>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                 <span className={css.border}></span>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                 <span className={css.border}></span>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <li className={css.item}>
-                    <p className={css.text}>5000</p>
-                    <div className={css.svg_wrapper}>
-                        <svg
-                            className={css.icon}
-                            width="58"
-                            height="58"
-                        >
-                            <use xlinkHref={`${sprite}#icon-Продукты`} />
-                        </svg>
-                    </div>
-                    <h3 className={css.title}>Продукты</h3>
-                </li>
-                <span className={css.border}></span>
+
+         <div className={css.container}>
+            <ul className={css.list}>
+                {obj.map((obj) => ( 
+                    <li className={css.item}
+                        key={obj._id}
+                        // onClick={() => onClick(obj.category)}
+                    >
+                        <p className={css.text}>{obj.amount}</p>
+                        <div className={css.svg_wrapper}>
+                            <svg
+                                className={css.icon}
+                                width="58"
+                                height="58"
+                            >
+                                <use xlinkHref={`${sprite}#icon-${obj.category}`} />
+                            </svg>
+                        </div>
+                        <h3 className={css.title}>{obj.category}</h3>
+                    </li>
+                ))
+                }
+            
             </ul>
-        </div> 
+            </div>
+       
     );
 };
 export default CategoriesList;
