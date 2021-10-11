@@ -1,5 +1,5 @@
 const routes = {
-  register: "/register",
+  signup: "/signup",
   login: "/login",
   transactions: "/transactions",
   statistics: "/statistics",

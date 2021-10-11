@@ -11,7 +11,7 @@ const FormSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  const onRegister = () => dispatch(authOperations.signUp({ email, password }));
+  const signUp = () => dispatch(authOperations.signUp({ email, password }));
   
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -32,7 +32,7 @@ const FormSignup = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onRegister();
+    signUp();
     reset();
     };
 
