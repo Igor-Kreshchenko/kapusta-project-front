@@ -7,7 +7,7 @@ import styles from "./TransactionsIncome.module.scss";
 const TransactionsIncome = () => {
   return (
     <>
-      <TransactionsIncForm />
+      {/* <TransactionsIncForm /> */}
 
       <div className={styles.main}>
         <div className={styles.table}>

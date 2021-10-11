@@ -7,7 +7,7 @@ import styles from "./TransactionsExpenses.module.scss";
 const TransactionsExpenses = () => {
   return (
     <>
-      <TransactionsExpForm />
+      {/* <TransactionsExpForm /> */}
 
       <div className={styles.main}>
         <div className={styles.table}>
@@ -42,14 +42,66 @@ const TransactionsExpenses = () => {
                 onClick={() => null}
                 className={styles.table_item_btn}></button>
             </li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
-            <li className={styles.table_item}></li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+              <button
+                type="button"
+                onClick={() => null}
+                className={styles.table_item_btn}></button>
+            </li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+              <button
+                type="button"
+                onClick={() => null}
+                className={styles.table_item_btn}></button>
+            </li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+              <button
+                type="button"
+                onClick={() => null}
+                className={styles.table_item_btn}></button>
+            </li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+              <button
+                type="button"
+                onClick={() => null}
+                className={styles.table_item_btn}></button>
+            </li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+              <button
+                type="button"
+                onClick={() => null}
+                className={styles.table_item_btn}></button>
+            </li>
+            <li className={styles.table_item}>
+              <span>05.09.2019</span>
+              <span>Бананы</span>
+              <span>Продукты</span>
+              <span className={styles.table_expenses}>-30.00 грн.</span>
+              <button
+                type="button"
+                onClick={() => null}
+                className={styles.table_item_btn}></button>
+            </li>
           </ul>
         </div>
 

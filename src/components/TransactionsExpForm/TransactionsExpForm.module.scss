@@ -44,19 +44,24 @@
 }
 
 .form_input_description {
-  width: 289px;
-  height: 44px;
   border: 2px solid #f5f6fb;
   box-sizing: border-box;
   border-radius: 16px 0px 0px 0px;
   outline: none;
   padding-left: 21px;
+
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 289px;
+  }
 }
 
 .form_input_category {
   position: relative;
-  width: 188px;
-  height: 44px;
   border: 2px solid #f5f6fb;
   border-top: 2px solid #f5f6fb;
   border-right: none;
@@ -72,16 +77,32 @@
       transform: rotate(-180deg);
     }
   }
+
+  @media screen and (min-width: 768px) {
+    width: 171px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 188px;
+  }
 }
 
 .form_input_amount {
-  width: 126px;
-  height: 44px;
   border: 2px solid #f5f6fb;
   box-sizing: border-box;
   border-radius: 0px 16px 16px 0px;
   outline: none;
   padding-left: 21px;
+
+  @media screen and (min-width: 768px) {
+    width: 104px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 124px;
+  }
 }
 
 .form__btn {

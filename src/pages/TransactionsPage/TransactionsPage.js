@@ -17,7 +17,7 @@ const TransactionsPage = () => {
       </Header>
       <ContainerMain>
         <BalancePanelHome />
-        
+
         <Tabs>
           <TabList>
             <Tab>Расход</Tab>
