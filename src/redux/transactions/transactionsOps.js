@@ -1,7 +1,7 @@
 import axios from "axios";
 import transactionsActions from "./transactionsActions";
 
-axios.defaults.baseURL = "http://localhost:4000/api/";
+axios.defaults.baseURL = "https://kapusta-app.herokuapp.com/api";
 
 const getBalance = () => async (dispatch) => {
   dispatch(transactionsActions.getBalanceRequest());
@@ -108,8 +108,9 @@ const addBalance = (balance) => async (dispatch) => {
   dispatch(transactionsActions.addBalanceRequest());
 
   try {
-    const response = await axios.patch("./balance", balance);
-    dispatch(transactionsActions.addBalanceSuccess(response.data));
+    const response = await axios.patch("./transactions/balance", { balance });
+
+    dispatch(transactionsActions.addBalanceSuccess(response.data.balance));
   } catch (error) {
     dispatch(transactionsActions.addBalanceError(error.message));
   }
