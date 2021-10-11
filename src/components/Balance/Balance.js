@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import transactionsOps   from '../../redux/transactions/transactionsOps';
 import transactionsSelectors from '../../redux/transactions/transactionsSelectors'
