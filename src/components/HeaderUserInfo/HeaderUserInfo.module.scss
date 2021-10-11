@@ -38,5 +38,22 @@
 
   @include size(tablet) {
     display: inline-block;
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 78px;
+      top: 10px;
+      width: 1px;
+      height: 36px;
+      background-image: url("../../images/icons/vector.svg");
+    }
+  }
+
+  @include size(desktop) {
+    &::after {
+      right: 101px;
+      top: 10px;
+    }
   }
 }
