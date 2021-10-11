@@ -1,9 +1,12 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy,useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import FillState from "./redux/testArrays";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
+import { authOperations } from "./redux/auth";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -32,6 +35,13 @@ function App() {
   // Запускает временную функцию для заполнения стейта
   FillState();
   // ---------
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser())
+
+  }, [dispatch])
+
   return (
     <div className="App">
       <Suspense fallback={<p>...Loading</p>}>

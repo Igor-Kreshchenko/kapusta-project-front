@@ -48,10 +48,34 @@ const logOut = () => async (dispatch) => {
   }
 };
 
+const getCurrentUser = () => async (dispatch, getState) => {
+    const {
+        auth: { token: persistedToken },
+    } = getState();
+
+    if (!persistedToken) {
+        return;
+    }
+    token.set(persistedToken);
+
+    dispatch(authActions.getCurrentUserRequest());
+
+    try {
+        const response = await axios.get('/users/current');
+
+        dispatch(authActions.getCurrentUserSuccess(response.data.responseBody));
+    }
+    catch (error) {
+        dispatch(authActions.getCurrentUserError(error.message));
+    }
+};
+console.log(getCurrentUser());
+
 const authOperations = {
   signUp,
   logIn,
   logOut,
+  getCurrentUser
 };
 
 export default authOperations;
