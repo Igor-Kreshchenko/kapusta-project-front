@@ -1,96 +1,63 @@
-import CategoriesList from "../CategoriesList";
-const arrayExpenses = [
-  {
-    _id: "1111111111111111",
-    amount: 200,
-    date: "21.01.2021",
-    category: "Продукты",
-    description: "свинина",
-  },
-  {
-    _id: "1211111111111111",
-    amount: 300,
-    date: "24.01.2021",
-    category: "Алкоголь",
-    description: "капитан морган",
-  },
-  {
-    _id: "1311111111111111",
-    amount: 100,
-    date: "21.02.2021",
-    category: "Продукты",
-    description: "борщевой набор",
-  },
-  {
-    _id: "1411111111111111",
-    amount: 50,
-    date: "11.02.2021",
-    category: "Развлечения",
-    description: "Прогулка",
-  },
-  {
-    _id: "1511111111111111",
-    amount: 20,
-    date: "15.02.2021",
-    category: "Продукты",
-    description: "зелень",
-  },
-  {
-    _id: "1611111111111011",
-    amount: 350,
-    date: "15.01.2021",
-    category: "Продукты",
-    description: "сыр",
-  },
-  {
-    _id: "1611111111111111",
-    amount: 150,
-    date: "27.09.2020",
-    category: "Алкоголь",
-    description: "водка",
-  },
-  {
-    _id: "1811111111111111",
-    amount: 230,
-    date: "13.11.2021",
-    category: "Алкоголь",
-    description: "такси",
-  },
-  {
-    _id: "1911111111111111",
-    amount: 110,
-    date: "22.05.2021",
-    category: "Продукты",
-    description: "Говядина",
-  },
-  {
-    _id: "1121111111111111",
-    amount: 550,
-    date: "17.08.2021",
-    category: "Прочее",
-    description: "Ремонт",
-  },
-  {
-    _id: "55551111111111111",
-    amount: 2550,
-    date: "17.10.2021",
-    category: "Развлечения",
-    description: "Днюха",
-  },
-  {
-    _id: "1666611111111111",
-    amount: 11550,
-    date: "17.10.2021",
-    category: "Прочее",
-    description: "Ремонт",
-  },
- 
-];
+import { useDispatch, useSelector } from "react-redux";
+// import CategoriesList from "../CategoriesList";
+import css from "../../components/CategoriesList/CategoriesList.module.scss";
+import sprite from "../../images/icons/sprite_categories.svg";
+import transactionsSelectors from "../../redux/transactions/transactionsSelectors"
+import transactionsOps from "../../redux/transactions/transactionsOps"
+import {CATEGORIES_LIST }from "../../redux/transactions/transactionsReducer"
 
 const Expenses = () => {
-    return (
-        <CategoriesList
-            obj={arrayExpenses}/>
-    )
-}
-export default Expenses;
+  const transactions = useSelector(transactionsSelectors.getExpenses);
+  // const transactions = [] на случай если с бека вернулся пустой масив 
+
+  const totalSumByCategory = (type, category) => {
+    let total = 0;
+    transactionsOps.getTransactionsByType(type)
+    transactions.filter(transaction => transaction.category === category)
+      .map(el => {
+        total += el.amount;
+      });
+    return total;
+  };
+  
+  return (
+    <>
+      <div className={css.container}>
+        <ul className={css.list}>
+          {transactions.length === 0
+            ? <p className={css.title}> Oй , мне кажется что ты что-то от нас скрываешь!?</p>
+            :CATEGORIES_LIST.expenses.map(item => {
+            
+            let sum = totalSumByCategory("expenses", item.category);
+            if (sum === 0) {
+              return;
+            }
+             
+            return (
+              <li className={css.item}
+                key={item._id}
+              // onClick={() => onClick(item.category.category)}
+              >
+                <p className={css.text}>{sum}</p>
+                <div className={css.svg_wrapper}>
+                  <svg
+                    className={css.icon}
+                    width="58"
+                    height="58"
+                  >
+                    <use xlinkHref={`${sprite}#icon-${item.category}`} />
+                  </svg>
+                </div>
+                <h3 className={css.title}>{item.category}</h3>
+              </li>
+            )
+          })
+          }
+            
+        </ul>
+      </div>
+       
+    </>
+  )
+};
+export default Expenses;  
