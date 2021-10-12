@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MyDatePicker from "../MyDatePicker";
+import CategoryInput from "../CategoryInput";
 import styles from "./TransactionsExpForm.module.scss";
 
 const TransactionsExpForm = () => {
@@ -156,7 +157,6 @@ const TransactionsExpForm = () => {
           />
         </div>
       </div>
-
       <div className={styles.form__btn}>
         <button className={styles.form__btn_enter}>Ввод</button>
         <button className={styles.form__btn_clear}>Очистить</button>
