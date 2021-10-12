@@ -14,7 +14,7 @@ const FormLogin = () => {
   const [required, setRequired] = useState(false);
 
   const onLogIn = () => dispatch(authOperations.logIn({ email, password }));
-  
+
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case "email":
@@ -49,9 +49,15 @@ const FormLogin = () => {
       <p className={styles.textGoogle}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <button type="button" className={styles.button__Google}>
+      <a
+        href="https://kapusta-app.herokuapp.com/api/users/google"
+        className={styles.button__Google}
+      >
         Google
-      </button>
+      </a>
+      {/* <button type="button" className={styles.button__Google}>
+        Google
+      </button> */}
       <p className={styles.text}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
