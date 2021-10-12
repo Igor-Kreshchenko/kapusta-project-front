@@ -11,17 +11,16 @@ export default function BalancePanelHome() {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <div className={styles.BalancePanel_Home}>
-      <Balance styles={styles}>
-        <BalanceButton />
-      </Balance>
-      <GoReportsButton />
-
       <Mobile>
         <MyDatePicker
           selectedDate={startDate}
           onChange={(date) => setStartDate(date)}
         />
       </Mobile>
+      <Balance styles={styles}>
+        <BalanceButton />
+      </Balance>
+      <GoReportsButton />
     </div>
   );
 }

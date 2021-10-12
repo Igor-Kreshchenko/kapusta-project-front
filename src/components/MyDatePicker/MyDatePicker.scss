@@ -35,9 +35,7 @@
   align-items: center;
 
   @include size(mobile-only) {
-    position: absolute;
-    top: 205px;
-    left: 105px;
+    margin: 0 auto;
   }
 
   @include size(tablet) {

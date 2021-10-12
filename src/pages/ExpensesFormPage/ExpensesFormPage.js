@@ -7,14 +7,12 @@ import styles from "./ExpensesFormPage.module.scss";
 
 const ExpensesFormPage = () => {
   return (
-    <>
+    <ContainerMain>
       <Header />
-      <ContainerMain>
-        <div className={styles.container}>
-          <GoBackButton />
-        </div>
-      </ContainerMain>
-    </>
+      <div className={styles.container}>
+        <GoBackButton />
+      </div>
+    </ContainerMain>
   );
 };
 

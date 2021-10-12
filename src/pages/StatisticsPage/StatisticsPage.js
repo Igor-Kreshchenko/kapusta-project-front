@@ -6,19 +6,16 @@ import ContainerMain from "../../components/Container/ContainerMain";
 import Header from "../../components/Header/Header";
 import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
 
-
 const StatisticsPage = () => {
   return (
-    <>
+    <ContainerMain>
       <Header>
         <HeaderUserInfo />
       </Header>
-      <ContainerMain>
       <BalancePanelOfReports />
       <UserSummary />
       <ToggleStatistics />
-      </ContainerMain>
-    </>
+    </ContainerMain>
   );
 };
 

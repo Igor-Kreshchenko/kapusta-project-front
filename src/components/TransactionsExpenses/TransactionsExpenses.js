@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import TransactionMonthSummary from "../TransactionMonthSummary";
 import transactionsOps from "../../redux/transactions/transactionsOps";
-// import TransactionsExpForm from "../TransactionsExpForm";
 
 import styles from "./TransactionsExpenses.module.scss";
 
@@ -14,7 +13,6 @@ const TransactionsExpenses = () => {
 
   return (
     <>
-      {/* <TransactionsExpForm /> */}
       <div className={styles.main}>
         <div className={styles.table}>
           <div className={styles.table_head}>
