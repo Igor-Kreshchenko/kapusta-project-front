@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+@import "../../styles/size";
+
+.chart{
+    width: 282px;
+    height: 100%;
+    background-color: $white;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+    font-size: 12px;
+
+    @include size(tablet) {
+        width: 666px;
+        height: 422px;
+      }
+
+    @include size(desktop) {
+        width: 1060px;
+        height: 422px;
+    }
+}
+
