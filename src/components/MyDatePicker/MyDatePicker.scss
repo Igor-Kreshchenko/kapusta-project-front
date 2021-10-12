@@ -1,3 +1,5 @@
+@import "../../styles/size";
+
 .react-datepicker {
   position: relative;
   display: inline-block;
@@ -32,11 +34,15 @@
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
+  @include size(mobile-only) {
+    margin: 0 auto;
+  }
+
+  @include size(tablet) {
     margin-right: 33px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     margin-right: 23px;
   }
 }
@@ -66,5 +72,9 @@
 
   &:hover {
     cursor: pointer;
+  }
+
+  @include size(mobile-only) {
+    background: inherit;
   }
 }
