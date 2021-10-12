@@ -1,29 +1,28 @@
 @import "../../styles/variables";
 
-.GoReportsButton{     
-    width: 154px; 
-    height: 24px;
-    margin: auto;
+.GoReportsButton {
+  //   width: 154px;
+  height: 24px;
+  margin: auto;
 
-    &:hover{
-        transform: scale(0.9);
-    }
+  &:hover {
+    transform: scale(0.9);
+  }
 
-    p{
-        margin: 0;
-        margin-right: 15px;
-        font-size: 12px;
-        color: $main-text-cl;
-    }
+  p {
+    margin: 0;
+    margin-right: 15px;
+    font-size: 12px;
+    color: $main-text-cl;
+  }
 
-    @media screen and (min-width: 768px) {
-        margin-right: 0;
-    }
-
+  @media screen and (min-width: 768px) {
+    margin-right: 0;
+  }
 }
 
-.link{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }

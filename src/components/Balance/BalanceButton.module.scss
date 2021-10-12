@@ -1,29 +1,27 @@
 @import "../../styles/variables";
 
+.form_button {
+  width: 123px;
+  height: 44px;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid $white;
+  border-radius: 0 50px 50px 0;
+  background-color: $gray-btn;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  text-transform: uppercase;
+  color: $main-text-cl;
+  transition: background-color 300ms linear;
 
-.form_button{
-    width: 125px;
-    height: 44px;
-    text-align: center;
-    display: inline-block;
-    border: 2px solid $white;  
-    border-radius: 0 50px 50px 0 ;
-    background-color: $gray-btn ;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 12px;
-    line-height: 14px;
-    font-style: normal;
-    text-transform: uppercase;
-    color: $main-text-cl;
-    transition: background-color 300ms linear;
-
-    @media screen and (min-width: 768px) {
-        border-radius: 16px; 
-        margin-left: 15px;
-    }
-  
+  @media screen and (min-width: 768px) {
+    border-radius: 16px;
+    margin-left: 15px;
+  }
 
   &:hover {
     background-color: $orange;
