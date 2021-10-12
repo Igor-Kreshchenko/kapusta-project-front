@@ -16,10 +16,10 @@ import "./TransactionsPage.scss";
 const TransactionsPage = () => {
   return (
     <>
-      <Header>
-        <HeaderUserInfo />
-      </Header>
       <ContainerMain>
+        <Header>
+          <HeaderUserInfo />
+        </Header>
         <BalancePanelHome />
 
         <Default>

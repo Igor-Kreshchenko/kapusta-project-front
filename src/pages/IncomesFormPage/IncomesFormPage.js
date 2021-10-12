@@ -7,14 +7,12 @@ import styles from "./IncomesFormPage.module.scss";
 
 const IncomesFormPage = () => {
   return (
-    <>
+    <ContainerMain>
       <Header />
-      <ContainerMain>
-        <div className={styles.container}>
-          <GoBackButton />
-        </div>
-      </ContainerMain>
-    </>
+      <div className={styles.container}>
+        <GoBackButton />
+      </div>
+    </ContainerMain>
   );
 };
 
