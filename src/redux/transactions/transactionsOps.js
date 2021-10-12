@@ -1,14 +1,15 @@
 import axios from "axios";
 import transactionsActions from "./transactionsActions";
 
-axios.defaults.baseURL = "http://localhost:4000/api/";
+axios.defaults.baseURL = "https://kapusta-app.herokuapp.com/api";
 
 const getBalance = () => async (dispatch) => {
   dispatch(transactionsActions.getBalanceRequest());
 
   try {
-    const response = await axios.get("./balance");
-    dispatch(transactionsActions.getBalanceSuccess(response.data));
+    const response = await axios.get("./transactions/balance");
+
+    dispatch(transactionsActions.getBalanceSuccess(response.data.balance));
   } catch (error) {
     dispatch(transactionsActions.getBalanceError(error.message));
   }
@@ -16,144 +17,129 @@ const getBalance = () => async (dispatch) => {
 
 // Операция ничего не получает в параметрах. Делает запрос на актуальный баланс,
 // и передает его в редюсер.
+// await dispatch(transactionsOps.getBalance());
 
-const getTransactionsByType = (type) => async (dispatch) => {
-  if (type === "incomes") {
-    dispatch(transactionsActions.getIncomeRequest());
+const getTransactionsByType =
+  ({ type }) =>
+  async (dispatch) => {
+    const UpperCasedType = type[0].toUpperCase() + type.slice(1);
+    const actionRequestType = `get${UpperCasedType}Request`;
+    const actionSuccessType = `get${UpperCasedType}Success`;
+    const actionErrorType = `get${UpperCasedType}Error`;
+
+    dispatch(transactionsActions[actionRequestType]());
 
     try {
-      const response = await axios.get("./transactions/incomes");
-      dispatch(transactionsActions.getIncomeSuccess(response.data));
+      const response = await axios.get(`./transactions/${type}`);
+
+      dispatch(transactionsActions[actionSuccessType](response.data));
     } catch (error) {
-      dispatch(transactionsActions.getIncomesError(error.message));
+      dispatch(transactionsActions[actionErrorType](error.message));
     }
+  };
 
-    return;
-  }
-
-  dispatch(transactionsActions.getExpensesRequest());
-
-  try {
-    const response = await axios.get("./transactions/expenses");
-    dispatch(transactionsActions.getExpensesSuccess(response.data));
-  } catch (error) {
-    dispatch(transactionsActions.getExpensesError(error.message));
-  }
-};
-
-// Операция ожидает тип транзакций "incomes или expenses" и в зависимости от него формирует запрос на бэк,
+// Операция ожидает тип транзакций "income или expense" и в зависимости от него формирует запрос на бэк,
 // бэк возвращает желаемый массив за актуальный год и операция передает его в редюсер.
+// await dispatch(transactionsOps.getTransactionsByType({ type: "expense" }));
+// await dispatch(transactionsOps.getTransactionsByType({ type: "income" }));
 
 const getAllTransactionByMonth =
   ({ month, year }) =>
   async (dispatch) => {
-    dispatch(transactionsActions.getAllTransactionsRequest());
+    const types = ["income", "expense"];
+    types.forEach(async (type) => {
+      const UpperCasedType = type[0].toUpperCase() + type.slice(1);
+      const actionRequestType = `get${UpperCasedType}Request`;
+      const actionSuccessType = `get${UpperCasedType}Success`;
+      const actionErrorType = `get${UpperCasedType}Error`;
 
-    try {
-      const response = await axios.get(`./transactions/?${month}&${year}`);
-      dispatch(transactionsActions.getIncomeSuccess(response.data));
-    } catch (error) {
-      dispatch(transactionsActions.getIncomesError(error.message));
-    }
+      dispatch(transactionsActions[actionRequestType]());
+      try {
+        const response = await axios.get(
+          `./transactions/${type}?month=${month}&year=${year}`
+        );
+        dispatch(transactionsActions[actionSuccessType](response.data));
+      } catch (error) {
+        dispatch(transactionsActions[actionErrorType](error.message));
+      }
+    });
   };
 
-//   Операция ожидает два параметра "месяц и год", пока не знаю в каком формате, и дальше передает эти данные в юрл строку,
-//  полсе получения нужного массива передает его в редюсер.
+//   Операция ожидает два параметра "месяц и год" в обьекте и дальше передает эти данные в юрл строку,
+//  деалает два запроса и полсе получения нужного массива передает его в редюсер.
+// await transactionsOps.getAllTransactionByMonth({ month: 10, year: 2021 })
 
 const addTransaction =
   ({ type, date, amount, category, description }) =>
   async (dispatch) => {
     const transaction = {
-      type,
       date,
       amount,
       category,
       description,
     };
 
-    if (type === "income") {
-      dispatch(transactionsActions.addIncomeRequest());
+    const UpperCasedType = type[0].toUpperCase() + type.slice(1);
+    const actionRequestType = `add${UpperCasedType}Request`;
+    const actionSuccessType = `add${UpperCasedType}Success`;
+    const actionErrorType = `add${UpperCasedType}Error`;
 
-      try {
-        const response = await axios.patch(
-          "./transactions/incomes",
-          transaction
-        );
-        dispatch(transactionsActions.addIncomeSuccess(response.data));
-      } catch (error) {
-        dispatch(transactionsActions.addIncomeError(error.message));
-      }
-
-      return;
-    }
-
-    dispatch(transactionsActions.addExpensesRequest());
+    dispatch(transactionsActions[actionRequestType]());
 
     try {
-      const response = await axios.patch(
-        "./transactions/expenses",
-        transaction
-      );
-      dispatch(transactionsActions.addExpensesSuccess(response.data));
+      const response = await axios.patch(`./transactions/${type}`, transaction);
+
+      dispatch(transactionsActions[actionSuccessType](response.data.body));
     } catch (error) {
-      dispatch(transactionsActions.addExpensesError(error.message));
+      dispatch(transactionsActions[actionErrorType](error.message));
     }
   };
 
-// Операция ожидает тип транзакции "incomes или expenses", это нужно для бэка.
-// date, amount, category и description нужно передать в виде обьекта и его мы передадим на бэк,
+// Операция ожидает тип транзакции "income или expense", это нужно для бэка.
+// type, date, amount, category и description нужно передать в виде обьекта и его мы передадим на бэк,
 //  если операция успешна то с бека вернётся таже транзакция, но с айдишником и мы её возвращаем в редюсер.
+// await dispatch(transactionsOps.addTransaction({type: "expense", date: "11.10.2021", amount: 1000, category: "алкоголь", description: "обмыл зп"});
+// await dispatch(transactionsOps.addTransaction({type: "income", date: "11.10.2021", amount: 22000, category: "ЗП", description: "моя"});
 
 const addBalance = (balance) => async (dispatch) => {
   dispatch(transactionsActions.addBalanceRequest());
 
   try {
-    const response = await axios.patch("./balance", balance);
-    dispatch(transactionsActions.addBalanceSuccess(response.data));
+    const response = await axios.patch("./transactions/balance", { balance });
+
+    dispatch(transactionsActions.addBalanceSuccess(response.data.balance));
   } catch (error) {
     dispatch(transactionsActions.addBalanceError(error.message));
   }
 };
 
-// Операция ожидает баланс, еще не знаю в каком виде, и передает его на бэк,
+// Операция ожидает баланс, и передает его на бэк,
 // затем бэк его обновляет и возвращает назад, после чего он добавляется в редюсер)
+// await dispatch(transactionsOps.addBalance(50000));
 
 const deleteTransaction =
-  ({ type, id, amount }) =>
+  ({ type, id }) =>
   async (dispatch) => {
-    if (type === "incomes") {
-      dispatch(transactionsActions.deleteIncomeTransactionRequest());
+    const UpperCasedType = type[0].toUpperCase() + type.slice(1);
+    const actionRequestType = `delete${UpperCasedType}TransactionRequest`;
+    const actionSuccessType = `delete${UpperCasedType}TransactionSuccess`;
+    const actionErrorType = `delete${UpperCasedType}TransactionError`;
 
-      try {
-        await axios.patch(`./transactions/${type}/${id}`);
-        dispatch(
-          transactionsActions.deleteIncomeTransactionSuccess({ id, amount })
-        );
-      } catch (error) {
-        dispatch(
-          transactionsActions.deleteIncomeTransactionError(error.message)
-        );
-      }
-
-      return;
-    }
-
-    dispatch(transactionsActions.deleteExpenseTransactionRequest());
+    dispatch(transactionsActions[actionRequestType]());
 
     try {
-      await axios.patch(`./transactions/${type}/${id}`);
-      dispatch(
-        transactionsActions.deleteExpensesTransactionSuccess({ id, amount })
-      );
+      const response = await axios.delete(`./transactions/${type}/${id}`);
+
+      dispatch(transactionsActions[actionSuccessType](response.data));
     } catch (error) {
-      dispatch(
-        transactionsActions.deleteExpenseTransactionError(error.message)
-      );
+      dispatch(transactionsActions[actionErrorType](error.message));
     }
   };
 
-//   Операция ожидает тип транзакции, её айди и свойство 'amount', в зависимости от типа определяется тип акшенов
-//   и делаеться запрос на бэк, если успешно то передает айди и amount в редюсер.
+//   Операция ожидает тип транзакции и её id (не _id), в зависимости от типа определяется тип акшенов
+//   и делаеться запрос на бэк, если успешно то бэк возвращает в ответе удаленную транзакцию и её передаем в редюсер.
+// await dispatch(transactionsOps.deleteTransaction({ type: "income", id: "97ef2039-49b6-4ca3-9d81-18ef97567340" }));
+// await dispatch(transactionsOps.deleteTransaction({ type: "expense", id: "bead5408-a083-410d-916f-7ce6dbc2c5c2",}));
 
 const transactionsOps = {
   getBalance,

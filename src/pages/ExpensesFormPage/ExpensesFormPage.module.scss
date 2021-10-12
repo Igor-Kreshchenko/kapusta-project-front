@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.container {
+  width: 282px;
+  height: 173px;
+  margin: 15px 19px;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    width: 664px;
+    height: 44px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 54px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1064px;
+    margin-left: 110px;
+    margin-right: 110px;
+  }
+}

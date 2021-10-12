@@ -1,16 +1,29 @@
-import React, { Suspense, lazy } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import ContainerHome from "./components/Container/ContainerHome";
-import ContainerMain from "./components/Container/ContainerMain";
-import CategoriesList from "./components/CategoriesList/CategoriesList";
+import React, { Suspense, lazy,useEffect } from "react";
+import { Switch, Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import FillState from "./redux/testArrays";
+import PublicRoute from "./components/PublicRoute";
+import PrivateRoute from "./components/PrivateRoute";
+import routes from "./routes";
+import { authOperations } from "./redux/auth";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
-// const LoginPage = lazy(() => import("./pages/LoginPage" /* webpackChunkName: "login-page" */));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage" /* webpackChunkName: "register-page" */));
+const LoginPage = lazy(() =>
+  import("./pages/LoginPage" /* webpackChunkName: "login-page" */)
+);
+const SignupPage = lazy(() =>
+  import("./pages/SignupPage" /* webpackChunkName: "signup-page" */)
+);
 const TransactionsPage = lazy(() =>
   import("./pages/TransactionsPage" /* webpackChunkName: "transactions-page" */)
+);
+const ExpensesFormPage = lazy(() =>
+  import("./pages/ExpensesFormPage" /* webpackChunkName: "transactions-page" */)
+);
+const IncomesFormPage = lazy(() =>
+  import("./pages/IncomesFormPage" /* webpackChunkName: "transactions-page" */)
 );
 const StatisticsPage = lazy(() =>
   import(
@@ -22,23 +35,45 @@ function App() {
   // Запускает временную функцию для заполнения стейта
   FillState();
   // ---------
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser())
+  }, [dispatch])
+
   return (
     <div className="App">
-      {/* <CategoriesList/> */}
-
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
-          <Route path="/login">{"LoginPage"}</Route>
+          <PublicRoute
+            path={routes.login}
+            restricted
+            redirectTo={routes.transactions}>
+            <LoginPage />
+          </PublicRoute>
 
-          <Route path="/register">{"RegisterPage"}</Route>
+          <PublicRoute
+            path={routes.signup}
+            restricted
+            redirectTo={routes.login}>
+            <SignupPage />
+          </PublicRoute>
 
-          <Route path="/transactions">
+          <PrivateRoute path={routes.transactions} redirectTo={routes.login}>
             <TransactionsPage />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/statistics">
+          <PrivateRoute path={routes.statistics} redirectTo={routes.login}>
             <StatisticsPage />
-          </Route>
+          </PrivateRoute>
+
+          <PrivateRoute path={routes.expenses_form} redirectTo={routes.login}>
+            <ExpensesFormPage />
+          </PrivateRoute>
+
+          <PrivateRoute path={routes.incomes_form} redirectTo={routes.login}>
+            <IncomesFormPage />
+          </PrivateRoute>
 
           {/* Временно редирект на страницу транзакций */}
           <Redirect to="/transactions" />

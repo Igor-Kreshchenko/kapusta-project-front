@@ -7,6 +7,7 @@
   width: 100vw;
   height: 100vh;
   background-color: $gray-placeholder;
+  z-index: 999;
 }
 .Modal__content {
   position: absolute;

@@ -8,17 +8,19 @@ const TransactionsIncForm = () => {
 
   return (
     <form className={styles.form}>
-      <MyDatePicker
-        selectedDate={startDate}
-        onChange={(date) => setStartDate(date)}
-      />
-      <div className={styles.form_input}>
-        <input type="text" placeholder="Описание дохода" />
-        <input type="text" placeholder="Категория дохода" />
-        <input type="text" placeholder="0,00" />
+      <div className={styles.form__input_wrapper}>
+        <MyDatePicker
+          selectedDate={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+        <div className={styles.form_input}>
+          <input type="text" placeholder="Описание дохода" />
+          <input type="text" placeholder="Категория дохода" />
+          <input type="text" placeholder="0,00" />
+        </div>
       </div>
 
-      <div className={styles.form_btn}>
+      <div className={styles.form__btn}>
         <button className={styles.form__btn_enter}>Ввод</button>
         <button className={styles.form__btn_clear}>Очистить</button>
       </div>

@@ -1,27 +1,36 @@
+@import "../../styles/size";
+
 .wrapper {
   width: 100%;
-  height: 85px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
   background: #ffffff;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
-}
 
-@media screen and (min-width: 768px) {
-  .wrapper {
-    height: 50px;
+  @include size(mobile) {
+    width: 282px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  }
+
+  @include size(tablet) {
+    width: 668px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  }
+
+  @include size(desktop) {
+    width: 1060px;
   }
 }
 
 .item {
   padding-top: 20px;
-}
+  padding-bottom: 25px;
 
-@media screen and (min-width: 768px) {
-  .item {
+  @include size(tablet) {
     display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
@@ -38,9 +47,8 @@
   line-height: 1.14;
 
   color: #52555f;
-}
-@media screen and (min-width: 768px) {
-  .text {
+
+  @include size(tablet) {
     margin: 0 10px 0 0;
   }
 }
@@ -48,11 +56,11 @@
 .img {
   width: 2px;
   height: 70.5px;
-  padding-top: 7px;
-}
-@media screen and (min-width: 768px) {
-  .img {
-    height: 32px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+
+  @include size(tablet) {
+    height: 36px;
     margin-right: 28px;
   }
 }
