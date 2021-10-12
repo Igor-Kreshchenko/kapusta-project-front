@@ -5,5 +5,6 @@ const routes = {
   statistics: "/statistics",
   expenses_form: "/transactions_expenses_form",
   incomes_form: "/transactions_incomes_form",
+  googleAuth: "/google",
 };
 export default routes;
