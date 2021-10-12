@@ -73,6 +73,7 @@
 .label {
   display: flex;
   flex-direction: column;
+  position: relative;
   margin-top: 25px;
   margin-left: 29px;
   font-size: 10px;
@@ -152,4 +153,25 @@
   margin-top: 40px;
   margin-bottom: 53px;
   text-align: center;
+}
+
+.span_required {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  line-height: 0.83;
+  color: $input-required;
+}
+
+.span_star {
+  position: absolute;
+  left: -7px;
+  color: $input-required;
+  font-size: 10px;
+  line-height: 0.85;
+
+  @include size(tablet) {
+    font-size: 15px;
+  }
 }

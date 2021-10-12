@@ -4,9 +4,9 @@ const addIncomeRequest = createAction("transactions/addIncomeRequest");
 const addIncomeSuccess = createAction("transactions/addIncomeSuccess");
 const addIncomeError = createAction("transactions/addIncomeError");
 
-const addExpensesRequest = createAction("transactions/addExpensesRequest");
-const addExpensesSuccess = createAction("transactions/addExpensesSuccess");
-const addExpensesError = createAction("transactions/addExpensesError");
+const addExpenseRequest = createAction("transactions/addExpensesRequest");
+const addExpenseSuccess = createAction("transactions/addExpensesSuccess");
+const addExpenseError = createAction("transactions/addExpensesError");
 
 const addBalanceRequest = createAction("transactions/addBalanceRequest");
 const addBalanceSuccess = createAction("transactions/addBalanceSuccess");
@@ -16,23 +16,13 @@ const getIncomeRequest = createAction("transactions/getIncomeRequest");
 const getIncomeSuccess = createAction("transactions/getIncomeSuccess");
 const getIncomeError = createAction("transactions/getIncomeError");
 
-const getExpensesRequest = createAction("transactions/getExpensesRequest");
-const getExpensesSuccess = createAction("transactions/getExpensesSuccess");
-const getExpensesError = createAction("transactions/getExpensesError");
+const getExpenseRequest = createAction("transactions/getExpenseRequest");
+const getExpenseSuccess = createAction("transactions/getExpenseSuccess");
+const getExpenseError = createAction("transactions/getExpenseError");
 
 const getBalanceRequest = createAction("transactions/getBalanceRequest");
 const getBalanceSuccess = createAction("transactions/getBalanceSuccess");
 const getBalanceError = createAction("transactions/getBalanceError");
-
-const getAllTransactionsRequest = createAction(
-  "transactions/getAllTransactionsRequest"
-);
-const getAllTransactionsSuccess = createAction(
-  "transactions/getAllTransactionsSuccess"
-);
-const getAllTransactionsError = createAction(
-  "transactions/getAllTransactionsError"
-);
 
 const deleteIncomeTransactionRequest = createAction(
   "transactions/deleteIncomeTransactionRequest"
@@ -58,24 +48,21 @@ const transactionsActions = {
   addIncomeRequest,
   addIncomeSuccess,
   addIncomeError,
-  addExpensesRequest,
-  addExpensesSuccess,
-  addExpensesError,
+  addExpenseRequest,
+  addExpenseSuccess,
+  addExpenseError,
   addBalanceRequest,
   addBalanceSuccess,
   addBalanceError,
   getIncomeRequest,
   getIncomeSuccess,
   getIncomeError,
-  getExpensesRequest,
-  getExpensesSuccess,
-  getExpensesError,
+  getExpenseRequest,
+  getExpenseSuccess,
+  getExpenseError,
   getBalanceRequest,
   getBalanceSuccess,
   getBalanceError,
-  getAllTransactionsRequest,
-  getAllTransactionsSuccess,
-  getAllTransactionsError,
   deleteIncomeTransactionRequest,
   deleteIncomeTransactionSuccess,
   deleteIncomeTransactionError,

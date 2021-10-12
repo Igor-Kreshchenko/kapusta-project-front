@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
-import { authOperations } from '../../redux/auth';
+import { authOperations } from "../../redux/auth";
 
 import ButtonLogin from "../Button/ButtonLogin";
-import ButtonSignup from "../Button/ButtonSignup";
+import ButtonToSignup from "../Button/ButtonToSignup";
 import styles from "./Form.module.scss";
 
 const FormLogin = () => {
-
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [required, setRequired] = useState(false);
 
   const onLogIn = () => dispatch(authOperations.logIn({ email, password }));
-
+  
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
-      case 'email':
+      case "email":
         return setEmail(value);
-      case 'password':
+      case "password":
         return setPassword(value);
       default:
         return;
@@ -27,12 +27,19 @@ const FormLogin = () => {
   };
 
   const reset = () => {
-    setEmail('');
-    setPassword('');
+    setEmail("");
+    setPassword("");
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (email === "" || password === "") {
+      setRequired(true);
+      return;
+    } else {
+      setRequired(false);
+    }
     onLogIn();
     reset();
   };
@@ -49,6 +56,7 @@ const FormLogin = () => {
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
       <label className={styles.label}>
+        {required && <span className={styles.span_star}>*</span>}
         Электронная почта:
         <input
           className={styles.input}
@@ -56,11 +64,14 @@ const FormLogin = () => {
           name="email"
           value={email}
           placeholder="your@email.com"
-          required
           onChange={handleChange}
         />
+        {required && (
+          <span className={styles.span_required}>это обязательное поле</span>
+        )}
       </label>
       <label className={styles.label}>
+        {required && <span className={styles.span_star}>*</span>}
         Пароль:
         <input
           className={styles.input}
@@ -68,13 +79,15 @@ const FormLogin = () => {
           name="password"
           value={password}
           placeholder="Пароль"
-          required
           onChange={handleChange}
         />
+        {required && (
+          <span className={styles.span_required}>это обязательное поле</span>
+        )}
       </label>
       <div className={styles.button__container}>
         <ButtonLogin />
-        <ButtonSignup />
+        <ButtonToSignup />
       </div>
     </form>
   );

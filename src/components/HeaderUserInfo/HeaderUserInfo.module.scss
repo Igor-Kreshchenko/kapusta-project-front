@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+@import "../../styles/size";
+
+.user__avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: $bg-gray-logout;
+  line-height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: $gray-btn-logout;
+
+  @include size(mobile) {
+    margin-right: 15px;
+  }
+
+  @include size(tablet) {
+    margin-right: 10px;
+  }
+}
+
+.user__name {
+  text-align: center;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: $gray-btn-logout;
+
+  @include size(mobile) {
+    display: none;
+  }
+
+  @include size(tablet) {
+    display: inline-block;
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 78px;
+      top: 10px;
+      width: 1px;
+      height: 36px;
+      background-image: url("../../images/icons/vector.svg");
+    }
+  }
+
+  @include size(desktop) {
+    &::after {
+      right: 101px;
+      top: 10px;
+    }
+  }
+}

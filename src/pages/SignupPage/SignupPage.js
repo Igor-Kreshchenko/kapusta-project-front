@@ -1,11 +1,15 @@
 import ContainerHome from "../../components/Container/ContainerHome";
 import FormSignup from "../../components/Form/FormSignup";
+import Header from "../../components/Header/Header";
 
 const SignupPage = () => {
   return (
-    <ContainerHome>
-      <FormSignup />
-    </ContainerHome>
+    <>
+      <Header />
+      <ContainerHome>
+        <FormSignup />
+      </ContainerHome>
+    </>
   );
 };
 

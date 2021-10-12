@@ -156,17 +156,11 @@ export default function FillState() {
   const dispatch = useDispatch();
 
   dispatch(transactionsActions.addBalanceSuccess(balance));
-  dispatch(
-    transactionsActions.getAllTransactionsSuccess({
-      incomes: arrayIncomes,
-      expenses: arrayExpenses,
-    })
-  );
-  //   dispatch(transactionsActions.getIncomeSuccess(arrayIncomes)); --works
-  //   dispatch(transactionsActions.getExpensesSuccess(arrayExpenses)); --works
+  dispatch(transactionsActions.getIncomeSuccess({ data: arrayIncomes }));
+  dispatch(transactionsActions.getExpenseSuccess({ data: arrayExpenses }));
 
   dispatch(transactionsActions.addIncomeSuccess(singleIncome));
-  dispatch(transactionsActions.addExpensesSuccess(singleExpense));
+  dispatch(transactionsActions.addExpenseSuccess(singleExpense));
 
   return console.log("------ State filled successful ------");
 }

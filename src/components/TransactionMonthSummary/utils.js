@@ -54,11 +54,14 @@ const getMonthFromDate = (date) => {
 };
 
 const findMonthAmount = (number, transactions) => {
+  const date = new Date();
+  const currentYear = date.getFullYear();
+
   let monthSum = 0;
   transactions.forEach(({ date, amount }) => {
     const currentMonth = getMonthFromDate(date);
 
-    if (+currentMonth == number) {
+    if (+currentMonth == number && date.includes(currentYear)) {
       monthSum += amount;
     }
   });

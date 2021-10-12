@@ -1,3 +1,5 @@
+@import "../../styles/size";
+
 .summary {
   width: 230px;
   height: 278px;
@@ -11,6 +13,10 @@
     background: #f5f6fb;
     border: 1px solid #ffffff;
     border-radius: 20px 20px 0 0;
+  }
+
+  @include size(mobile-only) {
+    display: none;
   }
 }
 
