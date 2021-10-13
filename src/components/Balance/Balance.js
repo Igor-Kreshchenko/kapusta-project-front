@@ -6,16 +6,15 @@ import transactionsSelectors from "../../redux/transactions/transactionsSelector
 export default function Balance({ children, styles }) {
   const currentBalance = useSelector(transactionsSelectors.getBalance);
   const dispatch = useDispatch();
-  const [balance, setBalance] = useState("");
+  const [balance, setBalance] = useState(0);
 
   const handleChange = (evt) => {
     const balance = evt.target.value;
-    setBalance(balance);
+    setBalance(+balance);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // console.log(`получен баланс ${balance}`)
     dispatch(transactionsOps.addBalance(+balance));
     setBalance("");
   };
