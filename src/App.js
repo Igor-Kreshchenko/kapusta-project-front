@@ -1,13 +1,14 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 import FillState from "./redux/testArrays";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
 import { authOperations } from "./redux/auth";
 import Loader from "./components/Loader";
+import { transactionsOps } from "./redux/transactions";
+
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -33,13 +34,10 @@ const StatisticsPage = lazy(() =>
 );
 
 function App() {
-  // Запускает временную функцию для заполнения стейта
-  FillState();
-  // ---------
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
+    dispatch(transactionsOps.getBalance());
   }, [dispatch]);
 
   return (
@@ -49,14 +47,16 @@ function App() {
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <LoginPage />
           </PublicRoute>
 
           <PublicRoute
             path={routes.signup}
             restricted
-            redirectTo={routes.login}>
+            redirectTo={routes.login}
+          >
             <SignupPage />
           </PublicRoute>
 
@@ -76,8 +76,7 @@ function App() {
             <IncomesFormPage />
           </PrivateRoute>
 
-          {/* Временно редирект на страницу транзакций */}
-          <Redirect to="/transactions" />
+          <Redirect to={routes.transactions} />
         </Switch>
       </Suspense>
     </div>
