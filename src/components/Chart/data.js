@@ -1,10 +1,10 @@
  const data = [
     {
-      name: "Page A",
+      name: "Свинина",
       amt: 2400
     },
     {
-      name: "Page B",
+      name: "Говядина",
       amt: 2210
     },
     {
@@ -37,6 +37,26 @@
     },
     {
       name: "Page S",
+      amt: 2500
+    },
+    {
+      name: "Page N",
+      amt: 2100
+    },
+    {
+      name: "Page M",
+      amt: 2000
+    },
+    {
+      name: "Page X",
+      amt: 2181
+    },
+    {
+      name: "Page P",
+      amt: 2500
+    },
+    {
+      name: "Page L",
       amt: 2500
     }
 
