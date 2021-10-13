@@ -34,7 +34,7 @@ const TransactionsIncome = () => {
                 <span>Моя зп</span>
 
                 <span>ЗП</span>
-                <span className={styles.table_income}>20 000.00 грн.</span>
+                <span className={styles.table_income}>20000.00 грн.</span>
                 <button
                   type="button"
                   onClick={() => onDeleteIncomes()}
