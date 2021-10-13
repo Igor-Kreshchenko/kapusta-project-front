@@ -1,20 +1,36 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  transactionsOps,
+  transactionsSelectors,
+} from "../../redux/transactions";
+import { authSelectors } from "../../redux/auth";
 import TransactionMonthSummary from "../TransactionMonthSummary";
-import transactionsOps from "../../redux/transactions/transactionsOps";
-// import TransactionsExpForm from "../TransactionsExpForm";
 
 import styles from "./TransactionsExpenses.module.scss";
 
 const TransactionsExpenses = () => {
   const dispatch = useDispatch();
-  const onDeleteExpense = async (type = "expenses", id) => {
-    await dispatch(transactionsOps.deleteTransaction(type, id));
+  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
+  const expenseArray = useSelector(transactionsSelectors.getExpenses);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(transactionsOps.getTransactionsByType({ type: "expense" }));
+    }
+  }, [dispatch, isAuthenticated]);
+
+  const onDeleteExpense = async (id) => {
+    await dispatch(
+      transactionsOps.deleteTransaction({
+        type: "expense",
+        id,
+      })
+    );
   };
 
   return (
     <>
-      {/* <TransactionsExpForm /> */}
       <div className={styles.main}>
         <div className={styles.table}>
           <div className={styles.table_head}>
@@ -36,19 +52,8 @@ const TransactionsExpenses = () => {
               <button
                 type="button"
                 onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>
-                Метро (Lorem ipsum dolor sit amet, consectetur adipiscing elit.)
-              </span>
-              <span>Транспорт</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}></button>
+                className={styles.table_item_btn}
+              ></button>
             </li>
           </ul>
         </div>

@@ -3,19 +3,24 @@ import { createReducer } from "@reduxjs/toolkit";
 
 import transactionsActions from "./transactionsActions";
 
-const CATEGORIES_LIST = {
-  incomes: ["ЗП", "Доп. доход"],
-  expenses: [
-    "Транспорт",
-    "Продукты",
-    "Алкоголь",
-    "Развлечения",
-    "Всё для дома",
-    "Техника",
-    "Коммуналка, связь",
-    "Спорт, хобби",
-    "Образование",
-    "Прочее",
+ export const CATEGORIES_LIST = {
+   incomes: [
+  { "id": 13, "category": "ЗП"  },
+  { "id": 14, "category": "Дополнительные доходы" },
+   ],
+   expenses: [
+  { "id": 1, "category": "Техника"  },
+  { "id": 2, "category": "Транспорт" },
+  { "id": 3, "category":  "Образование"},
+  { "id": 4, "category":  "Всё для дома"},
+  { "id": 5, "category": "Спорт и хобби" },
+  { "id": 6, "category": "Здоровье" },
+  { "id": 7, "category": "Коммуналка и связь" },
+  { "id": 8, "category":  "Образование" },
+  { "id": 9, "category": "Прочее" },
+  { "id": 10, "category": "Развлечения" },
+  { "id": 11, "category": "Алкоголь" },
+  { "id": 12, "category": "Продукты" },
   ],
 };
 

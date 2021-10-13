@@ -8,17 +8,16 @@ import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
 import Chart from "../../components/Chart";
 import data from "../../components/Chart/data";
 
-
 const StatisticsPage = () => {
   return (
-    <>
+    <ContainerMain>
       <Header>
         <HeaderUserInfo />
       </Header>
-      <ContainerMain>
       <BalancePanelOfReports />
       <UserSummary />
       <ToggleStatistics />
+
       <Chart data={data}/>
       </ContainerMain>
     </>

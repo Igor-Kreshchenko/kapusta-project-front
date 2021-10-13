@@ -1,0 +1,65 @@
+@import "../../styles/variables";
+.Modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.container {
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-image: url("../../images/notify-mobile.svg");
+  width: 282px;
+  height: 163px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  @media screen and (min-width: 768px) {
+    top: 140px;
+    left: 40%;
+    transform: translate(-50%, 0);
+  }
+  @media screen and (min-width: 1024px) {
+    top: 140px;
+    left: 40%;
+    transform: translate(-40%, 0);
+    background-image: url("../../images/notify-desk.svg");
+    width: 296px;
+    height: 163px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 140px;
+    left: 50%;
+    transform: translate(-40%, 0);
+    padding: 30px;
+  }
+}
+.text_box {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  padding: 30px 25px;
+  @media screen and (min-width: 768px) {
+    top: 16px;
+    left: 0;
+    padding: 30px;
+  }
+}
+.first_text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: $white;
+  margin-bottom: 20px;
+}
+.second_text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: $white;
+}
