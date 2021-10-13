@@ -73,6 +73,8 @@ function App() {
           <PrivateRoute path={routes.incomes_form} redirectTo={routes.login}>
             <IncomesFormPage />
           </PrivateRoute>
+
+          <Redirect to={routes.transactions} />
         </Switch>
       </Suspense>
     </div>
