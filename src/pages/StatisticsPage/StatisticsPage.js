@@ -5,6 +5,8 @@ import BalancePanelOfReports from "../../components/BalancePanel/BalancePanelOfR
 import ContainerMain from "../../components/Container/ContainerMain";
 import Header from "../../components/Header/Header";
 import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
+import Chart from "../../components/Chart";
+import data from "../../components/Chart/data";
 
 const StatisticsPage = () => {
   return (
@@ -15,7 +17,10 @@ const StatisticsPage = () => {
       <BalancePanelOfReports />
       <UserSummary />
       <ToggleStatistics />
-    </ContainerMain>
+
+      <Chart data={data}/>
+      </ContainerMain>
+    </>
   );
 };
 
