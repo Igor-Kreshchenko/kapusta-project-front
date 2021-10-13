@@ -18,9 +18,8 @@ const StatisticsPage = () => {
       <UserSummary />
       <ToggleStatistics />
 
-      <Chart data={data}/>
-      </ContainerMain>
-    </>
+      <Chart data={data} />
+    </ContainerMain>
   );
 };
 
