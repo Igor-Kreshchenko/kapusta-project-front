@@ -7,8 +7,13 @@ import styles from "./TransactionsExpenses.module.scss";
 
 const TransactionsExpenses = () => {
   const dispatch = useDispatch();
-  const onDeleteExpense = async (type = "expenses", id) => {
-    await dispatch(transactionsOps.deleteTransaction(type, id));
+  const onDeleteExpense = async (id) => {
+    await dispatch(
+      transactionsOps.deleteTransaction({
+        type: "expense",
+        id,
+      })
+    );
   };
 
   return (
@@ -24,18 +29,6 @@ const TransactionsExpenses = () => {
           </div>
 
           <ul className={styles.table_list}>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>
-                Метро (Lorem ipsum dolor sit amet, consectetur adipiscing elit.)
-              </span>
-              <span>Транспорт</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}></button>
-            </li>
             <li className={styles.table_item}>
               <span>05.09.2019</span>
               <span>

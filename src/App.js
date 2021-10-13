@@ -6,7 +6,9 @@ import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
 import { authOperations } from "./redux/auth";
+import Loader from "./components/Loader";
 import { transactionsOps } from "./redux/transactions";
+
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -40,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={<p>...Loading</p>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute
             path={routes.login}
