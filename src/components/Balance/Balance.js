@@ -10,7 +10,7 @@ export default function Balance({ children, styles }) {
 
   const handleChange = (evt) => {
     const balance = evt.target.value;
-    setBalance(+balance);
+    setBalance(balance);
   };
 
   const handleSubmit = (evt) => {
