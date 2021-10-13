@@ -1,12 +1,12 @@
-import React, { Suspense, lazy,useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 import FillState from "./redux/testArrays";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
 import { authOperations } from "./redux/auth";
+import { transactionsOps } from "./redux/transactions";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -32,14 +32,11 @@ const StatisticsPage = lazy(() =>
 );
 
 function App() {
-  // Запускает временную функцию для заполнения стейта
-  FillState();
-  // ---------
-
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(authOperations.getCurrentUser())
-  }, [dispatch])
+    dispatch(authOperations.getCurrentUser());
+    dispatch(transactionsOps.getBalance());
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -48,14 +45,16 @@ function App() {
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <LoginPage />
           </PublicRoute>
 
           <PublicRoute
             path={routes.signup}
             restricted
-            redirectTo={routes.login}>
+            redirectTo={routes.login}
+          >
             <SignupPage />
           </PublicRoute>
 
@@ -74,9 +73,6 @@ function App() {
           <PrivateRoute path={routes.incomes_form} redirectTo={routes.login}>
             <IncomesFormPage />
           </PrivateRoute>
-
-          {/* Временно редирект на страницу транзакций */}
-          <Redirect to="/transactions" />
         </Switch>
       </Suspense>
     </div>
