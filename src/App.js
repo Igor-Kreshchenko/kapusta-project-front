@@ -46,17 +46,17 @@ function App() {
       <Suspense fallback={<p>...Loading</p>}>
         <Switch>
           <PublicRoute
-            path={routes.login}
-            restricted
-            redirectTo={routes.transactions}>
-            <LoginPage />
-          </PublicRoute>
-
-          <PublicRoute
             path={routes.signup}
             restricted
             redirectTo={routes.login}>
             <SignupPage />
+          </PublicRoute>
+          
+          <PublicRoute
+            path={routes.login}
+            restricted
+            redirectTo={routes.transactions}>
+            <LoginPage />
           </PublicRoute>
 
           <PrivateRoute path={routes.transactions} redirectTo={routes.login}>
@@ -74,9 +74,7 @@ function App() {
           <PrivateRoute path={routes.incomes_form} redirectTo={routes.login}>
             <IncomesFormPage />
           </PrivateRoute>
-
-          {/* Временно редирект на страницу транзакций */}
-          <Redirect to="/transactions" />
+          <Redirect to={routes.login} />
         </Switch>
       </Suspense>
     </div>
