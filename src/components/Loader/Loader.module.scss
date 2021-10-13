@@ -1,0 +1,50 @@
+.Loader__overlay {
+  position: fixed;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.Loader__overlay,
+.Loader {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.Loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Kapuster {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+  background-image: url(../../images/icons/kapusta-single.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 115px;
+  border-right: 3px solid #c7c7c748;
+  border-left: 3px solid #c7c7c748;
+  padding: 10px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
