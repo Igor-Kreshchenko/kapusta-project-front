@@ -91,6 +91,7 @@ const addTransaction =
 
       dispatch(transactionsActions[actionSuccessType](response.data.body));
     } catch (error) {
+      console.log(error)
       dispatch(transactionsActions[actionErrorType](error.message));
     }
   };
