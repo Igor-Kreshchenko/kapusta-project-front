@@ -59,6 +59,13 @@ function App() {
           >
             <SignupPage />
           </PublicRoute>
+          
+          <PublicRoute
+            path={routes.login}
+            restricted
+            redirectTo={routes.transactions}>
+            <LoginPage />
+          </PublicRoute>
 
           <PrivateRoute path={routes.transactions} redirectTo={routes.login}>
             <TransactionsPage />
@@ -76,7 +83,7 @@ function App() {
             <IncomesFormPage />
           </PrivateRoute>
 
-          <Redirect to={routes.transactions} />
+          <Redirect to={routes.login} />
         </Switch>
       </Suspense>
     </div>

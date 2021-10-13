@@ -27,7 +27,7 @@ const error = createReducer(null, {
 });
 
 const isAuthenticated = createReducer(false, {
-    [authActions.signupSuccess]: () => true,
+    [authActions.signupSuccess]: () => false,
     [authActions.loginSuccess]: () => true,
     [authActions.getCurrentUserSuccess]: () => true,
     [authActions.logoutSuccess]: () => false,
@@ -35,6 +35,7 @@ const isAuthenticated = createReducer(false, {
     [authActions.loginError]: () => false,
     [authActions.getCurrentUserError]: () => false,
 });
+
 
 export default combineReducers({
     user,

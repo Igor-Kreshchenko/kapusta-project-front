@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { authOperations } from '../../redux/auth';
 import ButtonSignup from "../Button/ButtonSignup";
 import styles from "./Form.module.scss";
+import routes from "../../routes"
 
 const FormSignup = () => {
 
@@ -16,10 +18,8 @@ const FormSignup = () => {
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'email':
-        console.log(value);
         return setEmail(value);
       case 'password':
-        console.log(value);
         return setPassword(value);
       default:
         return;
@@ -30,10 +30,13 @@ const FormSignup = () => {
     setPassword('');
   };
 
+  const history = useHistory();
+
   const handleSubmit = e => {
     e.preventDefault();
     signUp();
     reset();
+    history.push(routes.login);
     };
 
   return (
