@@ -50,7 +50,15 @@ const MONTHS = [
 ];
 
 const getMonthFromDate = (date) => {
-  return `${date[3]}${date[4]}`;
+  if (date[2] === "." && date[4] === ".") {
+    return `0${date[3]}`;
+  } else if (date[1] === "." && date[3] === ".") {
+    return `0${date[2]}`;
+  } else if (date[1] === "." && date[4] === ".") {
+    return `${date[2]}${date[3]}`;
+  } else if (date[2] === "." && date[4] !== ".") {
+    return `${date[3]}${date[4]}`;
+  }
 };
 
 const findMonthAmount = (number, transactions) => {
@@ -61,7 +69,7 @@ const findMonthAmount = (number, transactions) => {
   transactions.forEach(({ date, amount }) => {
     const currentMonth = getMonthFromDate(date);
 
-    if (+currentMonth == number && date.includes(currentYear)) {
+    if (currentMonth == number && date.includes(currentYear)) {
       monthSum += amount;
     }
   });
