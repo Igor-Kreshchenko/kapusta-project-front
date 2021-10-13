@@ -1,12 +1,25 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  transactionsOps,
+  transactionsSelectors,
+} from "../../redux/transactions";
+import { authSelectors } from "../../redux/auth";
 import TransactionMonthSummary from "../TransactionMonthSummary";
-import transactionsOps from "../../redux/transactions/transactionsOps";
 
 import styles from "./TransactionsExpenses.module.scss";
 
 const TransactionsExpenses = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
+  const expenseArray = useSelector(transactionsSelectors.getExpenses);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(transactionsOps.getTransactionsByType({ type: "expense" }));
+    }
+  }, [dispatch, isAuthenticated]);
+
   const onDeleteExpense = async (id) => {
     await dispatch(
       transactionsOps.deleteTransaction({
@@ -39,7 +52,8 @@ const TransactionsExpenses = () => {
               <button
                 type="button"
                 onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}></button>
+                className={styles.table_item_btn}
+              ></button>
             </li>
           </ul>
         </div>
