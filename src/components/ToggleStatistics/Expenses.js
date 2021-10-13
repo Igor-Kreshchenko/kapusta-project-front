@@ -4,15 +4,22 @@ import css from "../../components/CategoriesList/CategoriesList.module.scss";
 import sprite from "../../images/icons/sprite_categories.svg";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors"
 import transactionsOps from "../../redux/transactions/transactionsOps"
-import {CATEGORIES_LIST }from "../../redux/transactions/transactionsReducer"
+import { CATEGORIES_LIST } from "../../redux/transactions/transactionsReducer";
+
 
 const Expenses = () => {
   const transactions = useSelector(transactionsSelectors.getExpenses);
+  console.log(transactions)
   // const transactions = [] на случай если с бека вернулся пустой масив 
+
+  // const onClick = () => {
+  // console.log("Привет статистика ") // вызывает функцию   для отрисовки графиков ниже на странице
+// }
 
   const totalSumByCategory = (type, category) => {
     let total = 0;
     transactionsOps.getTransactionsByType(type)
+    console.log(type)
     transactions.filter(transaction => transaction.category === category)
       .map(el => {
         total += el.amount;
@@ -35,8 +42,8 @@ const Expenses = () => {
              
             return (
               <li className={css.item}
-                key={item._id}
-              // onClick={() => onClick(item.category.category)}
+                key={item.id}
+              // onClick={() => onClick( console.log(item.category))}
               >
                 <p className={css.text}>{sum}</p>
                 <div className={css.svg_wrapper}>
@@ -60,4 +67,4 @@ const Expenses = () => {
     </>
   )
 };
-export default Expenses;  
+export default Expenses;
