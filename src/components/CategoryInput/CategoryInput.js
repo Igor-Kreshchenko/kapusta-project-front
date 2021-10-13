@@ -1,16 +1,30 @@
 import React, { useState } from "react";
 import styles from "./CategoryInput.module.scss";
 
-const CategoryInput = () => {
+const CategoryInput = ({ type, categoryPick, setCategory }) => {
   const [isCategories, setIsCategories] = useState(false);
+
+  const expenseCategory = [
+    "Транспорт",
+    "Продукты",
+    "Здоровье",
+    "Алкоголь",
+    "Развлечения",
+    "Всё для дома",
+    "Техника",
+    "Коммуналка, связь",
+    "Спорт, хобби",
+    "Образование",
+    "Прочее",
+  ];
+  const incomeCategory = ["ЗП", "Доп. доход"];
 
   const handleClick = () => {
     setIsCategories(!isCategories);
   };
 
   const handleCategoryClick = (e) => {
-    const inputCategories = document.getElementById("category_input");
-    inputCategories.value = e.currentTarget.value;
+    setCategory(e.currentTarget.value);
     handleClick();
   };
 
@@ -21,141 +35,45 @@ const CategoryInput = () => {
         autoComplete="off"
         id="category_input"
         type="text"
-        placeholder="Категория товара"
+        value={categoryPick}
+        placeholder={
+          type === "expenses" ? "Категория товара" : "Категория дохода"
+        }
         onClick={handleClick}
       />
       {!isCategories || (
         <ul className={styles.form_category_list}>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Продукты"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Продукты
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Здоровье"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Здоровье
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Алкоголь"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Алкоголь
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Развлечения"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Развлечения
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Всё для дома"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Всё для дома
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Техника"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Техника
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Коммуналка, связь"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Коммуналка, связь
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="hСпорт, хоббиobby"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Спорт, хобби
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Образование"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Образование
-            </label>
-          </li>
-          <li>
-            <label className={styles.category_label}>
-              <input
-                onClick={handleCategoryClick}
-                hidden
-                value="Прочее"
-                type="radio"
-                name="exp_category"
-                className={styles.radiobutton}
-              />
-              Прочее
-            </label>
-          </li>
+          {type === "expenses"
+            ? expenseCategory.map((expense, index) => (
+                <li key={index}>
+                  <label className={styles.category_label}>
+                    <input
+                      onClick={handleCategoryClick}
+                      hidden
+                      value={expense}
+                      type="radio"
+                      name="exp_category"
+                      className={styles.radiobutton}
+                    />
+                    {expense}
+                  </label>
+                </li>
+              ))
+            : incomeCategory.map((income, index) => (
+                <li key={index}>
+                  <label className={styles.category_label}>
+                    <input
+                      onClick={handleCategoryClick}
+                      hidden
+                      value={income}
+                      type="radio"
+                      name="exp_category"
+                      className={styles.radiobutton}
+                    />
+                    {income}
+                  </label>
+                </li>
+              ))}
         </ul>
       )}
       {!isCategories ? (

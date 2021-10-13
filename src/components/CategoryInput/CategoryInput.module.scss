@@ -49,10 +49,12 @@
 .arrow_down {
   @extend .arrow;
   background-image: url("../../images/icons/arrow-down.svg");
+  background-repeat: no-repeat;
 }
 .arrow_up {
   @extend .arrow;
   background-image: url("../../images/icons/arrow-up.svg");
+  background-repeat: no-repeat;
 }
 .form_input_category {
   position: relative;
