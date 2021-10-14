@@ -1,4 +1,5 @@
 @import "../../styles/size";
+@import "../../styles/variables";
 
 .main {
   display: flex;
@@ -15,7 +16,7 @@
 
 .table {
   border-radius: 30px 30px 0px 0px;
-  background: #f5f6fb;
+  background: $bg-gray;
 
   @include size(tablet) {
     margin-bottom: 55px;
@@ -32,7 +33,7 @@
   height: 38px;
   font-size: 13px;
   font-weight: normal;
-  color: #52555f;
+  color: $gray-btn-logout;
 
   & :nth-child(1) {
     padding-left: 25px;
@@ -51,7 +52,7 @@
 .table_title {
   font-size: 11px;
   font-weight: 700;
-  color: #000000;
+  color: $black;
   padding: 0 8px;
   text-transform: uppercase;
 }
@@ -59,12 +60,12 @@
 .table_list {
   margin: 0;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
 
   @include size(tablet) {
     height: 380px;
-    border-left: 1px solid #f4f6fb;
-    border-right: 1px solid #f4f6fb;
+    border-left: 1px solid $table-list;
+    border-right: 1px solid $table-list;
   }
 
   @include size(desktop) {
@@ -75,15 +76,16 @@
 .table_item {
   display: grid;
   align-items: center;
-  grid-template-columns: 65px 45px 73px 65px 32px;
-  background: #ffffff;
-  color: #52555f;
-  border-bottom: 1px solid #f5f6fb;
+  grid-template-columns: 85px 100px 100px 30px;
+  align-items: center;
+  background: $white;
+  color: $gray-btn-logout;
+  border-bottom: 1px solid $bg-gray;
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  font-size: 11px;
-  line-height: 9px;
+  font-size: 10px;
+  line-height: 15px;
   letter-spacing: 0.04em;
   height: 50px;
 
@@ -108,12 +110,33 @@
     background-position: center;
 
     &:hover {
-      background-color: #f5f6fb;
+      background-color: $bg-gray;
     }
   }
 
-  @include size(mobile) {
-    grid-template-columns: 80px 59px 73px 77px 40px;
+  @include size(mobile-only) {
+    & :nth-child(1) {
+      grid-row: 2 / 4;
+    }
+
+    & :nth-child(2) {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    & :nth-child(3) {
+      grid-row: 2 / 4;
+    }
+
+    & :nth-child(4) {
+      grid-row: 1 / 4;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    & :nth-child(5) {
+      grid-row: 1 / 4;
+    }
   }
 
   @include size(tablet) {
@@ -124,7 +147,7 @@
     font-size: 12px;
     line-height: 14px;
     padding: 0 8px;
-    border-bottom: 2px solid #f4f6fb;
+    border-bottom: 2px solid $table-list;
 
     & span {
       padding: 0px 13px 0px 0px;
@@ -142,5 +165,5 @@
 
 .table_expenses {
   font-weight: 700;
-  color: #e7192e;
+  color: $expenses-color;
 }

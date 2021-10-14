@@ -24,7 +24,7 @@
   }
 
   @include size(tablet) {
-    width: 100%;
+    // width: 100%;
     // padding-left: 50px;
     // padding-right: 50px;
   }
@@ -45,6 +45,10 @@
   background: $bg-gray;
   border-radius: 0px 0px 0px 125px;
   z-index: -8888;
+
+  @include size(tablet) {
+    height: 583px;
+  }
 }
 
 .white {

@@ -1,12 +1,14 @@
-import React, { Suspense, lazy,useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 import FillState from "./redux/testArrays";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
 import { authOperations } from "./redux/auth";
+import Loader from "./components/Loader";
+import { transactionsOps } from "./redux/transactions";
+
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -32,31 +34,37 @@ const StatisticsPage = lazy(() =>
 );
 
 function App() {
-  // Запускает временную функцию для заполнения стейта
-  FillState();
-  // ---------
-
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(authOperations.getCurrentUser())
-  }, [dispatch])
+    dispatch(authOperations.getCurrentUser());
+    dispatch(transactionsOps.getBalance());
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Suspense fallback={<p>...Loading</p>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <LoginPage />
           </PublicRoute>
 
           <PublicRoute
             path={routes.signup}
             restricted
-            redirectTo={routes.login}>
+            redirectTo={routes.login}
+          >
             <SignupPage />
+          </PublicRoute>
+          
+          <PublicRoute
+            path={routes.login}
+            restricted
+            redirectTo={routes.transactions}>
+            <LoginPage />
           </PublicRoute>
 
           <PrivateRoute path={routes.transactions} redirectTo={routes.login}>
@@ -75,8 +83,7 @@ function App() {
             <IncomesFormPage />
           </PrivateRoute>
 
-          {/* Временно редирект на страницу транзакций */}
-          <Redirect to="/transactions" />
+          <Redirect to={routes.login} />
         </Switch>
       </Suspense>
     </div>

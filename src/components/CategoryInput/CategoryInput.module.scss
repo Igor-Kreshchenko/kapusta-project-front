@@ -1,22 +1,30 @@
+@import "../../styles/size";
+@import "../../styles/variables";
+
 .form_category_list {
   position: absolute;
   left: 0px;
   top: 100%;
-  color: #c7ccdc;
+  color: $dropdown-list;
   box-shadow: 0px 3px 4px rgba(170, 178, 197, 0.4);
-  background-color: white;
+  background-color: $white;
   border: none;
-  @media screen and (min-width: 768px) {
+
+  @include size(tablet) {
     width: 171px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     width: 188px;
   }
 }
 
 .form_input_category_parent {
   position: relative;
+
+  @include size(mobile-only) {
+    margin-bottom: 30px;
+  }
 }
 
 .category_label {
@@ -26,7 +34,7 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-  color: #c7ccdc;
+  color: $dropdown-list;
   height: 32px;
   width: 188px;
   display: inline-block;
@@ -34,46 +42,60 @@
 
   &:hover,
   &:focus {
-    background-color: #f5f6fb;
-    color: black;
+    background-color: $bg-gray;
+    color: $black;
   }
 }
+
 .arrow {
   position: absolute;
   right: 18px;
   top: 18px;
   width: 12px;
   height: 8px;
-  color: #52555f;
+  color: $gray-btn-logout;
 }
+
 .arrow_down {
   @extend .arrow;
   background-image: url("../../images/icons/arrow-down.svg");
+  background-repeat: no-repeat;
 }
+
 .arrow_up {
   @extend .arrow;
   background-image: url("../../images/icons/arrow-up.svg");
+  background-repeat: no-repeat;
 }
+
 .form_input_category {
   position: relative;
-  border: 2px solid #f5f6fb;
-  border-top: 2px solid #f5f6fb;
+  border-top: 2px solid $bg-gray;
   border-right: none;
-  border-bottom: 2px solid #f5f6fb;
+  border-bottom: 2px solid $bg-gray;
   border-left: none;
-  box-sizing: border-box;
   outline: none;
   padding-left: 21px;
 
   &:focus + .arrow {
     transform: rotate(-180deg);
   }
-  @media screen and (min-width: 768px) {
+
+  @include size(mobile-only) {
+    width: 282px;
+    height: 44px;
+    border: 2px solid $white;
+    border-top: none;
+    border-radius: 0px 0px 16px 16px;
+    background-color: inherit;
+  }
+
+  @include size(tablet) {
     width: 171px;
     height: 44px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     width: 188px;
   }
 }

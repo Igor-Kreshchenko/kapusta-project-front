@@ -8,7 +8,11 @@ import transactionsOps from "../../redux/transactions/transactionsOps";
 import { CATEGORIES_LIST } from "../../redux/transactions/transactionsReducer";
 
 const Income = () => {
-    const transactions = useSelector(transactionsSelectors.getIncomes);
+  const transactions = useSelector(transactionsSelectors.getIncomes);
+  
+    // const onClick = () => {
+  // console.log("Привет статистика ") // вызывает функцию   для отрисовки графиков ниже на странице
+// }
 
     const totalSumByCategory = (type, category) => {
     let total = 0;
@@ -31,8 +35,8 @@ const Income = () => {
              
             return (
               <li className={css.item}
-                key={item.category._id}
-              // onClick={() => onClick(item.category.category)}
+                key={item.id}
+               //   onClick={() => onClick( console.log(item.category))}
               >
                 <p className={css.text}>{sum}</p>
                 <div className={css.svg_wrapper}>

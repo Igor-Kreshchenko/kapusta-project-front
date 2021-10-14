@@ -6,9 +6,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: $gray-placeholder;
-  z-index: 999;
+  z-index: 101; //потому что в CategoriesListItems - 100
+  backdrop-filter: blur(5px);
 }
+
 .Modal__content {
   position: absolute;
   top: 50%;
@@ -20,21 +21,20 @@
   border-radius: 30px;
   background-color: $white;
 }
+
 .textContent {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  // text-transform: uppercase;
-  // display: flex;
-  // align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
   color: $main-text-cl;
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
 .Modal__close {
   position: absolute;
   top: 20px;
