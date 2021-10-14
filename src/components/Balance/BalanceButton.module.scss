@@ -1,3 +1,4 @@
+@import "../../styles/size";
 @import "../../styles/variables";
 
 .form_button {
@@ -18,7 +19,7 @@
   color: $main-text-cl;
   transition: background-color 300ms linear;
 
-  @media screen and (min-width: 768px) {
+  @include size(tablet) {
     border-radius: 16px;
     margin-left: 15px;
   }

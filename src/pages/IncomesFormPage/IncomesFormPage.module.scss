@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/size";
 
 .container {
   width: 282px;
@@ -6,7 +7,7 @@
   margin: 15px 19px;
   margin-bottom: 30px;
 
-  @media screen and (min-width: 768px) {
+  @include size(tablet) {
     display: flex;
     align-items: center;
     width: 664px;
@@ -17,7 +18,7 @@
     margin-right: 54px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     width: 1064px;
     margin-left: 110px;
     margin-right: 110px;

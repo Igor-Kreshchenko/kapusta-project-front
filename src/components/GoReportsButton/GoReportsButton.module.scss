@@ -1,7 +1,7 @@
 @import "../../styles/variables";
+@import "../../styles/size";
 
 .GoReportsButton {
-  //   width: 154px;
   height: 24px;
   margin: auto;
 
@@ -16,7 +16,7 @@
     color: $main-text-cl;
   }
 
-  @media screen and (min-width: 768px) {
+  @include size(tablet) {
     margin-right: 0;
   }
 }
