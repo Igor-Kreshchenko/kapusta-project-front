@@ -6,6 +6,7 @@ import { authOperations } from "../../redux/auth";
 import ButtonLogin from "../Button/ButtonLogin";
 import ButtonToSignup from "../Button/ButtonToSignup";
 import styles from "./Form.module.scss";
+import google from "../../images/google.png";
 
 const FormLogin = () => {
   const dispatch = useDispatch();
@@ -49,15 +50,20 @@ const FormLogin = () => {
       <p className={styles.textGoogle}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a
-        href="https://kapusta-app.herokuapp.com/api/users/google"
-        className={styles.button__Google}
-      >
-        Google
-      </a>
-      {/* <button type="button" className={styles.button__Google}>
-        Google
-      </button> */}
+      <div className={styles.buttonGoogleStyle}>
+        <img
+          title="my-img"
+          src={google}
+          alt="logo"
+          className={styles.formRegistGoogle}
+        />
+        <a
+          href="https://kapusta-app.herokuapp.com/api/users/google"
+          className={styles.button__Google}
+        >
+          Google
+        </a>
+      </div>
       <p className={styles.text}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
