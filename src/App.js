@@ -9,7 +9,6 @@ import { authOperations } from "./redux/auth";
 import Loader from "./components/Loader";
 import { transactionsOps } from "./redux/transactions";
 
-
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
 const LoginPage = lazy(() =>
@@ -31,6 +30,9 @@ const StatisticsPage = lazy(() =>
   import(
     "./pages/StatisticsPage/StatisticsPage" /* webpackChunkName: "statistics-page" */
   )
+);
+const VerifyPage = lazy(() =>
+  import("./pages/VerifyPage" /* webpackChunkName: "verify-page" */)
 );
 
 function App() {
@@ -59,11 +61,20 @@ function App() {
           >
             <SignupPage />
           </PublicRoute>
-          
+
+          <PublicRoute
+            path={routes.verify}
+            restricted
+            redirectTo={routes.transactions}
+          >
+            <VerifyPage />
+          </PublicRoute>
+
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <LoginPage />
           </PublicRoute>
 

@@ -1,0 +1,27 @@
+@import "../../styles/size";
+@import "../../styles/variables";
+
+.verifyDiv {
+    margin-top: 50px;
+    padding: 20px 40px;
+    width: calc(100%/2);
+    min-width: 210px;
+    height: calc(100%/3);
+    background-color: $white;
+    box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+    border-radius: 30px;
+}
+
+.verifyText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    color: $main-text-cl;
+
+
+
+    @include size(desktop) {
+        font-size: 18px;
+    }
+}
