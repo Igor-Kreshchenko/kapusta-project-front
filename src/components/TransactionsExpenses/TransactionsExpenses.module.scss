@@ -76,7 +76,6 @@
   display: grid;
   align-items: center;
   grid-template-columns: 85px 100px 100px 30px;
-  grid-template-rows: 15px;
   align-items: center;
   background: #ffffff;
   color: #52555f;
@@ -114,7 +113,7 @@
     }
   }
 
-  @include size(mobile) {
+  @include size(mobile-only) {
     & :nth-child(1) {
       grid-row: 2 / 4;
     }
