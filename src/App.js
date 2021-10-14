@@ -1,13 +1,11 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import FillState from "./redux/testArrays";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
 import { authOperations } from "./redux/auth";
 import Loader from "./components/Loader";
-import { transactionsOps } from "./redux/transactions";
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
