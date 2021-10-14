@@ -36,6 +36,7 @@
 
   @include size(mobile-only) {
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 
   @include size(tablet) {
