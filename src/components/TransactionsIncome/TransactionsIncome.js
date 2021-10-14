@@ -13,6 +13,11 @@ const TransactionsIncome = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
   const incomeArray = useSelector(transactionsSelectors.getIncomes);
+  const sortedArray = [...incomeArray].sort((prevIncome, nextIncome) => {
+    const prevDateArr = prevIncome.date.split(".");
+    const nextDateArr = nextIncome.date.split(".");
+    return new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) - new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+  });
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -44,7 +49,7 @@ const TransactionsIncome = () => {
 
           <div>
             <ul className={styles.table_list}>
-            {incomeArray.map(({date, description, amount, id, category}) => (
+            {sortedArray.map(({date, description, amount, id, category}) => (
               <li key={id} className={styles.table_item}>
                 <span>{date}</span>
                 <span>{description}</span>
