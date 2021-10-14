@@ -1,4 +1,5 @@
 @import "../../styles/size";
+@import "../../styles/variables";
 
 .react-datepicker {
   position: relative;
@@ -8,12 +9,12 @@
   color: #52555f;
   border-radius: 14px;
   filter: drop-shadow(4.5px 7.794px 10.5px rgba(170, 178, 197, 0.78));
-  background-color: #ffffff;
+  background-color: $white;
   z-index: 9;
 }
 
 .react-datepicker__portal {
-  background-color: #66666667;
+  background-color: $datepicker-portal;
   backdrop-filter: blur(2px);
 }
 
@@ -23,10 +24,10 @@
 }
 
 .react-datepicker__day--selected {
-  background-color: #ff751d;
+  background-color: $orange;
 
   &:hover {
-    background-color: #cc5e19;
+    background-color: $dark-orange;
   }
 }
 
@@ -69,7 +70,7 @@
   line-height: 14px;
   letter-spacing: 0.04em;
   outline: none;
-  color: #52555f;
+  color: $gray-btn-logout;
 
   &:hover {
     cursor: pointer;

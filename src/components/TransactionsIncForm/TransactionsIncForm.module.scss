@@ -1,4 +1,5 @@
 @import "../../styles/size";
+@import "../../styles/variables";
 
 .form {
   display: flex;
@@ -48,7 +49,7 @@
     bottom: 13px;
     width: 20px;
     height: 20px;
-    color: #52555f;
+    color: $gray-btn-logout;
     background-image: url("../../images/icons/calculator.svg");
 
     @include size(mobile-only) {
@@ -64,7 +65,7 @@
     &::before {
       content: "";
       position: absolute;
-      border-right: 2px solid #ffffff;
+      border-right: 2px solid $white;
       width: 2px;
       height: 44px;
       bottom: 70px;
@@ -74,7 +75,7 @@
 }
 
 .form_input_description {
-  border: 2px solid #f5f6fb;
+  border: 2px solid $bg-gray;
   border-radius: 16px 0px 0px 0px;
   outline: none;
   padding-left: 20px;
@@ -82,7 +83,7 @@
   @include size(mobile-only) {
     width: 282px;
     height: 44px;
-    border: 2px solid #ffffff;
+    border: 2px solid $white;
     border-radius: 16px 16px 0px 0px;
     background-color: inherit;
   }
@@ -99,7 +100,7 @@
 
 .form_input_amount {
   position: relative;
-  border: 2px solid #f5f6fb;
+  border: 2px solid $bg-gray;
   border-radius: 0px 16px 16px 0px;
   outline: none;
   padding-left: 21px;
@@ -110,7 +111,7 @@
     margin-bottom: 70px;
     border-radius: 22px;
     background-color: inherit;
-    border: 2px solid #ffffff;
+    border: 2px solid $white;
   }
 
   @include size(tablet) {
@@ -138,8 +139,8 @@
     width: 125px;
     height: 44px;
     border-radius: 16px;
-    background: #ff751d;
-    color: #ffffff;
+    background: $orange;
+    color: $white;
     text-align: center;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     text-transform: uppercase;
@@ -155,11 +156,11 @@
     width: 125px;
     height: 44px;
     border-radius: 16px;
-    color: #52555f;
+    color: $gray-btn-logout;
     text-align: center;
-    background: #ffffff;
+    background: $white;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     text-transform: uppercase;
-    border: 2px solid #f5f6fb;
+    border: 2px solid $bg-gray;
   }
 }
