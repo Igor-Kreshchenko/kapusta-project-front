@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import transactionsOps from "../../redux/transactions/transactionsOps";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors";
@@ -7,6 +7,10 @@ export default function Balance({ children, styles }) {
   const currentBalance = useSelector(transactionsSelectors.getBalance);
   const dispatch = useDispatch();
   const [balance, setBalance] = useState("");
+
+  useEffect(()=>{
+    dispatch(transactionsOps.getBalance());
+  },[dispatch])
 
   const handleChange = (evt) => {
     const balance = evt.target.value;
