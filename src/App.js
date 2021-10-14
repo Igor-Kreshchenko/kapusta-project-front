@@ -39,7 +39,6 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
-    dispatch(transactionsOps.getBalance());
   }, [dispatch]);
 
   return (
