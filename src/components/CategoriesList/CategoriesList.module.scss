@@ -1,3 +1,6 @@
+@import "../../styles/size";
+@import "../../styles/variables";
+
 .list {
   display: flex;
   justify-content: center;
@@ -26,8 +29,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 15px;
-
-  color: #52555f;
+  color: $gray-btn-logout;
 }
 
 .svg_wrapper {
@@ -37,10 +39,11 @@
   border-radius: 20px;
   margin-bottom: 7px;
 
-  background-color: #f5f6fb;
+  background-color: $gray-btn;
 }
+
 .svg_wrapper:hover {
-  background-color: #ffdac0;
+  background-color: $light-orange;
 }
 
 .icon {
@@ -53,7 +56,7 @@
 }
 
 .icon:hover {
-  fill: #ff751d;
+  fill: $orange;
 }
 
 .title {
@@ -67,11 +70,10 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
-  color: #52555f;
+  color: $gray-btn-logout;
 }
 
-@media screen and (min-width: 768px) {
+@include size(tablet) {
   .list {
     width: 670px;
   }

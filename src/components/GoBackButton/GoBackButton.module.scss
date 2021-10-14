@@ -1,33 +1,33 @@
 @import "../../styles/variables";
+@import "../../styles/size";
 
-.GoBackButton{ 
-    width: 24px;
-    height: 24px;
-   
-    &:hover{
-        transform: scale(0.9);
-    }
+.GoBackButton {
+  width: 24px;
+  height: 24px;
 
-    @media screen and (min-width: 768px) {
-        width: 174px;        
-        margin: 10px 0;
-    }
+  &:hover {
+    transform: scale(0.9);
+  }
+
+  @include size(tablet) {
+    width: 174px;
+    margin: 10px 0;
+  }
 }
 
-.link{
-    text-decoration: none;
-    position: relative;
-    
-    @media screen and (min-width: 768px) {
+.link {
+  text-decoration: none;
+  position: relative;
 
-        &::after{
-            content: 'Вернуться на главную';
-            font-size: 12px;
-            color: $main-text-cl;
-            position: absolute;
-            top: -2px;
-            left: 40px;
-            width: 150px;
-        }
+  @include size(tablet) {
+    &::after {
+      content: "Вернуться на главную";
+      font-size: 12px;
+      color: $main-text-cl;
+      position: absolute;
+      top: -2px;
+      left: 40px;
+      width: 150px;
     }
+  }
 }

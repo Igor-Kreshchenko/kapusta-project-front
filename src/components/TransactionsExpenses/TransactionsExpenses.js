@@ -20,7 +20,9 @@ const TransactionsExpenses = () => {
     }
   }, [dispatch, isAuthenticated]);
 
-  const onDeleteExpense = async (id) => {
+  const onDeleteExpense = async (e) => {
+    const {id} = e.target.dataset;
+
     await dispatch(
       transactionsOps.deleteTransaction({
         type: "expense",
@@ -42,28 +44,20 @@ const TransactionsExpenses = () => {
           </div>
 
           <ul className={styles.table_list}>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Метро</span>
+            {expenseArray.map(({date, description, amount, id, category}) => (
+              <li key={id} className={styles.table_item}>
+                <span>{date}</span>
+                <span>{description}</span>
 
-              <span>Транспорт</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}></button>
-            </li>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>Метро</span>
-
-              <span>Транспорт</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}></button>
-            </li>
+                <span>{category}</span>
+                <span className={styles.table_expenses}>-{amount} грн.</span>
+                <button
+                  type="button"
+                  data-id={id}
+                  onClick={onDeleteExpense}
+                  className={styles.table_item_btn}></button>
+              </li>
+            ))}
           </ul>
         </div>
 
