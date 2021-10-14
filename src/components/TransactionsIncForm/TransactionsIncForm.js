@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import MyDatePicker from "../MyDatePicker";
 import CategoryInput from "../CategoryInput";
 import transactionsOps from "../../redux/transactions/transactionsOps";
-// import styles from "./TransactionsIncForm.module.scss";
-import styles from "../TransactionsExpForm/TransactionsExpForm.module.scss";
+import styles from "./TransactionsIncForm.module.scss";
 
 const TransactionsIncForm = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -75,8 +74,7 @@ const TransactionsIncForm = () => {
         <button
           type="button"
           onClick={reset}
-          className={styles.form__btn_clear}
-        >
+          className={styles.form__btn_clear}>
           Очистить
         </button>
       </div>

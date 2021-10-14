@@ -59,7 +59,7 @@
 .table_list {
   margin: 0;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
 
   @include size(tablet) {
     height: 380px;
@@ -75,14 +75,16 @@
 .table_item {
   display: grid;
   align-items: center;
-  grid-template-columns: 65px 45px 73px 65px 32px;
+  grid-template-columns: 85px 100px 100px 30px;
+  grid-template-rows: 15px;
+  align-items: center;
   background: #ffffff;
   color: #52555f;
   border-bottom: 1px solid #f5f6fb;
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 9px;
   letter-spacing: 0.04em;
   height: 50px;
@@ -113,7 +115,28 @@
   }
 
   @include size(mobile) {
-    grid-template-columns: 80px 59px 73px 77px 40px;
+    & :nth-child(1) {
+      grid-row: 2 / 4;
+    }
+
+    & :nth-child(2) {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    & :nth-child(3) {
+      grid-row: 2 / 4;
+    }
+
+    & :nth-child(4) {
+      grid-row: 1 / 4;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    & :nth-child(5) {
+      grid-row: 1 / 4;
+    }
   }
 
   @include size(tablet) {
