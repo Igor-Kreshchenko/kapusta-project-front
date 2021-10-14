@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./VerifyWindow.module.scss";
@@ -7,6 +8,7 @@ const VerifyWindow = () => {
   const { verifyToken } = useParams();
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     async function getData() {
@@ -15,6 +17,9 @@ const VerifyWindow = () => {
         setResponse(result);
       } catch (error) {
         setError(error.message);
+        setTimeout(() => {
+          //   history.push("/login");
+        }, 4000);
       }
     }
     getData();
@@ -29,8 +34,14 @@ const VerifyWindow = () => {
 
   return (
     <div className={styles.verifyDiv}>
-      {error && <h1 className={styles.verifyText}>{createMessage(error)}</h1>}
-      {response && <h1 className={styles.verifyText}>{response}</h1>}
+      {error ? (
+        <h1 className={styles.verifyText}>{createMessage(error)}</h1>
+      ) : (
+        <h1 className={styles.verifyText}>
+          Ваш email успешно верифицирован, в течении нескольких секунд вас
+          перенаправит на страницу логина.
+        </h1>
+      )}
     </div>
   );
 };
