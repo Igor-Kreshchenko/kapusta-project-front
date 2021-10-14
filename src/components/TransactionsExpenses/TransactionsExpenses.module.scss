@@ -114,7 +114,7 @@
     }
   }
 
-  @include size(mobile) {
+  @include size(mobile-only) {
     & :nth-child(1) {
       grid-row: 2 / 4;
     }
