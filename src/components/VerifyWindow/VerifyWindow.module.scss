@@ -3,11 +3,15 @@
 
 .verifyDiv {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 50px;
     padding: 20px 40px;
     width: calc(100%/2);
     min-width: 210px;
     height: calc(100%/3);
+    min-height: 150px;
     background-color: $white;
     box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
     border-radius: 30px;
