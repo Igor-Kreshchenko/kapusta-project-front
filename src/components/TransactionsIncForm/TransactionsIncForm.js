@@ -9,14 +9,14 @@ const TransactionsIncForm = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState(0.0);
+  const [amount, setAmount] = useState("");
   const dispatch = useDispatch();
 
   const reset = () => {
     setStartDate(new Date());
     setCategory("");
     setDescription("");
-    setAmount(0);
+    setAmount("");
   };
 
   const onFormSubmit = (e) => {

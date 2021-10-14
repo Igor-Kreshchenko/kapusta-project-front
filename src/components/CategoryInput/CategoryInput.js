@@ -35,6 +35,7 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
         autoComplete="off"
         id="category_input"
         type="text"
+        readOnly
         value={categoryPick}
         placeholder={
           type === "expenses" ? "Категория товара" : "Категория дохода"
@@ -51,6 +52,7 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
                       onClick={handleCategoryClick}
                       hidden
                       value={expense}
+                      readOnly
                       type="radio"
                       name="exp_category"
                       className={styles.radiobutton}
@@ -66,6 +68,7 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
                       onClick={handleCategoryClick}
                       hidden
                       value={income}
+                      readOnly
                       type="radio"
                       name="exp_category"
                       className={styles.radiobutton}
