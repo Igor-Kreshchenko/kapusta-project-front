@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./VerifyWindow.module.scss";
+import BounceKapusta from "./BounceKapusta";
+import { motion } from "framer-motion";
 
 const VerifyWindow = () => {
   const { verifyToken } = useParams();
@@ -15,14 +17,16 @@ const VerifyWindow = () => {
       try {
         const result = await axios.get(`/users/verify/${verifyToken}`);
         setResponse(result);
+        setTimeout(() => {
+          history.push("/login");
+        }, 4000);
       } catch (error) {
         setError(error.message);
-        setTimeout(() => {
-          //   history.push("/login");
-        }, 4000);
       }
     }
-    getData();
+    setTimeout(() => {
+      getData();
+    }, 300);
   }, []);
 
   const createMessage = (message) => {
@@ -33,16 +37,22 @@ const VerifyWindow = () => {
   };
 
   return (
-    <div className={styles.verifyDiv}>
-      {error ? (
-        <h1 className={styles.verifyText}>{createMessage(error)}</h1>
-      ) : (
-        <h1 className={styles.verifyText}>
-          Ваш email успешно верифицирован, в течении нескольких секунд вас
-          перенаправит на страницу логина.
-        </h1>
-      )}
-    </div>
+    <Fragment>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 0.25 } }}
+        className={styles.verifyDiv}
+      >
+        {error && <h1 className={styles.verifyText}>{createMessage(error)}</h1>}
+        {response && (
+          <h1 className={styles.verifyText}>
+            Ваш email успешно верифицирован, в течении нескольких секунд вас
+            перенаправит на страницу логина.
+          </h1>
+        )}
+        {!error & !response ? <BounceKapusta /> : <Fragment />}
+      </motion.div>
+    </Fragment>
   );
 };
 
