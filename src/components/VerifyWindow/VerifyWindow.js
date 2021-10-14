@@ -28,7 +28,7 @@ const VerifyWindow = () => {
     setTimeout(() => {
       getData();
     }, 300);
-  }, []);
+  }, [history, verifyToken]);
 
   const createMessage = (message) => {
     if (message.includes(500)) {
