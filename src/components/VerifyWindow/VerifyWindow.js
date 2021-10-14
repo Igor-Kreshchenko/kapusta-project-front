@@ -5,6 +5,7 @@ import axios from "axios";
 import styles from "./VerifyWindow.module.scss";
 import BounceKapusta from "./BounceKapusta";
 import { motion } from "framer-motion";
+import GoBackButton from "../GoBackButton";
 
 const VerifyWindow = () => {
   const { verifyToken } = useParams();
@@ -38,6 +39,10 @@ const VerifyWindow = () => {
 
   return (
     <Fragment>
+      <div className={styles.button}>
+        <GoBackButton />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1, transition: { duration: 0.25 } }}
