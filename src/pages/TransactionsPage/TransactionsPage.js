@@ -22,7 +22,6 @@ const TransactionsPage = () => {
   const isLoading = useSelector(transactionsSelectors.getLoading);
   const [isModal, setIsToggleModal] = useState(true);
   const balance = storePersistor.store.getState().transactions.balance;
-
   const numberExpenses =
     storePersistor.store.getState().transactions.expenses.length;
   const onClose = () => {

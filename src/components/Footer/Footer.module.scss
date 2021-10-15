@@ -2,10 +2,6 @@
 @import "../../styles/size";
 
 footer {
-  //   position: sticky;
-
-  //   text-align: center;
-  height: 50px;
   width: 100%;
   background: $gray-btn;
   display: flex;
@@ -30,6 +26,7 @@ footer {
     fill: $orange;
   }
 }
+
 .list {
   display: flex;
   width: calc((100% - 100px) / 2);

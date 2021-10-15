@@ -11,6 +11,7 @@ const Footer = () => {
     "https://www.linkedin.com/in/denyskodak/",
     "https://www.linkedin.com/in/oleksandra-shelest-2b8898219/",
   ];
+
   const links2 = [
     "https://www.linkedin.com/in/oleksii-patsiuk-23300448/",
     "https://www.linkedin.com/in/nina-motorna",

@@ -18,7 +18,6 @@ const StatisticsPage = () => {
       <BalancePanelOfReports />
       <UserSummary />
       <ToggleStatistics />
-
       <Chart data={data} />
       <Footer />
     </ContainerMain>
