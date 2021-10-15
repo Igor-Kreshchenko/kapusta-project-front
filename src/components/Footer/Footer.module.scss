@@ -1,0 +1,37 @@
+@import "../../styles/variables";
+@import "../../styles/size";
+
+footer {
+  width: 100%;
+  background: $gray-btn;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @include size(desktop) {
+    margin-top: 50px;
+  }
+  @include size(tablet) {
+    margin-top: 325px;
+  }
+}
+
+.link {
+  display: inline-block;
+}
+
+.icon {
+  fill: $datepicker-portal;
+  &:hover,
+  &:focus {
+    fill: $orange;
+  }
+}
+
+.list {
+  display: flex;
+  width: calc((100% - 100px) / 2);
+  justify-content: space-evenly;
+  &:nth-child(even) {
+    transform: rotate(180deg);
+  }
+}

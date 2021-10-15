@@ -15,14 +15,13 @@ import TransactionsExpForm from "../../components/TransactionsExpForm";
 import TransactionsIncForm from "../../components/TransactionsIncForm";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors";
 import Loader from "../../components/Loader";
-
+import Footer from "../../components/Footer";
 import "./TransactionsPage.scss";
 
 const TransactionsPage = () => {
   const isLoading = useSelector(transactionsSelectors.getLoading);
   const [isModal, setIsToggleModal] = useState(true);
   const balance = storePersistor.store.getState().transactions.balance;
-
   const numberExpenses =
     storePersistor.store.getState().transactions.expenses.length;
   const onClose = () => {
@@ -82,7 +81,7 @@ const TransactionsPage = () => {
             </TabPanel>
           </Tabs>
         </Mobile>
-
+        <Footer />
         {isLoading && <Loader />}
       </ContainerMain>
     </>
