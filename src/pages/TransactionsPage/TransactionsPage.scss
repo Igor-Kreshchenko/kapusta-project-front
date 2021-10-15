@@ -1,4 +1,5 @@
 @import "../../styles/size";
+@import "../../styles/variables";
 
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
@@ -27,7 +28,7 @@
     list-style: none;
     padding: 15px 45px 15px 45px;
     cursor: pointer;
-    background: #f5f6fb;
+    background: $tab-main;
     border: none;
 
     font-family: Roboto;
@@ -41,14 +42,14 @@
     text-transform: uppercase;
 
     &--selected {
-      background: #fefefe;
+      background: $tab-selected;
       border-color: #aaa;
-      color: #ff751d;
+      color: $orange;
 
       @include size(mobile-only) {
-        background: #ff751d;
+        background: $orange;
         border-color: #aaa;
-        color: #fefefe;
+        color: $tab-selected;
       }
     }
 
@@ -58,8 +59,8 @@
     }
 
     &:focus {
-      box-shadow: 0 0 5px hsl(208, 99%, 50%);
-      border-color: hsl(208, 99%, 50%);
+      box-shadow: 0 0 5px $gray-placeholder;
+      border-color: $gray-placeholder;
       outline: none;
 
       &:after {
@@ -69,7 +70,7 @@
         left: -4px;
         right: -4px;
         bottom: -5px;
-        background: #fff;
+        background: $white;
       }
     }
 
@@ -80,7 +81,6 @@
 
     @include size(tablet) {
       border-radius: 20px 20px 0px 0px;
-      background: #fafbfd;
     }
   }
 
@@ -90,7 +90,7 @@
     &--selected {
       display: block;
       padding: 20px;
-      background: #ffffff;
+      background: $white;
 
       @include size(mobile-only) {
         display: flex;
@@ -143,14 +143,14 @@
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
-  color: #d3d5da;
+  color: $dropdown-list;
 }
 
 .Add_button {
   border-radius: 20px 20px 0px 0px;
   border: none;
-  background: #ff751d;
-  color: #fafbfd;
+  background: $orange;
+  color: $tab-main;
   font-size: 14px;
   padding: 20px 20px 5px 20px;
   text-decoration: none;

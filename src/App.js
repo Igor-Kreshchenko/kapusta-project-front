@@ -1,14 +1,11 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import FillState from "./redux/testArrays";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import routes from "./routes";
 import { authOperations } from "./redux/auth";
 import Loader from "./components/Loader";
-import { transactionsOps } from "./redux/transactions";
-
 
 // Расскоментировать. Исправить путь импорта, если нужно. Вставить компонент в раут
 
@@ -32,12 +29,14 @@ const StatisticsPage = lazy(() =>
     "./pages/StatisticsPage/StatisticsPage" /* webpackChunkName: "statistics-page" */
   )
 );
+const VerifyPage = lazy(() =>
+  import("./pages/VerifyPage" /* webpackChunkName: "verify-page" */)
+);
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
-    dispatch(transactionsOps.getBalance());
   }, [dispatch]);
 
   return (
@@ -59,11 +58,20 @@ function App() {
           >
             <SignupPage />
           </PublicRoute>
-          
+
+          <PublicRoute
+            path={routes.verify}
+            restricted
+            redirectTo={routes.transactions}
+          >
+            <VerifyPage />
+          </PublicRoute>
+
           <PublicRoute
             path={routes.login}
             restricted
-            redirectTo={routes.transactions}>
+            redirectTo={routes.transactions}
+          >
             <LoginPage />
           </PublicRoute>
 

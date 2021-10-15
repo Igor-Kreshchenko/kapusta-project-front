@@ -1,13 +1,20 @@
+@import "../../styles/size";
+@import "../../styles/variables";
+
 .form {
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
+  @include size(mobile-only) {
+    flex-direction: column;
+  }
+
+  @include size(tablet) {
     margin-bottom: 48px;
     flex-direction: column;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     margin-bottom: 59px;
     justify-content: space-between;
     flex-direction: row;
@@ -17,11 +24,15 @@
 .form__input_wrapper {
   display: flex;
 
-  @media screen and (min-width: 768px) {
+  @include size(mobile-only) {
+    flex-direction: column;
+  }
+
+  @include size(tablet) {
     margin-bottom: 30px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     margin-bottom: 0;
   }
 }
@@ -35,69 +46,80 @@
     position: absolute;
     content: "";
     right: 14px;
-    top: 10px;
+    bottom: 13px;
     width: 20px;
     height: 20px;
-    color: #52555f;
+    color: $gray-btn-logout;
     background-image: url("../../images/icons/calculator.svg");
+
+    @include size(mobile-only) {
+      right: 70px;
+      bottom: 83px;
+    }
+  }
+
+  @include size(mobile-only) {
+    flex-direction: column;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-right: 2px solid $white;
+      width: 2px;
+      height: 44px;
+      bottom: 70px;
+      left: 170px;
+    }
   }
 }
 
 .form_input_description {
-  border: 2px solid #f5f6fb;
-  box-sizing: border-box;
+  border: 2px solid $bg-gray-logout;
   border-radius: 16px 0px 0px 0px;
   outline: none;
-  padding-left: 21px;
+  padding-left: 20px;
 
-  @media screen and (min-width: 768px) {
+  @include size(mobile-only) {
+    width: 282px;
+    height: 44px;
+    border: 2px solid $white;
+    border-radius: 16px 16px 0px 0px;
+    background-color: inherit;
+  }
+
+  @include size(tablet) {
     width: 192px;
     height: 44px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     width: 289px;
-  }
-}
-
-.form_input_category {
-  position: relative;
-  border: 2px solid #f5f6fb;
-  border-top: 2px solid #f5f6fb;
-  border-right: none;
-  border-bottom: 2px solid #f5f6fb;
-  border-left: none;
-  box-sizing: border-box;
-  outline: none;
-  padding-left: 21px;
-
-  @media screen and (min-width: 1280px) {
-    width: 289px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 171px;
-    height: 44px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 188px;
   }
 }
 
 .form_input_amount {
-  border: 2px solid #f5f6fb;
-  box-sizing: border-box;
+  position: relative;
+  border: 2px solid $bg-gray;
   border-radius: 0px 16px 16px 0px;
   outline: none;
   padding-left: 21px;
 
-  @media screen and (min-width: 768px) {
+  @include size(mobile-only) {
+    width: 183px;
+    height: 44px;
+    margin-bottom: 70px;
+    border-radius: 22px;
+    background-color: inherit;
+    border: 2px solid $white;
+  }
+
+  @include size(tablet) {
     width: 104px;
     height: 44px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include size(desktop) {
     width: 124px;
   }
 }
@@ -117,8 +139,8 @@
     width: 125px;
     height: 44px;
     border-radius: 16px;
-    background: #ff751d;
-    color: #ffffff;
+    background: $orange;
+    color: $white;
     text-align: center;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     text-transform: uppercase;
@@ -134,11 +156,11 @@
     width: 125px;
     height: 44px;
     border-radius: 16px;
-    color: #52555f;
+    color: $gray-btn-logout;
     text-align: center;
-    background: #ffffff;
+    background: $white;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     text-transform: uppercase;
-    border: 2px solid #f5f6fb;
+    border: 2px solid $bg-gray;
   }
 }

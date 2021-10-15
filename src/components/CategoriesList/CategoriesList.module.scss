@@ -29,7 +29,6 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 15px;
-
   color: $gray-btn-logout;
 }
 
@@ -40,10 +39,11 @@
   border-radius: 20px;
   margin-bottom: 7px;
 
-  background-color: #f5f6fb;
+  background-color: $gray-btn;
 }
+
 .svg_wrapper:hover {
-  background-color: #ffdac0;
+  background-color: $light-orange;
 }
 
 .icon {
@@ -70,7 +70,6 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: $gray-btn-logout;
 }
 

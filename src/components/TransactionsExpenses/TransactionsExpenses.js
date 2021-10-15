@@ -13,6 +13,14 @@ const TransactionsExpenses = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
   const expenseArray = useSelector(transactionsSelectors.getExpenses);
+  const sortedArray = [...expenseArray].sort((prevExpense, nextExpense) => {
+    const prevDateArr = prevExpense.date.split(".");
+    const nextDateArr = nextExpense.date.split(".");
+    return (
+      new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) -
+      new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+    );
+  });
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -20,7 +28,9 @@ const TransactionsExpenses = () => {
     }
   }, [dispatch, isAuthenticated]);
 
-  const onDeleteExpense = async (id) => {
+  const onDeleteExpense = async (e) => {
+    const { id } = e.target.dataset;
+
     await dispatch(
       transactionsOps.deleteTransaction({
         type: "expense",
@@ -42,19 +52,20 @@ const TransactionsExpenses = () => {
           </div>
 
           <ul className={styles.table_list}>
-            <li className={styles.table_item}>
-              <span>05.09.2019</span>
-              <span>
-                Метро (Lorem ipsum dolor sit amet, consectetur adipiscing elit.)
-              </span>
-              <span>Транспорт</span>
-              <span className={styles.table_expenses}>-30.00 грн.</span>
-              <button
-                type="button"
-                onClick={() => onDeleteExpense()}
-                className={styles.table_item_btn}
-              ></button>
-            </li>
+            {sortedArray.map(({ date, description, amount, id, category }) => (
+              <li key={id} className={styles.table_item}>
+                <span>{date}</span>
+                <span>{description}</span>
+
+                <span>{category}</span>
+                <span className={styles.table_expenses}>-{amount} грн.</span>
+                <button
+                  type="button"
+                  data-id={id}
+                  onClick={onDeleteExpense}
+                  className={styles.table_item_btn}></button>
+              </li>
+            ))}
           </ul>
         </div>
 

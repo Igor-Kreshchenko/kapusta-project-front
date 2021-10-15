@@ -21,7 +21,6 @@
   }
 
   @include size(tablet) {
-    // width: 768px;
     padding-left: 26px;
     padding-right: 20px;
   }
@@ -34,15 +33,4 @@
 
 .logo {
   display: inline-block;
-  //   margin-top: 12px;
-  //   margin-left: 19px;
-  //   margin-bottom: 13px;
-
-  //   @include size(tablet) {
-  //     margin-left: 26px;
-  //   }
-
-  //   @include size(desktop) {
-  //     margin-left: 26px;
-  //   }
 }

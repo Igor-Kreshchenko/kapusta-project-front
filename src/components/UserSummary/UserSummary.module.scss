@@ -1,11 +1,12 @@
 @import "../../styles/size";
+@import "../../styles/variables";
 
 .wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  background: #ffffff;
+  background: $white;
   border-radius: 30px;
 
   @include size(mobile) {
@@ -45,8 +46,7 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 1.14;
-
-  color: #52555f;
+  color: $gray-btn-logout;
 
   @include size(tablet) {
     margin: 0 10px 0 0;
@@ -66,30 +66,29 @@
 }
 
 .sum {
-  width: 112px;
+  width: 100%;
   height: 20px;
   font-family: Roboto;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.14;
   display: flex;
   justify-content: center;
   align-items: center;
   letter-spacing: 0.04em;
-
-  color: #e53935;
+  color: $expenses-color;
 }
 
 .sum1 {
+  width: 100%;
   height: 20px;
   font-family: Roboto;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.14;
   display: flex;
   justify-content: center;
   align-items: center;
   letter-spacing: 0.04em;
-
-  color: #407946;
+  color: $incomes-color;
 }
