@@ -31,7 +31,7 @@ const FormSignup = () => {
   };
 
   const history = useHistory();
-
+  
   const handleSubmit = e => {
     e.preventDefault();
     signUp();
