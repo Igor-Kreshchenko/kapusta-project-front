@@ -6,6 +6,8 @@ import {
 } from "../../redux/transactions";
 import { authSelectors } from "../../redux/auth";
 import TransactionMonthSummary from "../TransactionMonthSummary";
+import useModal from "../Modal/useModal";
+import Modal from "../Modal/logoutModal";
 
 import styles from "./TransactionsExpenses.module.scss";
 
@@ -39,6 +41,8 @@ const TransactionsExpenses = () => {
     );
   };
 
+  const { isShowingModal, toggle} = useModal();
+
   return (
     <>
       <div className={styles.main}>
@@ -62,12 +66,13 @@ const TransactionsExpenses = () => {
                 <button
                   type="button"
                   data-id={id}
-                  onClick={onDeleteExpense}
+                  onClick={toggle}
                   className={styles.table_item_btn}></button>
               </li>
             ))}
           </ul>
         </div>
+        {isShowingModal && <Modal text={'Вы уверенны?'} data-id={'id'} toAgree={onDeleteExpense} onClose={toggle} />}
 
         <TransactionMonthSummary type="Expenses" />
       </div>

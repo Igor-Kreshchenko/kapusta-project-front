@@ -6,7 +6,7 @@ import styles from "./HeaderUserInfo.module.scss";
 import ButtonLogout from "../Button/ButtonLogout";
 import useModal from "../Modal/useModal"
 import Modal from "../Modal/logoutModal";
-import logoutIcon from "../../images/icons/calculator.svg";
+
 
 export default function HeaderUserInfo() {
     const post = useSelector(authSelectors.getUserPost);
@@ -18,7 +18,7 @@ export default function HeaderUserInfo() {
             dispatch(authOperations.logOut())
         }, [dispatch]);
 
-    const { isShowingModal1, toggle, isShowingModal2, toggleModal2, closeModal } = useModal();
+    const { isShowingModal, toggle} = useModal();
 
     return (
         <>
@@ -28,8 +28,7 @@ export default function HeaderUserInfo() {
                 <ButtonLogout buttonHandler={toggle} />
                 
             </div>
-            {isShowingModal1 && <Modal text={'Вы уверены?'} toAgree={toggleModal2} onClose={toggle} />}
-            {isShowingModal2 && <Modal text={'Вы действительно хотите выйти?'} toAgree={onLogout} onClose={closeModal} />}
+            {isShowingModal && <Modal text={'Вы действительно хотите выйти?'} toAgree={onLogout} onClose={toggle} />}
         </>
     )
 
