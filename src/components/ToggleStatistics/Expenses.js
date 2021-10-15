@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 // import CategoriesList from "../CategoriesList";
+import AnimExp from "../AnimExp/AnimExp";
 import css from "../../components/CategoriesList/CategoriesList.module.scss";
 import sprite from "../../images/icons/sprite_categories.svg";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors"
@@ -32,7 +33,7 @@ const Expenses = () => {
       <div className={css.container}>
         <ul className={css.list}>
           {transactions.length === 0
-            ? <p className={css.title}> Oй , мне кажется что ты что-то от нас скрываешь!?</p>
+            ? <div className={css.wrapper_message}><AnimExp/></div>
             :CATEGORIES_LIST.expenses.map(item => {
             
             let sum = totalSumByCategory("expenses", item.category);
