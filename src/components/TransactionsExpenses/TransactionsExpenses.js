@@ -16,9 +16,12 @@ const TransactionsExpenses = () => {
   const sortedArray = [...expenseArray].sort((prevExpense, nextExpense) => {
     const prevDateArr = prevExpense.date.split(".");
     const nextDateArr = nextExpense.date.split(".");
-    return new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) - new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+    return (
+      new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) -
+      new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+    );
   });
-  
+
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(transactionsOps.getTransactionsByType({ type: "expense" }));
@@ -26,7 +29,7 @@ const TransactionsExpenses = () => {
   }, [dispatch, isAuthenticated]);
 
   const onDeleteExpense = async (e) => {
-    const {id} = e.target.dataset;
+    const { id } = e.target.dataset;
 
     await dispatch(
       transactionsOps.deleteTransaction({
@@ -49,7 +52,7 @@ const TransactionsExpenses = () => {
           </div>
 
           <ul className={styles.table_list}>
-            {sortedArray.map(({date, description, amount, id, category}) => (
+            {sortedArray.map(({ date, description, amount, id, category }) => (
               <li key={id} className={styles.table_item}>
                 <span>{date}</span>
                 <span>{description}</span>

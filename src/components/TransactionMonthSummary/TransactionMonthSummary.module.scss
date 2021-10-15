@@ -19,6 +19,10 @@
   @include size(mobile-only) {
     display: none;
   }
+
+  @include size(tablet-only) {
+    height: 300px;
+  }
 }
 
 .summary_list {
