@@ -1,3 +1,6 @@
+@import "../../styles/size";
+@import "../../styles/variables";
+
 .list {
   display: flex;
   justify-content: center;
@@ -27,7 +30,7 @@
   text-transform: uppercase;
   margin-bottom: 15px;
 
-  color: #52555f;
+  color: $gray-btn-logout;
 }
 
 .svg_wrapper {
@@ -53,7 +56,7 @@
 }
 
 .icon:hover {
-  fill: #ff751d;
+  fill: $orange;
 }
 
 .title {
@@ -68,10 +71,10 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: #52555f;
+  color: $gray-btn-logout;
 }
 
-@media screen and (min-width: 768px) {
+@include size(tablet) {
   .list {
     width: 670px;
   }
@@ -84,7 +87,31 @@
 @media screen and (max-width: 425px) {
   .border {
     width: 100%;
-    border: 1px solid #e0e5eb;
+    border: 1px solid $gray-input-bg;
     transform: rotate(-0deg);
   }
+}
+.wrapper {
+  display: flex;
+}
+.message {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.16;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $orange;
+}
+
+.wrapperImg {
+  width: 100%;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #fefefe;
+  margin-bottom: 30px;
 }
