@@ -1,5 +1,6 @@
 import axios from "axios";
 import authActions from "./authActions";
+import {pnotifyMessage} from '../../components/Pnotify/Pnotify';
 
 axios.defaults.baseURL = "https://kapusta-app.herokuapp.com/api";
 
@@ -19,8 +20,11 @@ const signUp = (credentials) => async (dispatch) => {
     const response = await axios.post("/users/signup", credentials);
     token.set(response.data.responseBody.token);
     dispatch(authActions.signupSuccess(response.data.responseBody));
+    pnotifyMessage('confirmation mail', 'opts');
+   
   } catch (error) {
     dispatch(authActions.signupError(error.message));
+    pnotifyMessage('already registered', 'optsInfo');
   }
 };
 
