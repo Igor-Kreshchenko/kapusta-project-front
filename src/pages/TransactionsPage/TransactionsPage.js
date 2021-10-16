@@ -26,13 +26,13 @@ const TransactionsPage = () => {
     setIsModal(false);
   };
 
- useEffect(()=>{
-  if (balance === 0){
-    setIsModal(true)
-  }else{
-    setIsModal(false)
-  }
- },[balance])
+  useEffect(() => {
+    if (balance === 0) {
+      setIsModal(true);
+    } else {
+      setIsModal(false);
+    }
+  }, [balance]);
 
   return (
     <>
@@ -42,9 +42,7 @@ const TransactionsPage = () => {
         </Header>
         <BalancePanelHome />
 
-        { isModal && (
-          <ZeroBalanceNotification onClose={onClose} />
-        )}
+        {isModal && <ZeroBalanceNotification onClose={onClose} />}
 
         <Default>
           <Tabs>
@@ -63,6 +61,7 @@ const TransactionsPage = () => {
               <TransactionsIncome />
             </TabPanel>
           </Tabs>
+          <Footer />
         </Default>
 
         <Mobile>
@@ -87,7 +86,7 @@ const TransactionsPage = () => {
             </TabPanel>
           </Tabs>
         </Mobile>
-        <Footer />
+
         {isLoading && <Loader />}
       </ContainerMain>
     </>
