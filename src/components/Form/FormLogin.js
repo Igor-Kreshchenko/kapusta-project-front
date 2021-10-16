@@ -58,7 +58,7 @@ const FormLogin = () => {
           className={styles.formRegistGoogle}
         />
         <a
-          href="https://kapusta-app.herokuapp.com/api/users/google"
+          href="http://localhost:4000/api/users/google"
           className={styles.button__Google}
         >
           Google
