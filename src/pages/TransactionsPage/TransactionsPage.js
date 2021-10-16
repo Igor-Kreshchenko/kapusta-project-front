@@ -21,7 +21,6 @@ const TransactionsPage = () => {
   const isLoading = useSelector(transactionsSelectors.getLoading);
   const [isModal, setIsModal] = useState(false);
   const balance = useSelector(transactionsSelectors.getBalance);
-  console.log(balance)
 
   const onClose = () => {
     setIsModal(false);
