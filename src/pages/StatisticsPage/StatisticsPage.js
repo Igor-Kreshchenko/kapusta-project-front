@@ -6,6 +6,8 @@ import ContainerMain from "../../components/Container/ContainerMain";
 import Header from "../../components/Header/Header";
 import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
 import Chart from "../../components/Chart";
+import Footer from "../../components/Footer";
+import data from "../../components/Chart/data";
 
 const StatisticsPage = () => {
   const [selectedСategory, setSelectedCategory] = useState('');
@@ -19,10 +21,12 @@ const StatisticsPage = () => {
       </Header>
       <BalancePanelOfReports />
       <UserSummary />
+
       <ToggleStatistics data={setSelectedCategory} setType={setType} />
       {selectedСategory.length === 0
         ? <></> 
         : <Chart category={selectedСategory} type={type}/> }
+      <Footer />
     </ContainerMain>
   );
 };

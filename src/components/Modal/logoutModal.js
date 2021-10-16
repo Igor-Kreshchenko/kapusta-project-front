@@ -57,7 +57,7 @@ export default class Modal extends Component {
           </button>
           <p className={styles.textContent}>{textContent}</p>
           <div className={styles.btnContainer}>
-            <Button buttonText={"ДА"} buttonHandler={this.toAgree} />
+            <Button buttonText={"ДА"} buttonHandler={this.toAgree}  data-id={'data-id'}  />
             <Button buttonText={"НЕТ"} buttonHandler={this.closeModal} />
           </div>
         </div>

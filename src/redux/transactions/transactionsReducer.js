@@ -6,7 +6,7 @@ import transactionsActions from "./transactionsActions";
  export const CATEGORIES_LIST = {
    incomes: [
   { "id": 13, "category": "ЗП"  },
-  { "id": 14, "category": "Дополнительные доходы" },
+  { "id": 14, "category": "Доп. доход" },
    ],
    expenses: [
   { "id": 1, "category": "Техника"  },

@@ -44,19 +44,24 @@
     margin-right: 80px;
     margin-left: 47px;
   }
+
   @include size(desktop) {
     width: 369px;
     margin-right: 225px;
     margin-left: 158px;
   }
 }
+
 .form_label {
   display: flex;
   align-items: center;
 
-  @include size(tablet) {
+  @include size(mobile-only) {
     flex-direction: column;
-    margin-bottom: 6px;
+
+    & :nth-child(1) {
+      margin-bottom: 7px;
+    }
   }
 
   @include size(tablet) {

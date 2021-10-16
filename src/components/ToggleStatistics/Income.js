@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 // import CategoriesList from "../CategoriesList";
+import Item from "../Item/Item";
 import css from "../../components/CategoriesList/CategoriesList.module.scss";
 import sprite from "../../images/icons/sprite_categories.svg";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors";
@@ -28,7 +29,9 @@ const Income = ({setCategory, setType}) => {
             <>
       <div className={css.container}>
         <ul className={css.list}>
-          {CATEGORIES_LIST.incomes.map(item => {
+            {transactions.length === 0
+            ? <div className={css.wrapperImg}> <Item/></div>
+             : CATEGORIES_LIST.incomes.map(item => {
             let sum = totalSumByCategory("incomes", item.category);
             if (sum === 0) {
               return;

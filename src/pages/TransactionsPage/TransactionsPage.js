@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { NavLink } from "react-router-dom";
@@ -7,7 +7,6 @@ import BalancePanelHome from "../../components/BalancePanel/BalancePanelHome";
 import TransactionsExpenses from "../../components/TransactionsExpenses";
 import TransactionsIncome from "../../components/TransactionsIncome";
 import ContainerMain from "../../components/Container/ContainerMain";
-import storePersistor from "../../redux/store.js";
 import ZeroBalanceNotification from "../../components/ZerBalanceNotification/ZeroBalanceNotification";
 import Header from "../../components/Header/Header";
 import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
@@ -15,19 +14,25 @@ import TransactionsExpForm from "../../components/TransactionsExpForm";
 import TransactionsIncForm from "../../components/TransactionsIncForm";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors";
 import Loader from "../../components/Loader";
-
+import Footer from "../../components/Footer";
 import "./TransactionsPage.scss";
 
 const TransactionsPage = () => {
   const isLoading = useSelector(transactionsSelectors.getLoading);
-  const [isModal, setIsToggleModal] = useState(true);
-  const balance = storePersistor.store.getState().transactions.balance;
+  const [isModal, setIsModal] = useState(false);
+  const balance = useSelector(transactionsSelectors.getBalance);
 
-  const numberExpenses =
-    storePersistor.store.getState().transactions.expenses.length;
   const onClose = () => {
-    setIsToggleModal(!isModal);
+    setIsModal(false);
   };
+
+  useEffect(() => {
+    if (balance === 0) {
+      setIsModal(true);
+    } else {
+      setIsModal(false);
+    }
+  }, [balance]);
 
   return (
     <>
@@ -37,9 +42,7 @@ const TransactionsPage = () => {
         </Header>
         <BalancePanelHome />
 
-        {isModal && numberExpenses === 0 && balance === 0 && (
-          <ZeroBalanceNotification onClose={onClose} />
-        )}
+        {isModal && <ZeroBalanceNotification onClose={onClose} />}
 
         <Default>
           <Tabs>
@@ -58,6 +61,7 @@ const TransactionsPage = () => {
               <TransactionsIncome />
             </TabPanel>
           </Tabs>
+          <Footer />
         </Default>
 
         <Mobile>

@@ -48,6 +48,10 @@ code {
   width: 6px;
   height: 1px;
   background-color: #f5f6fb;
+
+  @media screen and (max-width: 767px) {
+    width: 0px;
+  }
 }
 
 ::-webkit-scrollbar-thumb {

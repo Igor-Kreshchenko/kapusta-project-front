@@ -6,7 +6,7 @@ import {
 } from "../../redux/transactions";
 import { authSelectors } from "../../redux/auth";
 import TransactionMonthSummary from "../TransactionMonthSummary";
-
+import ExpenseItem from "./ExpenseItem";
 import styles from "./TransactionsExpenses.module.scss";
 
 const TransactionsExpenses = () => {
@@ -16,25 +16,17 @@ const TransactionsExpenses = () => {
   const sortedArray = [...expenseArray].sort((prevExpense, nextExpense) => {
     const prevDateArr = prevExpense.date.split(".");
     const nextDateArr = nextExpense.date.split(".");
-    return new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) - new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+    return (
+      new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) -
+      new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+    );
   });
-  
+
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(transactionsOps.getTransactionsByType({ type: "expense" }));
     }
   }, [dispatch, isAuthenticated]);
-
-  const onDeleteExpense = async (e) => {
-    const {id} = e.target.dataset;
-
-    await dispatch(
-      transactionsOps.deleteTransaction({
-        type: "expense",
-        id,
-      })
-    );
-  };
 
   return (
     <>
@@ -49,19 +41,8 @@ const TransactionsExpenses = () => {
           </div>
 
           <ul className={styles.table_list}>
-            {sortedArray.map(({date, description, amount, id, category}) => (
-              <li key={id} className={styles.table_item}>
-                <span>{date}</span>
-                <span>{description}</span>
-
-                <span>{category}</span>
-                <span className={styles.table_expenses}>-{amount} грн.</span>
-                <button
-                  type="button"
-                  data-id={id}
-                  onClick={onDeleteExpense}
-                  className={styles.table_item_btn}></button>
-              </li>
+            {sortedArray.map(({ date, description, amount, id, category }) => (
+             <ExpenseItem date={date} description={description} amount={amount} key={id} id={id} category={category}/>
             ))}
           </ul>
         </div>
