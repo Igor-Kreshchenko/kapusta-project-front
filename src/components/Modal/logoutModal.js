@@ -57,6 +57,7 @@ export default class Modal extends Component {
           </button>
           <p className={styles.textContent}>{textContent}</p>
           <div className={styles.btnContainer}>
+  
             <Button
               type={"button"}
               buttonText={"ДА"}
@@ -67,6 +68,7 @@ export default class Modal extends Component {
               buttonText={"НЕТ"}
               buttonHandler={this.closeModal}
             />
+
           </div>
         </div>
       </div>,

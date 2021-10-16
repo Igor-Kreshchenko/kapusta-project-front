@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import ToggleStatistics from "../../components/ToggleStatistics";
 import UserSummary from "../../components/UserSummary";
 import BalancePanelOfReports from "../../components/BalancePanel/BalancePanelOfReports";
@@ -7,9 +7,11 @@ import Header from "../../components/Header/Header";
 import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
 import Chart from "../../components/Chart";
 import Footer from "../../components/Footer";
-import data from "../../components/Chart/data";
 
 const StatisticsPage = () => {
+  const [selectedСategory, setSelectedCategory] = useState('');
+  const [type, setType] = useState('');
+
   return (
     <ContainerMain>
       <Header>
@@ -17,8 +19,11 @@ const StatisticsPage = () => {
       </Header>
       <BalancePanelOfReports />
       <UserSummary />
-      <ToggleStatistics />
-      <Chart data={data} />
+
+      <ToggleStatistics data={setSelectedCategory} setType={setType} />
+      {selectedСategory.length === 0
+        ? <></>
+        : <Chart category={selectedСategory} type={type}/> }
       <Footer />
     </ContainerMain>
   );

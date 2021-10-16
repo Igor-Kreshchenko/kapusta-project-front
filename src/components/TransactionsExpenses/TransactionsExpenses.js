@@ -6,7 +6,7 @@ import {
 } from "../../redux/transactions";
 import { authSelectors } from "../../redux/auth";
 import TransactionMonthSummary from "../TransactionMonthSummary";
-
+import ExpenseItem from "./ExpenseItem";
 import styles from "./TransactionsExpenses.module.scss";
 
 const TransactionsExpenses = () => {
@@ -28,17 +28,6 @@ const TransactionsExpenses = () => {
     }
   }, [dispatch, isAuthenticated]);
 
-  const onDeleteExpense = async (e) => {
-    const { id } = e.target.dataset;
-
-    await dispatch(
-      transactionsOps.deleteTransaction({
-        type: "expense",
-        id,
-      })
-    );
-  };
-
   return (
     <>
       <div className={styles.main}>
@@ -53,18 +42,7 @@ const TransactionsExpenses = () => {
 
           <ul className={styles.table_list}>
             {sortedArray.map(({ date, description, amount, id, category }) => (
-              <li key={id} className={styles.table_item}>
-                <span>{date}</span>
-                <span>{description}</span>
-
-                <span>{category}</span>
-                <span className={styles.table_expenses}>-{amount} грн.</span>
-                <button
-                  type="button"
-                  data-id={id}
-                  onClick={onDeleteExpense}
-                  className={styles.table_item_btn}></button>
-              </li>
+             <ExpenseItem date={date} description={description} amount={amount} key={id} id={id} category={category}/>
             ))}
           </ul>
         </div>
