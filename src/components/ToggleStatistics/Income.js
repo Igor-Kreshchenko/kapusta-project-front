@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import CategoriesList from "../CategoriesList";
 import Item from "../Item/Item";
 import css from "../../components/CategoriesList/CategoriesList.module.scss";
@@ -8,12 +8,13 @@ import transactionsSelectors from "../../redux/transactions/transactionsSelector
 import transactionsOps from "../../redux/transactions/transactionsOps";
 import { CATEGORIES_LIST } from "../../redux/transactions/transactionsReducer";
 
-const Income = () => {
+const Income = ({setCategory, setType}) => {
   const transactions = useSelector(transactionsSelectors.getIncomes);
   
-    // const onClick = () => {
-  // console.log("Привет статистика ") // вызывает функцию   для отрисовки графиков ниже на странице
-// }
+  const onClick = (category) => {
+    setCategory(category) // вызывает функцию   для отрисовки графиков ниже на странице
+    setType('incomes')
+  }
 
     const totalSumByCategory = (type, category) => {
     let total = 0;
@@ -39,7 +40,7 @@ const Income = () => {
             return (
               <li className={css.item}
                 key={item.id}
-               //   onClick={() => onClick( console.log(item.category))}
+                onClick={() => onClick(item.category)}
               >
                 <p className={css.text}>{sum}</p>
                 <div className={css.svg_wrapper}>

@@ -16,8 +16,11 @@ const Income = lazy(() =>
   import("./Income")
 );
 
-const ToggleStatistics = () => {
+const ToggleStatistics = ({data, setType}) => {
 
+  const onClick = (type) => { 
+    setType(type)
+  } 
     const match = useRouteMatch();
     const location = useLocation();
     const activeLocation = location.pathname;
@@ -26,7 +29,7 @@ const ToggleStatistics = () => {
               <div className={css.wrapper}>
             <ul className={css.list}>
                 <li  className={css.item}>
-                    <Link to={`${match.url}`}>
+                    <Link to={`${match.url}`} onClick={() => onClick('expenses')}>
                         <svg width="10" height="15">
                             <use xlinkHref={`${sprite}#icon-arrow-left`} />
                         </svg>
@@ -40,7 +43,7 @@ const ToggleStatistics = () => {
             )}
                 </li>
                  <li className={css.item}>
-            <Link to={`${match.url}/income`}>
+            <Link to={`${match.url}/income`} onClick={() => onClick('incomes')}>
               <svg width="10" height="15">
                 <use xlinkHref={`${sprite}#icon-arrow-right`} />
               </svg>
@@ -48,15 +51,16 @@ const ToggleStatistics = () => {
           </li>
             </ul>
             <Switch>
-          <Route exact  path={`${match.path}`} component={Expenses} />
+          <Route exact  path={`${match.path}`} render={props => <Expenses setCategory={data} setType={setType} {...props} />} />
           <Route
             exact
             path={`${match.path}/income`}
-            component={Income}
+            render={props => <Income setCategory={data} setType={setType}{...props} />}
                 />
 
         </Switch>
          </div>
     )
 }
+
 export default ToggleStatistics;
