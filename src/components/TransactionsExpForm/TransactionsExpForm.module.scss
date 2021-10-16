@@ -128,39 +128,4 @@
   width: 272px;
   display: flex;
   justify-content: space-between;
-
-  &_enter {
-    display: inline-block;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    width: 125px;
-    height: 44px;
-    border-radius: 16px;
-    background: $orange;
-    color: $white;
-    text-align: center;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    text-transform: uppercase;
-    border: none;
-  }
-
-  &_clear {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    width: 125px;
-    height: 44px;
-    border-radius: 16px;
-    color: $gray-btn-logout;
-    text-align: center;
-    background: $white;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    text-transform: uppercase;
-    border: 2px solid $bg-gray;
-  }
 }

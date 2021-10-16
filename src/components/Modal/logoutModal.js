@@ -33,11 +33,11 @@ export default class Modal extends Component {
   };
 
   closeModal = (e) => {
-    this.props.onClose()
+    this.props.onClose();
   };
 
   toAgree = (e) => {
-    this.props.toAgree()
+    this.props.toAgree();
   };
 
   render() {
@@ -57,8 +57,16 @@ export default class Modal extends Component {
           </button>
           <p className={styles.textContent}>{textContent}</p>
           <div className={styles.btnContainer}>
-            <Button buttonText={"ДА"} buttonHandler={this.toAgree} />
-            <Button buttonText={"НЕТ"} buttonHandler={this.closeModal} />
+            <Button
+              type={"button"}
+              buttonText={"ДА"}
+              buttonHandler={this.toAgree}
+            />
+            <Button
+              type={"button"}
+              buttonText={"НЕТ"}
+              buttonHandler={this.closeModal}
+            />
           </div>
         </div>
       </div>,
@@ -70,5 +78,5 @@ export default class Modal extends Component {
 Modal.propTypes = {
   text: PropTypes.string.isRequired,
   onClose: PropTypes.func,
-  toAccept:PropTypes.func,
+  toAccept: PropTypes.func,
 };

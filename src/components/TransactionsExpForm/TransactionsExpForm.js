@@ -4,6 +4,8 @@ import MyDatePicker from "../MyDatePicker";
 import CategoryInput from "../CategoryInput";
 import transactionsOps from "../../redux/transactions/transactionsOps";
 import styles from "./TransactionsExpForm.module.scss";
+import Button from "../Button/Button";
+import ButtonOrange from "../Button/ButtonOrange";
 
 const TransactionsExpForm = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -69,16 +71,8 @@ const TransactionsExpForm = () => {
         </div>
       </div>
       <div className={styles.form__btn}>
-        <button type="submit" className={styles.form__btn_enter}>
-          Ввод
-        </button>
-        <button
-          type="button"
-          onClick={reset}
-          className={styles.form__btn_clear}
-        >
-          Очистить
-        </button>
+        <ButtonOrange type={"submit"} buttonText={"Ввод"} />
+        <Button type={"button"} buttonText={"Очистить"} buttonHandler={reset} />
       </div>
     </form>
   );
