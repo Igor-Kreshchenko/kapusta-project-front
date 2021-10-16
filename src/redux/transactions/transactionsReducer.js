@@ -40,8 +40,8 @@ const balance = createReducer(0, {
 const incomes = createReducer([], {
   [transactionsActions.getIncomeSuccess]: (_, { payload }) => [...payload.data],
   [transactionsActions.addIncomeSuccess]: (state, { payload }) => [
-    ...state,
     payload,
+    ...state,
   ],
   [transactionsActions.deleteIncomeTransactionSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload.id),
@@ -52,8 +52,8 @@ const expenses = createReducer([], {
     ...payload.data,
   ],
   [transactionsActions.addExpenseSuccess]: (state, { payload }) => [
-    ...state,
     payload,
+    ...state,
   ],
   [transactionsActions.deleteExpenseTransactionSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload.id),
