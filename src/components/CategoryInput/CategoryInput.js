@@ -41,13 +41,14 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
           type === "expenses" ? "Категория товара" : "Категория дохода"
         }
         onClick={handleClick}
+        onFocus={handleClick}
       />
       {!isCategories || (
         <ul className={styles.form_category_list}>
           {type === "expenses"
             ? expenseCategory.map((expense, index) => (
                 <li key={index}>
-                  <label className={styles.category_label}>
+                  <label tabIndex={0} className={styles.category_label}>
                     <input
                       onClick={handleCategoryClick}
                       hidden
@@ -63,7 +64,7 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
               ))
             : incomeCategory.map((income, index) => (
                 <li key={index}>
-                  <label className={styles.category_label}>
+                  <label tabIndex={0} className={styles.category_label}>
                     <input
                       onClick={handleCategoryClick}
                       hidden
@@ -83,12 +84,14 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
         <span
           className={styles.arrow_down}
           onClick={handleClick}
+          onFocus={handleClick}
           id="arrow"
         ></span>
       ) : (
         <span
           className={styles.arrow_up}
           onClick={handleClick}
+          onFocus={handleClick}
           id="arrow"
         ></span>
       )}
