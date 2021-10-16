@@ -5,18 +5,15 @@ import { Mobile, Default } from '../../utils/mediaQuery'
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel,} from 'victory';
 import styles from './Chart.module.scss'
 
-
-
-
 function Chart ({category, type}) {
-const transactions = useSelector(transactionsSelectors.getAllTransactions) 
+const transactions = useSelector(transactionsSelectors.getAllTransactions)
 
 const getTransactionsByType = (arr) => {
    let getTransaction = {}
     if (type === 'expenses') {
         getTransaction = arr.expenses.filter(transaction => transaction.category === category)
         return getTransaction
-    }    
+    }
     getTransaction = arr.incomes.filter(transaction => transaction.category === category)
     return getTransaction
 }
@@ -33,7 +30,7 @@ const totalSumByDescriptions = (description) => {
   };
 
 const allDescription = allTransactionsByCategory.reduce((descriptions, data) => {
-    descriptions.push(...[data.description]) 
+    descriptions.push(...[data.description])
     return descriptions;},[])
   .filter((description, index, array) => array.indexOf(description) === index)
 
@@ -45,8 +42,7 @@ const allAmount = allDescription.map((description) => {
 
 const data = allDescription.map((description, index) => ({description, ...allAmount[index]}));
 
-console.log(data)
-const width = Number(data.length) * 65 
+const width = Number(data.length) * 65
 
 return (
     <div className={styles.chart}>
@@ -65,14 +61,14 @@ return (
              tickLabelComponent={<VictoryLabel style={ {textAnchor: "center"} } dy={-20}/>}
             />
 
-            <VictoryBar  
-                horizontal             
+            <VictoryBar
+                horizontal
                 labels={({ datum }) => `${datum.amount} грн`}
                 labelComponent={<VictoryLabel dy={-18} dx={-40}/>}
                 cornerRadius={{ top: 10 }}
                 data={data}
                 x="description"
-                y="amount" 
+                y="amount"
 
                 style={{
                     data: {
@@ -100,7 +96,7 @@ return (
             //  tickLabelComponent={<VictoryLabel />}
              />
 
-            <VictoryBar               
+            <VictoryBar
                 labels={({ datum }) => `${datum.amount} грн`}
                 cornerRadius={{ top: 10 }}
                 data={data}
