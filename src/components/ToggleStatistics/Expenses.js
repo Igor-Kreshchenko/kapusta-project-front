@@ -23,7 +23,7 @@ const Expenses = ({setCategory,setType}) => {
   const totalSumByCategory = (type, category) => {
     let total = 0;
     transactionsOps.getTransactionsByType(type)
-    console.log(type)
+    // console.log(type)
     transactions.filter(transaction => transaction.category === category)
       .map(el => {
         total += el.amount;

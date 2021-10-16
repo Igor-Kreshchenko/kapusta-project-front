@@ -96,8 +96,9 @@ return (
                 padding={25}
                 domainPadding={{ x: 20}}
             >
-            <VictoryAxis  width={38} style={{tickLabels: {fontSize: 9, padding:5, width:25}}} axisComponent={<VictoryLabel  fill='#52555F'/>}
-            tickLabelComponent={<VictoryLabel />}/>
+            <VictoryAxis  width={38} style={{tickLabels: {fontSize: 8, padding:5, width:25}}} axisComponent={<VictoryLabel  fill='#52555F'/>}
+            //  tickLabelComponent={<VictoryLabel />}
+             />
 
             <VictoryBar               
                 labels={({ datum }) => `${datum.amount} грн`}
