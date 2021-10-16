@@ -13,6 +13,9 @@ footer {
   @include size(tablet) {
     margin-top: 325px;
   }
+  @include size(mobile-only) {
+    display: none;
+  }
 }
 
 .link {
