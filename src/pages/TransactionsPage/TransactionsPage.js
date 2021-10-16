@@ -7,7 +7,6 @@ import BalancePanelHome from "../../components/BalancePanel/BalancePanelHome";
 import TransactionsExpenses from "../../components/TransactionsExpenses";
 import TransactionsIncome from "../../components/TransactionsIncome";
 import ContainerMain from "../../components/Container/ContainerMain";
-import storePersistor from "../../redux/store.js";
 import ZeroBalanceNotification from "../../components/ZerBalanceNotification/ZeroBalanceNotification";
 import Header from "../../components/Header/Header";
 import HeaderUserInfo from "../../components/HeaderUserInfo/HeaderUserInfo";
