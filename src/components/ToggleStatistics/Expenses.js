@@ -1,3 +1,4 @@
+import React, {useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import CategoriesList from "../CategoriesList";
 import css from "../../components/CategoriesList/CategoriesList.module.scss";
@@ -7,14 +8,17 @@ import transactionsOps from "../../redux/transactions/transactionsOps"
 import { CATEGORIES_LIST } from "../../redux/transactions/transactionsReducer";
 
 
-const Expenses = () => {
+const Expenses = ({setCategory,setType}) => {
   const transactions = useSelector(transactionsSelectors.getExpenses);
-  console.log(transactions)
+  // console.log(transactions)
   // const transactions = [] на случай если с бека вернулся пустой масив 
 
-  // const onClick = () => {
-  // console.log("Привет статистика ") // вызывает функцию   для отрисовки графиков ниже на странице
-// }
+
+  const onClick = (category) => {    
+    setCategory(category) // вызывает функцию   для отрисовки графиков ниже на странице
+    setType('expenses')
+  }
+
 
   const totalSumByCategory = (type, category) => {
     let total = 0;
@@ -43,7 +47,7 @@ const Expenses = () => {
             return (
               <li className={css.item}
                 key={item.id}
-              // onClick={() => onClick( console.log(item.category))}
+                onClick={() => onClick(item.category)}
               >
                 <p className={css.text}>{sum}</p>
                 <div className={css.svg_wrapper}>
