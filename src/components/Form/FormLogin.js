@@ -55,7 +55,8 @@ const FormLogin = () => {
         data: {
             client_id: GOOGLE_CLIENT_ID,
             client_secret: GOOGLE_CLIENT_SECRET,
-            redirect_uri: 'http://localhost:3000',
+            // redirect_uri: 'http://localhost:3000',
+            redirect_uri: 'https://kapusta-app.netlify.app',
             grant_type: "authorization_code",
             code: response.code,
             headers: {
