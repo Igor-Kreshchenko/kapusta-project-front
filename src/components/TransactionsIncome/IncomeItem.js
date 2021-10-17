@@ -24,7 +24,7 @@ function IncomeItem({date, description, amount, id, category}){
         <span>{description}</span>
 
         <span>{category}</span>
-        <span className={styles.table_income}>-{amount} грн.</span>
+        <span className={styles.table_income}>+{amount} грн.</span>
         <button
           type="button"
           onClick={()=>toggle()}
