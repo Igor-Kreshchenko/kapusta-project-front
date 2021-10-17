@@ -15,8 +15,8 @@ const Footer = ({ page }) => {
   const links2 = [
     "https://www.linkedin.com/in/oleksii-patsiuk-23300448/",
     "https://www.linkedin.com/in/nina-motorna",
-    "https://github.com/KatePodolsky",
-    "https://github.com/Klem26",
+    "https://www.linkedin.com/in/kate-podolianets-05ab8a212",
+    "https://www.linkedin.com/in/tetianakankina/",
     "https://github.com/Sasha-create",
     "https://www.youtube.com/watch?v=JnvKXcSI7yk",
   ];
