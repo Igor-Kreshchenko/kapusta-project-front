@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { GoogleLogin } from 'react-google-login';
 import { authOperations } from "../../redux/auth";
-
+import axios from 'axios';
 import ButtonLogin from "../Button/ButtonLogin";
 import ButtonToSignup from "../Button/ButtonToSignup";
 import styles from "./Form.module.scss";
-import google from "../../images/google.png";
+//import google from "../../images/google.png";
+import authActions from "../../redux/auth/authActions";
+const { GOOGLE_CLIENT_ID,  GOOGLE_CLIENT_SECRET} = require('../../config')
 
 const FormLogin = () => {
   const dispatch = useDispatch();
@@ -45,24 +47,63 @@ const FormLogin = () => {
     reset();
   };
 
+  const responseGoogle = async (response) => {
+    try {
+      const tokenData = await axios({
+        url: "https://oauth2.googleapis.com/token",
+        method: "post",
+        data: {
+            client_id: GOOGLE_CLIENT_ID,
+            client_secret: GOOGLE_CLIENT_SECRET,
+            redirect_uri: 'http://localhost:3000',
+            grant_type: "authorization_code",
+            code: response.code,
+            headers: {
+              'Access-Control-Allow-Origin': '*'
+            }
+        }
+      })
+      console.log('tokenData:')
+      console.log(tokenData.data)
+      const userData = await axios({
+        url: "https://www.googleapis.com/oauth2/v2/userinfo",
+        method: "get",
+        headers: {
+            Authorization: `Bearer ${tokenData.data.access_token}`
+        }
+      })
+      console.log('userData:')
+      console.log(userData.data)
+      const email = userData.data.email
+      let password
+      if (userData.data.verified_email) {
+        password = 'google'
+      } else {
+        password = ''
+      }
+      console.log(email, password)
+      dispatch(authOperations.logIn({ email, password }))
+    } catch (error) {
+      dispatch(authActions.loginError(error.message));
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit} className={styles.form} autoComplete="on">
       <p className={styles.textGoogle}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <div className={styles.buttonGoogleStyle}>
-        <img
-          title="my-img"
-          src={google}
-          alt="logo"
-          className={styles.formRegistGoogle}
+      <div className={styles.buttonGoogle}>
+        <GoogleLogin
+          clientId={GOOGLE_CLIENT_ID}
+          buttonText="Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+          responseType={'code'}
+          accessType={'offline'}
+          prompt={'consent'}
         />
-        <a
-          href="http://localhost:4000/api/users/google"
-          className={styles.button__Google}
-        >
-          Google
-        </a>
       </div>
       <p className={styles.text}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
@@ -101,8 +142,51 @@ const FormLogin = () => {
         <ButtonLogin />
         <ButtonToSignup />
       </div>
-    </form>
+      </form>
   );
 };
+
+// изначальный вариант "кнопки" Google (через ссылку)
+/*    <div className={styles.buttonGoogleStyle}>
+        <img
+          title="my-img"
+          src={google}
+          alt="logo"
+          className={styles.formRegistGoogle}
+        />
+        <a
+          href="http://localhost:4000/api/users/google"
+          className={styles.button__Google}
+        >
+          Google
+        </a>
+      </div>*/
+
+// вариант кастомной кнопки (через render --> button)
+// клик отрабатывает только при нажатии непосредственно на button
+/*     <div className={styles.buttonGoogleStyle}>
+        <img
+          title="my-img"
+          src={google}
+          alt="logo"
+          className={styles.formRegistGoogle}
+        />
+        <GoogleLogin
+          clientId="767015575745-4g2a5nd35cbsjtkuaj0qjnh6lvih7joi.apps.googleusercontent.com"
+          render={renderProps => (
+            <button
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}>
+              Google
+            </button>
+          )}
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+          responseType={'code'}
+          accessType={'offline'}
+          prompt={'consent'}
+        />
+      </div>*/
 
 export default FormLogin;

@@ -1,5 +1,5 @@
-@import "../../styles/variables";
-@import "../../styles/size";
+@import '../../styles/variables';
+@import '../../styles/size';
 
 .form {
   display: flex;
@@ -131,7 +131,7 @@ a.button__Google {
   height: 20px;
   margin: auto;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 16px;
@@ -158,6 +158,27 @@ a.button__Google {
   padding: auto;
   margin-left: auto;
   margin-right: 10px;
+}
+
+.buttonGoogle {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.15);
+  transition: transform 0.2s;
+
+  &:hover,
+  &:focus {
+    background-color: $white;
+    color: $orange;
+    border: 2px solid $orange;
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+    transform: scale(1.1);
+  }
 }
 
 .buttonGoogleStyle {
@@ -212,7 +233,7 @@ a.button__Google {
 .span_required {
   display: inline-block;
   margin-top: 4px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 10px;
   line-height: 0.83;
   color: $input-required;
