@@ -31,7 +31,7 @@ function IncomeItem({date, description, amount, id, category}){
           className={styles.table_item_btn}>
         </button>
 
-     {isShowingModal && <Modal text={'Вы уверенны?'} toAgree={deleteHandler} onClose={toggle} />}
+     {isShowingModal && <Modal text={'Вы уверены?'} toAgree={deleteHandler} onClose={toggle} />}
     </li>)
 }
 

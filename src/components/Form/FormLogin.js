@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { GoogleLogin } from 'react-google-login';
+import GoogleButton from 'react-google-button'
 import { authOperations } from "../../redux/auth";
 import axios from 'axios';
 import ButtonLogin from "../Button/ButtonLogin";
@@ -94,16 +95,35 @@ const FormLogin = () => {
       <p className={styles.textGoogle}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <div className={styles.buttonGoogle}>
+      <div>
         <GoogleLogin
           clientId={GOOGLE_CLIENT_ID}
-          buttonText="Google"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
           responseType={'code'}
           accessType={'offline'}
           prompt={'consent'}
+          render={renderProps => (
+            <GoogleButton
+            label='Google'
+            type="light"
+            onClick={renderProps.onClick}
+             disabled={renderProps.disabled}
+             style={{
+               width: "135px",
+               borderRadius: "26px",
+               display: "flex",
+               justifyContent: "center",
+               textlign: "center",
+               marginTop: "20px",
+               marginBottom: "auto",
+               marginLeft: "auto",
+               marginRight: "auto",
+               fontWeight: "700",
+               color: "#000000"
+               }}>Google</GoogleButton>
+          )}
         />
       </div>
       <p className={styles.text}>
