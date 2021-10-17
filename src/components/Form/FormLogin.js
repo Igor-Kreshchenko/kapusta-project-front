@@ -111,7 +111,7 @@ const FormLogin = () => {
             onClick={renderProps.onClick}
              disabled={renderProps.disabled}
              style={{
-               width: "135px",
+               width: "148px",
                borderRadius: "26px",
                display: "flex",
                justifyContent: "center",
@@ -121,7 +121,8 @@ const FormLogin = () => {
                marginLeft: "auto",
                marginRight: "auto",
                fontWeight: "700",
-               color: "#000000"
+               color: "#000000",
+               paddingRight: "15px",
                }}>Google</GoogleButton>
           )}
         />
