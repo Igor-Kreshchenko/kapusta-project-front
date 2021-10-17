@@ -1,21 +1,29 @@
 @import "../../styles/variables";
 @import "../../styles/size";
 
-footer {
+%footer {
   width: 100%;
   background: $gray-btn;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @include size(desktop) {
-    margin-top: 50px;
-  }
-  @include size(tablet) {
-    margin-top: 325px;
-  }
+
   @include size(mobile-only) {
     display: none;
   }
+}
+.transaction {
+  @extend %footer;
+  @include size(desktop) {
+    margin-top: 50px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 325px;
+  }
+}
+.reports {
+  @extend %footer;
+  margin-top: 50px;
 }
 
 .link {
