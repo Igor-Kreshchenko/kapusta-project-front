@@ -5,14 +5,15 @@ import routes from '../../routes';
 import styles from "./Header.module.scss";
 
 const Header = ({ children }) => (
-  <NavLink
-    to={routes.transactions}
-    exact
-    className={styles.header}
-  >
-    <img className={styles.logo} src={logo} alt="logo" />
+  <div className={styles.header}>
+    <NavLink
+      to={routes.transactions}
+      exact
+    >
+      <img className={styles.logo} src={logo} alt="logo" />
+    </NavLink>
     {children}
-  </NavLink>
+  </div>
 );
 
 export default Header;
