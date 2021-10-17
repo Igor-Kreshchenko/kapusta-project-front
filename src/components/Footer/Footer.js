@@ -32,21 +32,26 @@ const Footer = ({ page }) => {
       <ul className={styles.list}>
         {links1.map((link, index) => (
           <li key={index}>
-            <a href={link}>
+            <a href={link} target="_blank" rel="nofollow noopener noreferrer">
               <Kapusta width="35" height="35" className={styles.icon} />
             </a>
           </li>
         ))}
       </ul>
       <div className={styles.thumb}>
-        <a href="https://goit.ua/" className={styles.link}>
+        <a
+          href="https://goit.ua/"
+          className={styles.link}
+          target="_blank"
+          rel="noreferrer nofollow noopener "
+        >
           <img src={logoGoIT} className={styles.logoGoIT} alt="logo" />
         </a>
       </div>
       <ul className={styles.list}>
         {links2.map((link, index) => (
           <li key={index}>
-            <a href={link}>
+            <a href={link} target="_blank" rel="noreferrer nofollow noopener ">
               <Kapusta width="35" height="35" className={styles.icon} />
             </a>
           </li>
