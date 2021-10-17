@@ -1,8 +1,8 @@
 import styles from "./Footer.module.scss";
 import logoGoIT from "../../images/logoGoIT.png";
 import { ReactComponent as Kapusta } from "../../images/icons/kapusta-clean.svg";
-
-const Footer = () => {
+//
+const Footer = ({ page }) => {
   const links1 = [
     "https://www.linkedin.com/in/yanahorbachova/",
     "https://www.linkedin.com/in/igorkreshchenko/",
@@ -15,13 +15,20 @@ const Footer = () => {
   const links2 = [
     "https://www.linkedin.com/in/oleksii-patsiuk-23300448/",
     "https://www.linkedin.com/in/nina-motorna",
-    "",
-    "",
-    "",
-    "",
+    "https://github.com/KatePodolsky",
+    "https://github.com/Klem26",
+    "https://github.com/Sasha-create",
+    "https://www.youtube.com/watch?v=JnvKXcSI7yk",
   ];
+  // console.log(`styles.${page}` === styles.transaction);
+  let footerClass = [];
+
+  page === "transaction"
+    ? footerClass.push(styles.transaction)
+    : footerClass.push(styles.reports);
+
   return (
-    <footer>
+    <footer className={footerClass}>
       <ul className={styles.list}>
         {links1.map((link, index) => (
           <li key={index}>

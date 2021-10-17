@@ -21,7 +21,7 @@ const TransactionsPage = () => {
   const isLoading = useSelector(transactionsSelectors.getLoading);
   const [isModal, setIsModal] = useState(false);
   const balance = useSelector(transactionsSelectors.getBalance);
-
+  const page = "transaction";
   const onClose = () => {
     setIsModal(false);
   };
@@ -61,7 +61,7 @@ const TransactionsPage = () => {
               <TransactionsIncome />
             </TabPanel>
           </Tabs>
-          <Footer />
+          <Footer page={page} />
         </Default>
 
         <Mobile>
