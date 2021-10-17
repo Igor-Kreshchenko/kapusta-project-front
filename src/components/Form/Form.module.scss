@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/size';
+@import "../../styles/variables";
+@import "../../styles/size";
 
 .form {
   display: flex;
@@ -24,7 +24,7 @@
   @include size(desktop) {
     margin-top: 117px;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: 110px;
   }
 }
 
@@ -154,7 +154,7 @@
 .span_required {
   display: inline-block;
   margin-top: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   line-height: 0.83;
   color: $input-required;
