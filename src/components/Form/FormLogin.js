@@ -65,8 +65,8 @@ const FormLogin = () => {
             }
         }
       })
-      console.log('tokenData:')
-      console.log(tokenData.data)
+      //console.log('tokenData:')
+      //console.log(tokenData.data)
       const userData = await axios({
         url: "https://www.googleapis.com/oauth2/v2/userinfo",
         method: "get",
@@ -74,8 +74,8 @@ const FormLogin = () => {
             Authorization: `Bearer ${tokenData.data.access_token}`
         }
       })
-      console.log('userData:')
-      console.log(userData.data)
+      //console.log('userData:')
+      //console.log(userData.data)
       const email = userData.data.email
       let password
       if (userData.data.verified_email) {
@@ -83,7 +83,7 @@ const FormLogin = () => {
       } else {
         password = ''
       }
-      console.log(email, password)
+      //console.log(email, password)
       dispatch(authOperations.logIn({ email, password }))
     } catch (error) {
       dispatch(authActions.loginError(error.message));
