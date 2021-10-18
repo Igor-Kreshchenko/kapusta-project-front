@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import MyDatePicker from "../MyDatePicker";
 import CategoryInput from "../CategoryInput";
@@ -21,7 +22,12 @@ const TransactionsExpForm = () => {
     setAmount("");
   };
 
-  const onFormSubmit = (e) => {
+  const history = useHistory();
+  const goToTransactions = () => {
+    history.push("/transactions");
+  };
+
+  const addExpense = (e) => {
     e.preventDefault();
     const date = [
       startDate.getDate(),
@@ -37,10 +43,11 @@ const TransactionsExpForm = () => {
     };
     dispatch(transactionsOps.addTransaction(body));
     reset();
+    goToTransactions();
   };
 
   return (
-    <form className={styles.form} onSubmit={onFormSubmit}>
+    <form className={styles.form} onSubmit={addExpense}>
       <div className={styles.form__input_wrapper}>
         <MyDatePicker
           selectedDate={startDate}
@@ -71,7 +78,11 @@ const TransactionsExpForm = () => {
         </div>
       </div>
       <div className={styles.form__btn}>
-        <ButtonOrange type={"submit"} buttonText={"Ввод"} />
+        <ButtonOrange
+          type={"submit"}
+          buttonText={"Ввод"}
+          buttonHandler={addExpense}
+        />
         <Button type={"button"} buttonText={"Очистить"} buttonHandler={reset} />
       </div>
     </form>
