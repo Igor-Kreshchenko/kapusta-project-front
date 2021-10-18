@@ -1,7 +1,7 @@
 # Kapusta Wallet App
 
 <p align="center">
-  <img src="../../kapusta-project-front/src/images/logo.svg" alt="kapusta wallet app logo" />
+  <img src="https://kapusta-app.netlify.app/static/media/logo.a5e2684a.svg" alt="kapusta wallet app logo" />
 </p>
 <h1 align="center">Kapusta Wallet App</h1>
 
