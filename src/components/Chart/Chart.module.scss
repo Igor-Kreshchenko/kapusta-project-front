@@ -11,12 +11,11 @@
 
     @include size(tablet) {
         width: 666px;
-        height: 422px;
+        height: 450px;
       }
 
     @include size(desktop) {
         width: 1060px;
-        height: 422px;
     }
 }
 

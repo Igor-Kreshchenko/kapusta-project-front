@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors"
 import { Mobile, Default } from '../../utils/mediaQuery'
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel,} from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel} from 'victory';
 import styles from './Chart.module.scss'
 
 function Chart ({category, type}) {
@@ -42,7 +42,7 @@ const allAmount = allDescription.map((description) => {
 
 const data = allDescription.map((description, index) => ({description, ...allAmount[index]}));
 
-const width = Number(data.length) * 65
+const width = Number(data.length) * 70
 
 return (
     <div className={styles.chart}>
@@ -57,8 +57,8 @@ return (
                 domainPadding={{ x: 10}}
                 // maxDomain={{ x: 10 }}
             >
-            <VictoryAxis  verticalAnchor="end" dy={10} style={{tickLabels: {fontSize: 14, padding: 0, }}} axisComponent={<VictoryLabel/>}
-             tickLabelComponent={<VictoryLabel style={ {textAnchor: "center"} } dy={-20}/>}
+            <VictoryAxis invertAxis={true} verticalAnchor="end" dy={10} style={{tickLabels: {fontSize: 14, padding: 0, }}} axisComponent={<VictoryLabel/>}
+             tickLabelComponent={<VictoryLabel textAnchor="center"  dy={-20}/>}
             />
 
             <VictoryBar
@@ -89,12 +89,11 @@ return (
             <VictoryChart
                 width={width}
                 animate={{duration: 700}}
-                padding={25}
-                domainPadding={{ x: 20}}
+                padding={38}
+                domainPadding={{ x: 10 }}
             >
-            <VictoryAxis  width={38} style={{tickLabels: {fontSize: 8, padding:5, width:25}}} axisComponent={<VictoryLabel  fill='#52555F'/>}
-            //  tickLabelComponent={<VictoryLabel />}
-             />
+            <VictoryAxis style={{tickLabels: {fontSize: 7.5, padding: 5}}} axisComponent={<VictoryLabel  fill='#52555F'/>}
+             tickLabelComponent={<VictoryLabel angle={350} textAnchor="end" verticalAnchor="middle" />} />
 
             <VictoryBar
                 labels={({ datum }) => `${datum.amount} грн`}

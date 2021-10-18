@@ -16,7 +16,7 @@ const UserSummary = () => {
          transactionsInc.map(el => { totalSumInc += el.amount });
     return ;
     };
-    console.log(totalSumByPeriod ())
+    // console.log(totalSumByPeriod ())
     return (
         <div className={css.wrapper}>
             <div className={css.item}>
