@@ -21,7 +21,7 @@ The Kapusta Wallet App exists to create a record of your income and expenses. Ve
 
 ## Front - End developers
 
-- Oleksandra-Shelest
+- Oleksandra Shelest
 - Kate Podolsky
 - Nina Motorna
 - Tetiana Kankina
