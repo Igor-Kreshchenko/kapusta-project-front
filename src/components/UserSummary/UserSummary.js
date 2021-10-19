@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import css from "./UserSummary.module.scss";
 import line from "../../images/line.png";
 import transactionsSelectors from "../../redux/transactions/transactionsSelectors";
@@ -6,23 +6,26 @@ import transactionsSelectors from "../../redux/transactions/transactionsSelector
 
 const UserSummary = () => {
 
- const transactionsExp = useSelector(transactionsSelectors.getExpenses);   
+ const transactionsExp = useSelector(transactionsSelectors.getExpenses);
  const transactionsInc = useSelector(transactionsSelectors.getIncomes);
-    
+
     let totalSumExp = 0
     let totalSumInc = 0
+
     const totalSumByPeriod = () => {
         transactionsExp.map(el => { totalSumExp += el.amount });
          transactionsInc.map(el => { totalSumInc += el.amount });
     return ;
     };
-    // console.log(totalSumByPeriod ())
+
+    totalSumByPeriod()
+
     return (
         <div className={css.wrapper}>
             <div className={css.item}>
                 <p className={css.text}>Paсходы:</p>
                 <span className={css.sum }>{`- ${totalSumExp}.00 грн`}</span>
-                
+
             </div>
             <img className={css.img} src={line} alt="line" />
             <div className={css.item}>

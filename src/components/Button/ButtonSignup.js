@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styles from "./ButtonSignup.module.scss";
 
 const ButtonSignup = ({ buttonHandler }) => {
@@ -12,9 +11,5 @@ const ButtonSignup = ({ buttonHandler }) => {
     </button>
   );
 };
-
-/* Button.propTypes = {
-  buttonHandler: PropTypes.func.isRequired,
-}; */
 
 export default ButtonSignup;

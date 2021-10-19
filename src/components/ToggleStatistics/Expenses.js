@@ -1,5 +1,5 @@
-import React, {useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 // import CategoriesList from "../CategoriesList";
 import AnimExp from "../AnimExp/AnimExp";
 import css from "../../components/CategoriesList/CategoriesList.module.scss";
@@ -12,10 +12,10 @@ import { CATEGORIES_LIST } from "../../redux/transactions/transactionsReducer";
 const Expenses = ({setCategory,setType}) => {
   const transactions = useSelector(transactionsSelectors.getExpenses);
   // console.log(transactions)
-  // const transactions = [] на случай если с бека вернулся пустой масив 
+  // const transactions = [] на случай если с бека вернулся пустой масив
 
 
-  const onClick = (category) => {    
+  const onClick = (category) => {
     setCategory(category) // вызывает функцию   для отрисовки графиков ниже на странице
     setType('expenses')
   }
@@ -31,7 +31,7 @@ const Expenses = ({setCategory,setType}) => {
       });
     return total;
   };
-  
+
   return (
     <>
       <div className={css.container}>
@@ -39,12 +39,12 @@ const Expenses = ({setCategory,setType}) => {
           {transactions.length === 0
             ? <div className={css.wrapper_message}><AnimExp/></div>
             :CATEGORIES_LIST.expenses.map(item => {
-            
+
             let sum = totalSumByCategory("expenses", item.category);
             if (sum === 0) {
               return;
             }
-             
+
             return (
               <li className={css.item}
                 key={item.id}
@@ -65,10 +65,10 @@ const Expenses = ({setCategory,setType}) => {
             )
           })
           }
-            
+
         </ul>
       </div>
-       
+
     </>
   )
 };
