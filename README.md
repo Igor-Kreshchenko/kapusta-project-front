@@ -19,7 +19,7 @@ The Kapusta Wallet App exists to create a record of your income and expenses. Ve
 - Unopinionated styling
 - No creation of additional wrapper dom nodes - flexbox and focus management friendly!
 
-## Front - End developers
+## Developers
 
 - Oleksandra Shelest
 - Kate Podolsky
